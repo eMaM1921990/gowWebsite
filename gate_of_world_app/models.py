@@ -10,40 +10,52 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from django.template.defaultfilters import slugify
 
-
-
+MANAGED=True
 
 class RssCategories(models.Model):
     rss_category = models.CharField(unique=True, max_length=225)
     rss_slug = models.CharField(unique=True, max_length=45)
     rss_is_active = models.BooleanField(blank=True,default=True)  # This field type is a guess.
 
+    def save(self):
+        super(RssCategories, self).save()
+        self.rss_slug = '%s' % (
+            slugify(self.rss_category)
+        )
+        super(RssCategories, self).save()
+
+    def __unicode__(self):
+        return self.rss_category
 
     class Meta:
-        managed = False
+        managed = MANAGED
         db_table = 'rss_categories'
 
 
 class RssFeeds(models.Model):
     rss_link = models.CharField(max_length=255, blank=True)
     rss_title = models.CharField(max_length=255, blank=True)
-    rss_description = models.CharField(max_length=255, blank=True)
+    rss_description = models.TextField(max_length=255, blank=True)
     rss_thumbnail = models.CharField(max_length=255, blank=True)
     rss_publish_date = models.DateTimeField(blank=True, null=True)
     rss_category = models.ForeignKey(RssCategories, db_column='rss_category', blank=True, null=True)
 
-    def admin_image(self):
+    def thumbnail(self):
         return '<img src="%s" style="width:50px;height:50px"/>' % self.rss_thumbnail
-    admin_image.allow_tags = True
+    thumbnail.allow_tags = True
 
     def feed_title(self):
         return '<a href="%s" >%s </a>' %(self.rss_link,self.rss_title)
     feed_title.allow_tags = True
 
+
+
     class Meta:
-        managed = False
+        managed = MANAGED
         db_table = 'rss_feeds'
+        ordering=('-rss_publish_date',)
 
 
 class RssProviders(models.Model):
@@ -54,5 +66,5 @@ class RssProviders(models.Model):
     rss_last_call = models.DateTimeField(blank=True, null=True)
 
     class Meta:
-        managed = False
+        managed = MANAGED
         db_table = 'rss_providers'

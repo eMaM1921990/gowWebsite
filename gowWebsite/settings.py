@@ -12,6 +12,30 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 
 import os
 
+# Django settings for celery_test project.
+from datetime import timedelta
+import djcelery
+djcelery.setup_loader()
+
+## Celery config ##
+BROKER_URL = 'amqp://guest:guest@localhost:5672//'
+CELERYBEAT_SCHEDULER = "djcelery.schedulers.DatabaseScheduler"
+#
+#
+# CELERYBEAT_SCHEDULE = {
+#     'add-every-30-seconds': {
+#         'task': 'tasks.add',
+#         'schedule': timedelta(seconds=30),
+#         'args': (16, 16)
+#     },
+# }
+
+
+## END config ##
+
+TIME_ZONE = 'Africa/cairo'
+
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -31,6 +55,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'grappelli',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -38,6 +63,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'gate_of_world_app',
+    'djcelery',
+   'kombu.transport.django',# for development onlypython manage.py migrate
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -76,7 +103,7 @@ WSGI_APPLICATION = 'gowWebsite.wsgi.application'
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 #Database Info
 DB_USER='root'
-DB_PASSWORD='0122308791'
+DB_PASSWORD='admin'
 DB_NAME='gate_of_world'
 DB_HOST='localhost'
 DB_PORT=3306
@@ -129,4 +156,36 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
+
+
+
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'filters': {
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugFalse'
+        }
+    },
+    'handlers': {
+        'mail_admins': {
+            'level': 'ERROR',
+            'filters': ['require_debug_false'],
+            'class': 'django.utils.log.AdminEmailHandler'
+        }
+    },
+    'loggers': {
+        'django.request': {
+            'handlers': ['mail_admins'],
+            'level': 'ERROR',
+            'propagate': True,
+        },
+    }
+}
+
+
+#Grapilli setting
+GRAPPELLI_ADMIN_TITLE='Gate of world - Admin panel'

@@ -26,16 +26,11 @@ class Feed():
                 for thumbnail in feed_entity['media_content']:
                     record.rss_thumbnail=thumbnail['url']
             record.save()
+            print record.id
 
 
 
-        for feed_entity in feeds:
-            record=RssFeeds()
-            record.rss_category=feedCategoryObj
-            record.rss_description=feed_entity.summary
-            record.rss_link=feed_entity.link
-            record.rss_title=feed_entity.title
-            record.save()
+
 
 
     def feedParser(self):
