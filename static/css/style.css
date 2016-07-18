@@ -1,0 +1,77 @@
+/*!
+ * Bootstrap v3.3.6 (http://getbootstrap.com)
+ * Copyright 2011-2015 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
+/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+
+body{direction:rtl;}
+a{color:#333;}
+a:hover{color:orange;text-decoration:none;}
+li{list-style:none;}
+.nopadding {padding: 0 !important;}
+.padding-10{padding:10px!important;}
+.no-gutter-right{padding-right:0!important;}
+.no-gutter-left{padding-left:0!important;}
+.no-gutter{padding-right:0!important;padding-left:0!important;}
+.cube{border:1px solid #ddd;}
+.title{float: right;background-color:#666;color:#fff;border-top:4px solid #fd4a29;}
+.sideblock{margin-bottom:20px!important;}
+.navbar-nav {padding-right: 0;}
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {float:right;}
+.navbar-nav>li {float: right;}
+.nav>li>a {padding: 15px 10px;}
+.news-card{border-bottom:1px solid #ddd;}
+.news-card img, .news-card p, .news-card .news-data ul, .news-card .news-data ul li i{float:right;}
+.news-data li i {color: orange;margin: 0px 0 -5px 4px;font-size: 18px;vertical-align: sub;}
+.news-card img{width:23%;margin-left:4%;}
+.news-card p, .news-card .news-data ul{width:73%;}
+.hero-news-card{width: 100%;height: 475px;}
+.hero-news-card .img-wrapper{width:100%;height:300px;overflow:hidden;}
+.hero-news-card .img-wrapper img{width:100%;height:auto;min-height:300px;}
+.hero-news-card p{width:95%;padding:5px 15px;top:375px;}
+.hero-news-card h3{width: 100%;top: 305px;text-align:right;font-size: 22px;right:15px;}
+.hero-news-card ul{float:right;width: 100%;padding: 0px 15px 0px;top: 350px;right: 0;}
+.mid-news-card ul, .min-news-card ul{float:right;width: 100%;padding: 5px 5px;margin-bottom: 5px;}
+.news-data li{float:right;margin-left:20px;color:#888;}
+.news-card .more,.news-card .more li{float:left;text-align: left;}
+.mid-news-card{margin:10px 0;}
+.mid-news-card .more li:nth-child(2){width:83%;height:15px;background-image:url("../img/more-lines.png");margin-left:2%;}
+.mid-news-card .more li:nth-child(1){width:15%;margin-left:0;}
+.min-news-card .more li:nth-child(2){width:73%;height:15px;background-image:url("../img/more-lines.png");margin-left:2%;}
+.min-news-card .more li:nth-child(1){width:20%;margin-left:0;}
+.mid-news-card .news-card, .min-news-card .news-card{border:none;}
+.social{margin-top:20px!important;}
+.social-accounts{text-align:center;padding: 0;}
+.social-accounts li{display:inline-block;width:15%;margin:0 auto;padding: 3px;}
+.social-accounts li img{width:100%;height:auto;}
+
+
+#layerslider-container, #layerslider-container2{margin-top:43px;}
+#layerslider2{height: 222px;}
+.ls-layer > * {left: auto;}
+.ls-minimal .ls-bottom-nav-wrapper {top: -230px;}
+#layerslider2 .ls-nav-prev{left: 20px;background-position: -1px -12px;height:25px;}
+#layerslider2 .ls-nav-next{right: 275px;background-position: -154px -12px;height:25px;}
+#layerslider2 .ls-nav-prev, #layerslider2 .ls-nav-next {top: 190px;background-color:#fd4a29;}
+#layerslider2 .ls-nav-prev:hover, #layerslider2 .ls-nav-next:hover {background-color:#602410;}
+#layerslider2 h6 {width: 100%;height: 35px;top: 160px;background-color: rgba(255, 109, 66, 0.82);right: 0px;color: #fff;padding: 5px 10px 0;z-index:2;}
+
+#layerslider-container3{margin-top:45px;padding-top:20px;}
+#layerslider-container3 .ls-minimal .ls-bottom-nav-wrapper {top: -30px;}
+#layerslider3.ls-minimal{box-shadow: none!important;}
+#layerslider3 .ls-layer > *{position:relative!important;}
+#layerslider3 .ls-inner{padding:0;}
+.ls-container *{-webkit-box-sizing:border-box!important;box-sizing:border-box!important;}
+.popular{overflow:hidden;padding:10px;}
+.popular span{width:100%;height:160px;float: right;margin-bottom: 10px;overflow:hidden;}
+.popular img{width:95%;height:auto;margin: auto 2.5%;}
+.popular h5{width:95%;height:auto;margin: auto 2.5%;}
+
+
+.nav-pills{background-color:#484848;border-top:4px solid #fd4a29;}
+.nav-pills li{padding: 0 10px;}
+.nav-pills > li > a {border-radius: 0px;background-color:#3b3b3b;color:#ddd;}
+.nav > li > a:hover, .nav > li > a:focus{background-color:#5b5b5b;}
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus{background-color:#fd4a29;}
+
