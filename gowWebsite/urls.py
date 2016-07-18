@@ -18,7 +18,9 @@ from django.contrib import admin
 from gate_of_world_app import views
 
 urlpatterns = [
-    url(r'^grappelli/', include('grappelli.urls')), # grappelli URLS
+
+    url(r'^grappelli/', include('grappelli.urls')),
     url(r'^admin/', admin.site.urls),
-    url(r'^feed/', views.TestParse),
+    url(r'^$', views.home),
+    url(r'^(?P<slug>[-\w\d]+)/$',views.category, name='feeds'),
 ]
