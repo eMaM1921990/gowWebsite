@@ -20,4 +20,5 @@ from gate_of_world_app import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^feed/', views.TestParse),
+    url(r'^$', views.home),
 ]
