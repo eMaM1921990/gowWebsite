@@ -13,9 +13,10 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url, include
+from django.conf.urls import url, include, patterns
 from django.contrib import admin
 from gate_of_world_app import views
+from gowWebsite import settings
 
 urlpatterns = [
 
@@ -24,3 +25,8 @@ urlpatterns = [
     url(r'^$', views.home),
     # url(r'^(?P<slug>[-\w\d]+)/$',views.category, name='feeds'),
 ]
+if settings.DEBUG:
+    # static files (images, css, javascript, etc.)
+    urlpatterns += patterns('',
+        (r'^media/(?P<path>.*)$', 'django.views.static.serve', {
+        'document_root': settings.MEDIA_ROOT}))

@@ -9,6 +9,7 @@ class RequestHandler():
         context['nav']=self.FeedCategory()
         context['last_three_feeds']=self.LastThreeFeeds()
         context['slider']=self.ListOfSuggestedFees()
+        context['adv']=self.AdvBanner()
         return context
 
     def FeedCategory(self):
@@ -23,4 +24,7 @@ class RequestHandler():
         exeQuery=RssFeeds.objects.filter(rss_category__rss_is_suggested=True,rss_category__rss_is_active=True)[:3]
         return exeQuery
 
+    def AdvBanner(self):
+        exeQuery=Adv.objects.all()
+        return exeQuery
 

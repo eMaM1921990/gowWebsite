@@ -1,7 +1,11 @@
 {% load staticfiles %}
 <div class="col-lg-4 nopadding sideblock">
             <div class="cube col-lg-11 nopadding">
-                <img src="{% static 'img/adv.jpg' %}" style="width:100%;height:auto;">
+                {% for adv in adv %}
+                {% if adv.position == '3' %}
+                <img src="{{ adv.url.url }}" style="width:100%;height:auto;">
+                    {% endif %}
+                {% endfor %}
             </div>
             <div class="col-lg-1 nopadding"></div>
         </div>

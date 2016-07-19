@@ -162,7 +162,7 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
 
-
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_BASE='/home/emam/'
+MEDIA_ROOT = os.path.join(MEDIA_BASE, 'media')
 MEDIA_URL = '/media/'
-
+ADV_URL='adv/'

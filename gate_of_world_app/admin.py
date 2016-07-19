@@ -52,8 +52,15 @@ class Feed(admin.ModelAdmin):
     def has_delete_permission(self, request, obj=None):
         return False
 
+#Adv
+class Advertise(admin.ModelAdmin):
+    list_display=['adv_image','position']
+    list_per_page = 10
+    list_filter = ['position']
+    search_fields = ['position']
 
 
 admin.site.register(RssCategories,RSSCategory)
 admin.site.register(RssProviders,RSSProviders)
 admin.site.register(RssFeeds,Feed)
+admin.site.register(Adv,Advertise)
