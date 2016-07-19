@@ -16,11 +16,11 @@ class RequestHandler():
         return exeQuery
 
     def LastThreeFeeds(self):
-        exeQuery=RssFeeds.objects.all().order_by('-rss_publish_date')[:3]
+        exeQuery=RssFeeds.objects.filter(rss_category__rss_is_active=True)[:3]
         return exeQuery
 
     def ListOfSuggestedFees(self):
-        exeQuery=RssFeeds.objects.filter(rss_category__rss_is_suggested=True).order_by('-rss_publish_date')[:3]
+        exeQuery=RssFeeds.objects.filter(rss_category__rss_is_suggested=True,rss_category__rss_is_active=True)[:3]
         return exeQuery
 
 

@@ -4,33 +4,25 @@
                 <div class="col-lg-12" style="background-color:#666;color:#fff;border-top:4px solid #fd4a29;">
                     <h4>آخر
                     الأخبار</h4></div>
+
+{% for new in last_three_feeds %}
                 <div class="col-lg-12 padding-10 news-card">
+                {% if  new.rss_thumbnail != None and new.rss_thumbnail|length > 0 %}
+                    <img src="{{ new.rss_thumbnail }}">
+                    {% else %}
                     <img src="{% static 'img/n1.jpg' %}">
+                {% endif %}
 
-                    <p><a href="#">هنالك العديد من انواع لوريم ايبسم</a></p>
+
+                    <p><a href="#">{{ new.rss_title }}</a></p>
                     <ul class="news-data">
-                        <li><i class="fa fa-clock-o" aria-hidden="true"></i> يونيو 4, 2016</li>
-                        <li><i class="fa fa-folder-open" aria-hidden="true"></i> <a href="#">سياسة</a></li>
+                        <li><i class="fa fa-clock-o" aria-hidden="true"></i> {{ new.rss_publish_date }}</li>
+                        <li><i class="fa fa-folder-open" aria-hidden="true"></i> <a href="#">{{ new.rss_category.rss_category }}</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-12 padding-10 news-card">
-                    <img src="{% static 'img/n2.jpg' %}">
+{% endfor %}
 
-                    <p><a href="#">هنالك العديد من انواع لوريم ايبسم</a></p>
-                    <ul class="news-data">
-                        <li><i class="fa fa-clock-o" aria-hidden="true"></i> يونيو 4, 2016</li>
-                        <li><i class="fa fa-folder-open" aria-hidden="true"></i> <a href="#">سياسة</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-12 padding-10 news-card">
-                    <img src="{% static 'img/n3.jpg' %}">
 
-                    <p><a href="#">هنالك العديد من انواع لوريم ايبسم</a></p>
-                    <ul class="news-data">
-                        <li><i class="fa fa-clock-o" aria-hidden="true"></i> يونيو 4, 2016</li>
-                        <li><i class="fa fa-folder-open" aria-hidden="true"></i> <a href="#">سياسة</a></li>
-                    </ul>
-                </div>
                 <div class="col-lg-12 padding-10 news-card">
                     <ul class="news-data more">
                         <li><i class="fa fa-caret-left" aria-hidden="true"></i> <a href="#">اقرأ المزيد</a></li>

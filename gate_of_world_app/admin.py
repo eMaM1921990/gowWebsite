@@ -5,11 +5,12 @@ from models import *
 
 #category
 class RSSCategory(admin.ModelAdmin):
-    fields = ('rss_category','rss_is_active',)
-    list_display = ('id', 'rss_category', 'rss_slug','rss_is_active' )
+    fields = ('rss_category','rss_is_active','rss_is_suggested')
+    list_display = ('id', 'rss_category','rss_is_active','rss_is_suggested' )
     list_per_page = 10
-    list_filter = ( 'rss_category',)
-    search_fields = ('id', 'rss_category', 'rss_slug')
+    list_filter = ( 'rss_category','rss_is_suggested')
+    list_editable = ['rss_category','rss_is_suggested','rss_is_active']
+    search_fields = ('id', 'rss_category',)
 
 
     class Meta:

@@ -10,6 +10,7 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from django.utils.text import slugify
 
 
 MANAGED=True
@@ -23,7 +24,7 @@ class RssCategories(models.Model):
     def save(self):
         super(RssCategories, self).save()
         self.rss_slug = '%s' % (
-            slugify(self.rss_category)
+            slugify(self.id)
         )
         super(RssCategories, self).save()
 
