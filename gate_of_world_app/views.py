@@ -13,9 +13,6 @@ def home(request):
     context=requestHandle.get_main_content()
     return render_to_response(template,context,context_instance=RequestContext(request))
 
-def TestParse(request):
-    feed=Feed()
-    feed.feedParser()
-    return HttpResponse(None)
+
 
 

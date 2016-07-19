@@ -10,6 +10,7 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from gowWebsite import settings
 
 
 MANAGED=True
@@ -65,8 +66,12 @@ class RssProviders(models.Model):
 
 
 class Adv(models.Model):
-    position = models.CharField(unique=True, max_length=45)
-    url=models.ImageField(upload_to='')
+    position = models.CharField(unique=True, max_length=45,choices=[('Top', 'Top'), ('Middle', 'Middle'),('Left', 'Left')])
+    url=models.ImageField(upload_to=settings.ADV_URL)
+
+    def adv_image(self):
+        return '<img src="%s" />' % self.url.url
+    adv_image.allow_tags = True
 
     class Meta:
         managed = MANAGED

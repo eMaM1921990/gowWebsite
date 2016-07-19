@@ -17,10 +17,10 @@ class RSSCategory(admin.ModelAdmin):
 
 #RSS Provider
 class RSSProviders(admin.ModelAdmin):
-    list_display = ('id', 'rss_url', 'rss_is_active','rss_category','rss_last_call')
+    list_display = ['id', 'rss_url', 'rss_is_active','rss_category','rss_last_call']
     list_per_page = 10
-    list_filter = ( 'rss_category',)
-    search_fields = ('id', 'rss_url', 'rss_is_active','rss_category','rss_last_call')
+    list_filter = ['rss_category',]
+    search_fields = ['id', 'rss_url', 'rss_is_active','rss_category','rss_last_call']
 
 
 
@@ -40,6 +40,15 @@ class Feed(admin.ModelAdmin):
 
 
 
+class Advertise(admin.ModelAdmin):
+    list_display=['adv_image','position']
+    list_per_page = 10
+    list_filter = ['position']
+    search_fields = ['position']
+
+
 admin.site.register(RssCategories,RSSCategory)
 admin.site.register(RssProviders,RSSProviders)
 admin.site.register(RssFeeds,Feed)
+admin.site.register(Adv,Advertise)
+
