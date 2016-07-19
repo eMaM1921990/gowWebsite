@@ -8,10 +8,14 @@
 # Also note: You'll have to insert the output of 'django-admin.py sqlcustom [app_label]'
 # into your database.
 from __future__ import unicode_literals
+from django.core.files.uploadedfile import InMemoryUploadedFile
 
 from django.db import models
 from django.utils.text import slugify
 from gowWebsite import settings
+from PIL import Image as Img
+import StringIO
+
 
 
 MANAGED=True
@@ -80,6 +84,18 @@ class Adv(models.Model):
     def adv_image(self):
         return '<img src="%s" />' % self.url.url
     adv_image.allow_tags = True
+
+    def save(self, *args, **kwargs):
+        if self.url:
+            img = Img.open(StringIO.StringIO(self.url.read()))
+            if img.mode != 'RGB':
+                img = img.convert('RGB')
+            # img.thumbnail((self.url.width/1,self.url.height/1), Img.ANTIALIAS)
+            output = StringIO.StringIO()
+            img.save(output, format='JPEG', quality=90)
+            output.seek(0)
+            self.url= InMemoryUploadedFile(output,'ImageField', "%s.jpg" %self.url.name.split('.')[0], 'image/jpeg', output.len, None)
+        super(Adv, self).save(*args, **kwargs)
 
     class Meta:
         managed = MANAGED
