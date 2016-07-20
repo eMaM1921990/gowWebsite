@@ -16,6 +16,7 @@ class Feed():
 
     def addFeedToDatabase(self,feeds,feedCategoryObj):
         for feed_entity in feeds['entries']:
+            print feed_entity
             record=RssFeeds()
             record.rss_category=feedCategoryObj
             record.rss_description=feed_entity['summary']
