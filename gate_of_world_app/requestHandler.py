@@ -21,7 +21,7 @@ class RequestHandler():
         return exeQuery
 
     def ListOfSuggestedFees(self):
-        exeQuery=RssFeeds.objects.filter(rss_category__rss_is_suggested=True,rss_category__rss_is_active=True)[:3]
+        exeQuery=RssFeeds.objects.filter(rss_category__rss_is_suggested=True,rss_category__rss_is_active=True).order_by('-rss_views_no')[:3]
         return exeQuery
 
     def AdvBanner(self):
