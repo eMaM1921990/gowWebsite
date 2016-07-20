@@ -65,7 +65,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'gate_of_world_app',
     'djcelery',
-   'kombu.transport.django',# for development onlypython manage.py migrate
+   # 'kombu.transport.django',# for development onlypython manage.py migrate
 ]
 
 MIDDLEWARE_CLASSES = [

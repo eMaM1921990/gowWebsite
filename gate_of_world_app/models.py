@@ -29,6 +29,7 @@ class RssCategories(models.Model):
     rss_is_political_news=models.BooleanField(blank=True,default=False)
     rss_is_local_news=models.BooleanField(blank=True,default=False)
     rss_is_world_common_news=models.BooleanField(blank=True,default=False)
+    rss_order=models.IntegerField()
 
     def save(self):
         super(RssCategories, self).save()
