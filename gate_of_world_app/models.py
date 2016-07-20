@@ -25,6 +25,10 @@ class RssCategories(models.Model):
     rss_slug = models.CharField(unique=True, max_length=45)
     rss_is_active = models.BooleanField(blank=True,default=True)  # This field type is a guess.
     rss_is_suggested=models.BooleanField(blank=True,default=True)
+    rss_is_world_news=models.BooleanField(blank=True,default=False)
+    rss_is_political_news=models.BooleanField(blank=True,default=False)
+    rss_is_local_news=models.BooleanField(blank=True,default=False)
+    rss_is_world_common_news=models.BooleanField(blank=True,default=False)
 
     def save(self):
         super(RssCategories, self).save()
@@ -44,13 +48,14 @@ class RssCategories(models.Model):
 class RssFeeds(models.Model):
     rss_link = models.CharField(max_length=255, blank=True)
     rss_title = models.CharField(max_length=255, blank=True)
-    rss_description = models.CharField(max_length=255, blank=True)
-    rss_thumbnail = models.CharField(max_length=255, blank=True)
+    rss_description = models.CharField(max_length=255, blank=True,null=True)
+    rss_thumbnail = models.CharField(max_length=255, blank=True,null=True)
     rss_publish_date = models.DateTimeField(blank=True, null=True)
     rss_category = models.ForeignKey(RssCategories, db_column='rss_category', blank=True, null=True)
     rss_id= models.CharField(max_length=255, blank=True)
     rss_views_no=models.IntegerField(default=0)
-    # rss_type=models.CharField(max_length=255, blank=True)
+    rss_video=models.CharField(max_length=255, blank=True)
+    rss_image=models.CharField(max_length=255, blank=True)
 
     def thumbnail(self):
         return '<img src="%s" style="width:50px;height:50px"/>' % self.rss_thumbnail

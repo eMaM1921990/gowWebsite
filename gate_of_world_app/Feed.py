@@ -3,8 +3,12 @@ from datetime import datetime
 __author__ = 'emam'
 from models import RssProviders,RssFeeds
 import feedparser
+import dateutil.parser
 
 class Feed():
+
+
+
 
     #GET FEED PROVIDERS FROM DATABASE
     def getFeedProviders(self):
@@ -19,13 +23,21 @@ class Feed():
             print feed_entity
             record=RssFeeds()
             record.rss_category=feedCategoryObj
-            record.rss_description=feed_entity['summary']
+            if len(feed_entity['summary']) > 0:
+                record.rss_description=feed_entity['summary']
+            else:
+                record.rss_description=None
             record.rss_link=feed_entity['link']
             record.rss_title=feed_entity['title']
-            # record.rss_publish_date=datetime.strptime(feed_entity['published'], "%a,%d %b %Y %H:%M:%S %Z") #Tue, 28 Jun 2016 13:47:25 +0400
+            print dateutil.parser.parse(feed_entity['published'])
+            record.rss_publish_date=dateutil.parser.parse(feed_entity['published'])
+
             if 'media_content' in feed_entity:
                 for thumbnail in feed_entity['media_content']:
                     record.rss_thumbnail=thumbnail['url']
+            if 'media_player' in feed_entity:
+                for video in feed_entity['media_player']:
+                    record
             record.save()
             print record.id
 

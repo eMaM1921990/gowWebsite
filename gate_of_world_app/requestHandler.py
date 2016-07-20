@@ -10,6 +10,10 @@ class RequestHandler():
         context['last_three_feeds']=self.LastThreeFeeds()
         context['slider']=self.ListOfSuggestedFees()
         context['adv']=self.AdvBanner()
+        context['world_new']=self.ListOfWorldNews()
+        context['political_news']=self.ListOfPolitical()
+        context['local_news']=self.ListOfLocalNews()
+        context['common_news']=self.ListOfCommonNews()
         return context
 
     def FeedCategory(self):
@@ -21,8 +25,24 @@ class RequestHandler():
         return exeQuery
 
     def ListOfSuggestedFees(self):
-        exeQuery=RssFeeds.objects.filter(rss_category__rss_is_suggested=True,rss_category__rss_is_active=True).order_by('-rss_views_no')[:3]
+        exeQuery=RssFeeds.objects.filter(rss_category__rss_is_suggested=True,rss_category__rss_is_active=True).exclude(rss_description__isnull=True).order_by('-rss_views_no')[:3]
         return exeQuery
+
+    def ListOfWorldNews(self):
+        exeQuery=RssFeeds.objects.filter(rss_category__rss_is_world_news=True,rss_category__rss_is_active=True).exclude(rss_description__isnull=True)[:3]
+        return exeQuery
+
+    def ListOfPolitical(self):
+        exeQuery=RssFeeds.objects.filter(rss_category__rss_is_political_news=True,rss_category__rss_is_active=True).exclude(rss_description__isnull=True)[:3]
+        return exeQuery
+
+    def ListOfLocalNews(self):
+        exeQuery=RssFeeds.objects.filter(rss_category__rss_is_local_news=True,rss_category__rss_is_active=True).exclude(rss_description__isnull=True)[:3]
+        return exeQuery
+
+    def ListOfCommonNews(self):
+        exeQuery=RssFeeds.objects.filter(rss_category__rss_is_world_common_news=True,rss_category__rss_is_active=True).order_by('-rss_views_no')[:24]
+        return  exeQuery
 
     def AdvBanner(self):
         exeQuery=Adv.objects.all()

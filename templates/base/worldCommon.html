@@ -1,3 +1,53 @@
+{#{% load staticfiles %}#}
+{# <div class="col-lg-12 nopadding">#}
+{#            <div class="col-lg-12" style="background-color:#666;color:#fff;border-top:4px solid #fd4a29;"><h4>شائع حول#}
+{#                العالم</h4></div>#}
+{#            <div id="layerslider-container3">#}
+{##}
+{#                <div id="layerslider3" class="nopadding hero-news-card">#}
+{##}
+{#                    <div class="ls-layer nopadding"#}
+{#                         style="slidedirection: right; slidedelay: 16000; durationin: 100; durationout: 2500; easingin: easeInOutQuint; easingout: easeInOutQuint; delayin: 0; delayout: 0;">#}
+{##}
+{#                        {% for news in common_news%}#}
+{#                            <div class="ls-s-1 col-lg-3 popular">#}
+{#                                <span><img src="{{ news.rss_thumbnail }}"></span>#}
+{#                                <h5>{{ news.rss_title }}</h5>#}
+{#                            </div>#}
+{#                        {% endfor %}#}
+{##}
+{##}
+{#                    </div>#}
+{##}
+{##}
+{#                    <div class="ls-layer nopadding"#}
+{#                         style="slidedirection: right; slidedelay: 16000; durationin: 100; durationout: 2500; easingin: easeInOutQuint; easingout: easeInOutQuint; delayin: 0; delayout: 0;">#}
+{##}
+{#                        {% for news in common_news|slice:"8:16" %}#}
+{#                            <div class="ls-s-1 col-lg-3 popular">#}
+{#                                <span><img src="{{ news.rss_thumbnail }}"></span>#}
+{#                                <h5>{{ news.rss_title }}</h5>#}
+{#                            </div>#}
+{#                        {% endfor %}#}
+{#                    </div>#}
+{##}
+{##}
+{#                    <div class="ls-layer nopadding"#}
+{#                         style="slidedirection: right; slidedelay: 16000; durationin: 100; durationout: 2500; easingin: easeInOutQuint; easingout: easeInOutQuint; delayin: 0; delayout: 0;">#}
+{##}
+{#                        {% for news in common_news|slice:"17:24" %}#}
+{#                            <div class="ls-s-1 col-lg-3 popular">#}
+{#                                <span><img src="{{ news.rss_thumbnail }}"></span>#}
+{#                                <h5>{{ news.rss_title }}</h5>#}
+{#                            </div>#}
+{#                        {% endfor %}#}
+{#                    </div>#}
+{##}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+
+
 {% load staticfiles %}
  <div class="col-lg-12 nopadding">
             <div class="col-lg-12" style="background-color:#666;color:#fff;border-top:4px solid #fd4a29;"><h4>شائع حول
@@ -9,38 +59,12 @@
                     <div class="ls-layer nopadding"
                          style="slidedirection: right; slidedelay: 16000; durationin: 100; durationout: 2500; easingin: easeInOutQuint; easingout: easeInOutQuint; delayin: 0; delayout: 0;">
 
-                        <div class="ls-s-1 col-lg-3 popular">
-                            <span><img src="{% static 'img/m2.jpg' %}"></span>
-                            <h5>دعا أوباما وكيري كل الأطراف إلى "إبداء ضبط النفس وتجنب العنف وإراقة الدماء".</h5>
-                        </div>
-                        <div class="ls-s-1 col-lg-3 popular">
-                            <span><img src="{% static 'img/m1.jpg' %}"></span>
-                            <h5>دعا أوباما وكيري كل الأطراف إلى "إبداء ضبط النفس وتجنب العنف وإراقة الدماء".</h5>
-                        </div>
-                        <div class="ls-s-1 col-lg-3 popular">
-                            <span><img src="{% static 'img/m3.jpg' %}"></span>
-                            <h5>دعا أوباما وكيري كل الأطراف إلى "إبداء ضبط النفس وتجنب العنف وإراقة الدماء".</h5>
-                        </div>
-                        <div class="ls-s-1 col-lg-3 popular">
-                            <span><img src="{% static 'img/m1.jpg' %}"></span>
-                            <h5>دعا أوباما وكيري كل الأطراف إلى "إبداء ضبط النفس وتجنب العنف وإراقة الدماء".</h5>
-                        </div>
-                        <div class="ls-s-1 col-lg-3 popular">
-                            <span><img src="{% static 'img/m2.jpg' %}"></span>
-                            <h5>دعا أوباما وكيري كل الأطراف إلى "إبداء ضبط النفس وتجنب العنف وإراقة الدماء".</h5>
-                        </div>
-                        <div class="ls-s-1 col-lg-3 popular">
-                            <span><img src="{% static 'img/m3.jpg' %}"></span>
-                            <h5>دعا أوباما وكيري كل الأطراف إلى "إبداء ضبط النفس وتجنب العنف وإراقة الدماء".</h5>
-                        </div>
-                        <div class="ls-s-1 col-lg-3 popular">
-                            <span><img src="{% static 'img/m1.jpg' %}"></span>
-                            <h5>دعا أوباما وكيري كل الأطراف إلى "إبداء ضبط النفس وتجنب العنف وإراقة الدماء".</h5>
-                        </div>
-                        <div class="ls-s-1 col-lg-3 popular">
-                            <span><img src="{% static 'img/m2.jpg' %}"></span>
-                            <h5>دعا أوباما وكيري كل الأطراف إلى "إبداء ضبط النفس وتجنب العنف وإراقة الدماء".</h5>
-                        </div>
+                         {% for news in common_news|slice:":8" %}
+                            <div class="ls-s-1 col-lg-3 popular">
+                                <span><img src="{{ news.rss_thumbnail }}"></span>
+                                <h5>{{ news.rss_title }}</h5>
+                            </div>
+                        {% endfor %}
                     </div>
 
 
