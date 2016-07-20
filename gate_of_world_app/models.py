@@ -88,8 +88,8 @@ class Adv(models.Model):
     def save(self, *args, **kwargs):
         if self.url:
             img = Img.open(StringIO.StringIO(self.url.read()))
-            if img.mode != 'RGB':
-                img = img.convert('RGB')
+            # if img.mode != 'RGB':
+            #     img = img.convert('RGB')
             # img.thumbnail((self.url.width/1,self.url.height/1), Img.ANTIALIAS)
             output = StringIO.StringIO()
             img.save(output, format='JPEG', quality=90)
