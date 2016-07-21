@@ -174,3 +174,7 @@ MEDIA_BASE='/home/emam/'
 MEDIA_ROOT = os.path.join(MEDIA_BASE, 'media')
 MEDIA_URL = '/media/'
 ADV_URL='adv/'
+
+
+#GRAPPELLI
+GRAPPELLI_ADMIN_TITLE='Gate of world - Admin panel'
