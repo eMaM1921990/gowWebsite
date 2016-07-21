@@ -62,6 +62,7 @@ INSTALLED_APPS = [
     'gate_of_world_app',
     'djcelery',
     'social_widgets',
+    'lockdown',
    # 'kombu.transport.django',# for development onlypython manage.py migrate
 ]
 
@@ -74,6 +75,8 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+        'lockdown.middleware.LockdownMiddleware',
+
 ]
 
 ROOT_URLCONF = 'gowWebsite.urls'
@@ -215,3 +218,9 @@ ADV_URL='adv/'
 
 #GRAPPELLI
 GRAPPELLI_ADMIN_TITLE='Gate of world - Admin panel'
+
+
+#Lock
+LOCKDOWN_PASSWORDS = ('password', )
+LOCKDOWN_URL_EXCEPTIONS = (r'^/admin',)
+LOCKDOWN_FORM = 'lockdown.forms.LockdownForm'
