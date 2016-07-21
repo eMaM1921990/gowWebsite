@@ -44,6 +44,7 @@ class RssCategories(models.Model):
     class Meta:
         managed = MANAGED
         db_table = 'rss_categories'
+        ordering=('rss_order',)
 
 
 class RssFeeds(models.Model):
