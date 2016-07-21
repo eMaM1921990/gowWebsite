@@ -19,6 +19,9 @@ djcelery.setup_loader()
 
 ## Celery config ##
 BROKER_URL = 'amqp://guest:guest@localhost:5672//'
+BROKER_URL = 'django://'
+
+
 CELERY_RESULT_BACKEND = 'djcelery.backends.database:DatabaseBackend'
 CELERYBEAT_SCHEDULER = 'djcelery.schedulers.DatabaseScheduler'
 CELERY_ACCEPT_CONTENT = ['json']
@@ -63,7 +66,7 @@ INSTALLED_APPS = [
     'djcelery',
     'social_widgets',
     'lockdown',
-   # 'kombu.transport.django',# for development onlypython manage.py migrate
+   'kombu.transport.django',# for development onlypython manage.py migrate
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -221,6 +224,6 @@ GRAPPELLI_ADMIN_TITLE='Gate of world - Admin panel'
 
 
 #Lock
-LOCKDOWN_PASSWORDS = ('password', )
-LOCKDOWN_URL_EXCEPTIONS = (r'^/admin',)
-LOCKDOWN_FORM = 'lockdown.forms.LockdownForm'
+# LOCKDOWN_PASSWORDS = ('password', )
+# LOCKDOWN_URL_EXCEPTIONS = (r'^/admin',)
+# LOCKDOWN_FORM = 'lockdown.forms.LockdownForm'
