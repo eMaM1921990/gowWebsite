@@ -19,21 +19,17 @@ djcelery.setup_loader()
 
 ## Celery config ##
 BROKER_URL = 'amqp://guest:guest@localhost:5672//'
-CELERYBEAT_SCHEDULER = "djcelery.schedulers.DatabaseScheduler"
-#
-#
-# CELERYBEAT_SCHEDULE = {
-#     'add-every-30-seconds': {
-#         'task': 'tasks.add',
-#         'schedule': timedelta(seconds=30),
-#         'args': (16, 16)
-#     },
-# }
+CELERY_RESULT_BACKEND = 'djcelery.backends.database:DatabaseBackend'
+CELERYBEAT_SCHEDULER = 'djcelery.schedulers.DatabaseScheduler'
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TIMEZONE = 'UTC'
+
 
 
 ## END config ##
 
-TIME_ZONE = 'Africa/cairo'
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
