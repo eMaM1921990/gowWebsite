@@ -110,7 +110,7 @@ DB_HOST='localhost'
 DB_PORT=3306
 
 DB_USER='eMaM1921990'
-DB_PASSWORD='0122308791'
+DB_PASSWORD='ahmednano2011'
 DB_NAME='eMaM1921990$default'
 DB_HOST='eMaM1921990.mysql.pythonanywhere-services.com'
 DB_PORT=3306
