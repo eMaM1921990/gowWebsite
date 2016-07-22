@@ -19,7 +19,7 @@ djcelery.setup_loader()
 
 ## Celery config ##
 BROKER_URL = 'amqp://guest:guest@localhost:5672//'
-BROKER_URL = 'django://'
+# BROKER_URL = 'django://'
 
 
 CELERY_RESULT_BACKEND = 'djcelery.backends.database:DatabaseBackend'
@@ -65,8 +65,8 @@ INSTALLED_APPS = [
     'gate_of_world_app',
     'djcelery',
     'social_widgets',
-    'lockdown',
-   'kombu.transport.django',# for development onlypython manage.py migrate
+    # 'lockdown',
+   # 'kombu.transport.django',# for development onlypython manage.py migrate
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -78,7 +78,7 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-        'lockdown.middleware.LockdownMiddleware',
+        # 'lockdown.middleware.LockdownMiddleware',
 
 ]
 
@@ -112,11 +112,11 @@ DB_NAME='gate_of_world'
 DB_HOST='localhost'
 DB_PORT=3306
 
-DB_USER='eMaM1921990'
-DB_PASSWORD='ahmednano2011'
-DB_NAME='eMaM1921990$default'
-DB_HOST='eMaM1921990.mysql.pythonanywhere-services.com'
-DB_PORT=3306
+# DB_USER='eMaM1921990'
+# DB_PASSWORD='ahmednano2011'
+# DB_NAME='eMaM1921990$default'
+# DB_HOST='eMaM1921990.mysql.pythonanywhere-services.com'
+# DB_PORT=3306
 
 
 DATABASES = {
@@ -208,10 +208,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-# STATICFILES_DIRS = (
-#     os.path.join(BASE_DIR, "static"),
-# )
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"),
+)
 
 MEDIA_BASE='/home/emam/'
 MEDIA_ROOT = os.path.join(MEDIA_BASE, 'media')

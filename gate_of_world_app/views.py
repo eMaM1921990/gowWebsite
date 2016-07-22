@@ -7,8 +7,14 @@ from requestHandler import *
 
 def home(request):
     context={}
-    template='base/basePage.html'
+    template='home.html'
     requestHandle=RequestHandler()
     context=requestHandle.get_main_content()
     return render_to_response(template,context,context_instance=RequestContext(request))
 
+def categoryNews(request,slug):
+    context={}
+    template='list_news.html'
+    requestHandle=RequestHandler()
+    context=requestHandle.get_news_pages(slug)
+    return render_to_response(template,context,context_instance=RequestContext(request))

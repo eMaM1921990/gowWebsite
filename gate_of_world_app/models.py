@@ -9,7 +9,6 @@
 # into your database.
 from __future__ import unicode_literals
 from django.core.files.uploadedfile import InMemoryUploadedFile
-
 from django.db import models
 from django.utils.text import slugify
 from gowWebsite import settings

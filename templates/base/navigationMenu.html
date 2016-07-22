@@ -19,7 +19,7 @@
                     </li>
                     {% for menu in nav %}
                     <li>
-                        <a href="{{ menu.rss_slug }}">{{ menu.rss_category }}</a>
+                        <a href="{% url 'categoryNews' menu.rss_slug %}">{{ menu.rss_category }}</a>
                     </li>
                     {% endfor %}
                 </ul>

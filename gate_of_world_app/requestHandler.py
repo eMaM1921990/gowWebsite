@@ -16,6 +16,9 @@ class RequestHandler():
         context['common_news']=self.ListOfCommonNews()
         return context
 
+
+    ## Common methods
+
     def FeedCategory(self):
         exeQuery=RssCategories.objects.filter(rss_is_active=True)
         return exeQuery
@@ -48,3 +51,18 @@ class RequestHandler():
         exeQuery=Adv.objects.all()
         return exeQuery
 
+
+    #Get news page
+    def get_news_pages(self,catId):
+        context={}
+        context['nav']=self.FeedCategory()
+        context['common_news']=self.ListOfCommonNews()
+        context['adv']=self.AdvBanner()
+        context['news_feed']=self.getCategoryNew(catId)
+        print catId
+        return context
+
+    ## Internal common method
+    def getCategoryNew(self,catId):
+        exeQuery=RssFeeds.objects.filter(rss_category__rss_slug=int(catId))
+        return exeQuery

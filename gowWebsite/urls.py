@@ -23,7 +23,7 @@ urlpatterns = [
     url(r'^grappelli/', include('grappelli.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.home),
-    # url(r'^(?P<slug>[-\w\d]+)/$',views.category, name='feeds'),
+    url(r'^(?P<slug>[-\w\d]+)/$',views.categoryNews, name='categoryNews'),
 ]
 if settings.DEBUG:
     # static files (images, css, javascript, etc.)
