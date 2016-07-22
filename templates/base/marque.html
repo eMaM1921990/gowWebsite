@@ -2,7 +2,7 @@
     <div class="col-lg-10 no-gutter news-bar">
         <marquee direction="right" width="100%" behavior="scroll" hspace="0" style="direction:ltr!important;">
             {% for news in quick_news %}
-                <a href="#">{{ news.rss_title }}</a>
+                <a href="{% url 'news' news.id %}">{{ news.rss_title }}</a>
             &nbsp; - &nbsp;
             {% endfor %}
 

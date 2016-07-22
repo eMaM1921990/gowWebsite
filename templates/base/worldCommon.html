@@ -14,7 +14,7 @@
                             <div class="ls-s-1 col-lg-3 popular">
                                 <span><span><a href="#"><img src="{% static 'img/news-link.png' %}"></a></span><img
                                         src="{{ news.rss_thumbnail }}"></span>
-                                <h5>{{ news.rss_title }}</h5>
+                                <h5><a href="{% url 'news' news.id %}">{{ news.rss_title }}</a></h5>
                             </div>
                             {% endfor %}
 
@@ -28,7 +28,7 @@
                             <div class="ls-s-1 col-lg-3 popular">
                                 <span><span><a href="#"><img src="{% static 'img/news-link.png' %}"></a></span><img
                                         src="{{ news.rss_thumbnail }}"></span>
-                                <h5>{{ news.rss_title }}</h5>
+                                <h5><a href="{% url 'news' news.id %}">{{ news.rss_title }}</a></h5>
                             </div>
                             {% endfor %}
 
@@ -42,7 +42,7 @@
                             <div class="ls-s-1 col-lg-3 popular">
                                 <span><span><a href="#"><img src="{% static 'img/news-link.png' %}"></a></span><img
                                         src="{{ news.rss_thumbnail }}"></span>
-                                <h5>{{ news.rss_title }}</h5>
+                                <h5><a href="{% url 'news' news.id %}">{{ news.rss_title }}</a></h5>
                             </div>
                             {% endfor %}
 

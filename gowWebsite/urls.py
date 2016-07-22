@@ -23,9 +23,9 @@ urlpatterns = [
     url(r'^grappelli/', include('grappelli.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.home),
-    url(r'^sections/(?P<slug>[-\w\d]+)/$',views.categoryNews, name='categoryNews'),
+    url(r'^sections/(?P<pk>[0-9]+)/$',views.categoryNews, name='categoryNews'),
     url(r'^lastnews/',views.latestNews, name='lastnews'),
-    url(r'^details/(?P<rss_id>\d+)',views.details, name='news'),
+    url(r'^details/(?P<pk>[0-9]+)/$',views.details, name='news'),
 ]
 if settings.DEBUG:
     # static files (images, css, javascript, etc.)

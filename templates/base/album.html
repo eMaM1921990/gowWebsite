@@ -8,7 +8,8 @@
                             {% for news in quick_news %}
                             <div class="ls-layer"
                                  style="slidedirection: right; slidedelay: 5000; durationin: 100; durationout: 2500; easingin: easeInOutQuint; easingout: easeInOutQuint; delayin: 0; delayout: 0;">
-                                <h6 class="ls-s-1" style="slidedirection : fade; delayin : 0; slideoutdirection : fade; durationin : 400; durationout : 600; easingin : easeOutQuart; ">{{ news.rss_title }}</h6>
+                                <h6 class="ls-s-1" style="slidedirection : fade; delayin : 0; slideoutdirection : fade; durationin : 400; durationout : 600; easingin : easeOutQuart; ">
+                                    <a href="{% url 'news' news.id %}">{{ news.rss_title }}</a></h6>
 
                                 <div style=""></div>
                                 <div class="ls-s-1 col-lg-12 nopadding img-wrapper"><img src="{{ news.rss_thumbnail }}"></div>

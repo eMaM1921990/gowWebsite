@@ -23,7 +23,7 @@
                     {% endif %}
             </div>
             <div class="col-lg-9 pull-right no-gutter-left">
-                <p><a href="#">{{ new.rss_title }}</a></p>
+                <p><a href="{% url 'news' new.id %}">{{ new.rss_title }}</a></p>
                 <ul class="news-data no-gutter-right">
                     <li><i class="fa fa-clock-o" aria-hidden="true"></i> {{ new.rss_publish_date }}</li>
                     <li><i class="fa fa-folder-open" aria-hidden="true"></i> <a href="#">{{ new.rss_category.rss_category }}</a></li>
