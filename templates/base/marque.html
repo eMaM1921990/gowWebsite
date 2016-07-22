@@ -1,0 +1,15 @@
+<div class="col-lg-12 no-gutter nbar">
+    <div class="col-lg-10 no-gutter news-bar">
+        <marquee direction="right" width="100%" behavior="scroll" hspace="0" style="direction:ltr!important;">
+            {% for news in quick_news %}
+                <a href="#">{{ news.rss_title }}</a>
+            &nbsp; - &nbsp;
+            {% endfor %}
+
+
+        </marquee>
+    </div>
+    <div class="col-lg-2 nomargin newsbar-title">
+        أخبار عاجلة
+    </div>
+</div>

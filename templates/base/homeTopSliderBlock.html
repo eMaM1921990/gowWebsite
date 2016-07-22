@@ -1,4 +1,6 @@
 {% load staticfiles %}
+
+
 <div class="col-lg-8 pull-right nopadding">
     <div class="cube col-lg-12 nopadding">
         <div class="col-lg-12" style="background-color:#666;color:#fff;border-top:4px solid #fd4a29;"><h4>
@@ -10,17 +12,15 @@
                     <div class="ls-layer"
                          style="slidedirection: right; slidedelay: 16000; durationin: 100; durationout: 2500; easingin: easeInOutQuint; easingout: easeInOutQuint; delayin: 0; delayout: 0;">
 
-                        <div class="ls-s-1 col-lg-12 nopadding img-wrapper"><img src="{{ news.rss_thumbnail }}" width="687" height="515"  >
-                        </div>
+                        <div class="ls-s-1 col-lg-12 nopadding img-wrapper"><img src="{{ news.rss_thumbnail }}"></div>
                         <h3 class="ls-s-1"
                             style="slidedirection : bottom; delayin : 0; slideoutdirection : bottom; durationin : 400; durationout : 600; easingin : easeOutQuart; ">
-                            {{ news.rss_title }}
-                          </h3>
+                                {{ news.rss_title }}</h3>
                         <ul class="ls-s-1 news-data"
                             style="slidedirection : bottom; delayin : 0; slideoutdirection : bottom; durationin : 600; durationout : 500; easingin : easeOutQuart; ">
                             <li><i class="fa fa-clock-o" aria-hidden="true"></i> {{ news.rss_publish_date }}</li>
                             <li><i class="fa fa-folder-open" aria-hidden="true"></i> {{ news.rss_category.rss_category }}</li>
-                            <li><i class="fa fa-comments" aria-hidden="true"></i> 1348 تعليق</li>
+{#                            <li><i class="fa fa-comments" aria-hidden="true"></i> 1348 تعليق</li>#}
                             <li><i class="fa fa-eye" aria-hidden="true"></i> {{ news.rss_views_no }} مشاهدة</li>
                         </ul>
                         <p class="ls-s-1"
@@ -29,9 +29,8 @@
                         </p>
 
                     </div>
+
                 {% endfor %}
-
-
             </div>
         </div>
     </div>

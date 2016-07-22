@@ -1,37 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 {% include 'base/headTag.html' %}
+
 <body>
-    <!-- Navigation -->
-    {% include 'base/navigationMenu.html' %}
+{% include 'base/navigationMenu.html' %}
+
+<div class="row page-content nopadding nomargin">
     <!-- Page Content -->
     <div class="container">
         <div class="row">
-			{% include 'base/homeTopSliderBlock.html' %}
-            {% include 'base/latestNewBlock.html' %}
-            {% include 'base/keepIntouchBlock.html' %}
-        <!-- /.row -->
-		{% include 'base/adv2.html' %}
-        <br><br><br>
+            {% include 'base/marque.html' %}
+        </div>
         <div class="row">
-			<div class="col-lg-8 pull-right nopadding">
-			{% include 'base/latestWorldNews.html' %}
-			<br><br>
-			{% include 'base/politicalNews.html' %}
-						<br><br>
-			{% include 'base/localNews.html' %}
+            {% include 'base/homeTopSliderBlock.html' %}
+           {% include 'base/latestNewBlock.html' %}
+            {% include 'base/keepIntouchBlock.html' %}
+        </div>
+        <!-- /.row -->
+
+        {% include 'base/center_categories.html' %}
+
+
+        {% include 'base/adv2.html' %}
+
+        <br><br><br>
+
+        <div class="row">
+            <div class="col-lg-8 pull-right nopadding">
+                {% include 'base/latestWorldNews.html' %}
+                <br><br>
+                {% include 'base/politicalNews.html' %}
+                <br><br>
+                {% include 'base/localNews.html' %}
             </div>
             {% include 'base/album.html' %}
             {% include 'base/videoLib.html' %}
-			{% include 'base/Toprated.html' %}
-			{% include 'base/adv3.html' %}
-			{% include 'base/adv4.html' %}
-		<div class="row">
-			{% include 'base/worldCommon.html' %}
+            {% include 'base/Toprated.html' %}
+            {% include 'base/adv3.html' %}
         </div>
-        </div>
-        <!-- /.row -->
+
+
+        {% include 'base/adv4.html' %}
+
+
+        {% include 'base/worldCommon.html' %}
+
     </div>
-    {% include 'base/baseJS.html' %}
+</div>
+ {% include 'base/footer.html' %}
+{% include 'base/baseJS.html' %}
 </body>
+
 </html>

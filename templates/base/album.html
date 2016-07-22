@@ -1,45 +1,29 @@
 {% load staticfiles %}
 <div class="col-lg-4 pull-right nopadding sideblock">
-            <div class="cube col-lg-11 nopadding">
-                <div class="col-lg-12 title"><h4>ألبوم الصور</h4></div>
-                <div id="layerslider-container2">
+                <div class="cube col-lg-11 nopadding">
+                    <div class="col-lg-12 title"><h4>ألبوم الصور</h4></div>
+                    <div id="layerslider-container2">
 
-                    <div id="layerslider2" class="nopadding">
+                        <div id="layerslider2" class="nopadding">
+                            {% for news in quick_news %}
+                            <div class="ls-layer"
+                                 style="slidedirection: right; slidedelay: 5000; durationin: 100; durationout: 2500; easingin: easeInOutQuint; easingout: easeInOutQuint; delayin: 0; delayout: 0;">
+                                <h6 class="ls-s-1" style="slidedirection : fade; delayin : 0; slideoutdirection : fade; durationin : 400; durationout : 600; easingin : easeOutQuart; ">{{ news.rss_title }}</h6>
 
-                        <div class="ls-layer"
-                             style="slidedirection: right; slidedelay: 5000; durationin: 100; durationout: 2500; easingin: easeInOutQuint; easingout: easeInOutQuint; delayin: 0; delayout: 0;">
-                            <h6 class="ls-s-1"
-                                style="slidedirection : fade; delayin : 0; slideoutdirection : fade; durationin : 400; durationout : 600; easingin : easeOutQuart; ">
-                                هنالك العديد من انواع لوريم ايبسم</h6>
+                                <div style=""></div>
+                                <div class="ls-s-1 col-lg-12 nopadding img-wrapper"><img src="{{ news.rss_thumbnail }}"></div>
+                            </div>
+                            {% endfor %}
 
-                            <div style=""></div>
-                            <div class="ls-s-1 col-lg-12 nopadding img-wrapper"><img src="{% static 'img/m1.jpg' %}"></div>
-                        </div>
-                        <div class="ls-layer"
-                             style="slidedirection: right; slidedelay: 5000; durationin: 100; durationout: 2500; easingin: easeInOutQuint; easingout: easeInOutQuint; delayin: 0; delayout: 0;">
 
-                            <div class="ls-s-1 col-lg-12 nopadding img-wrapper"><img src="{% static 'img/m2.jpg' %}"></div>
-                            <h6 class="ls-s-1"
-                                style="slidedirection : fade; delayin : 0; slideoutdirection : fade; durationin : 400; durationout : 600; easingin : easeOutQuart; ">
-                                هنالك العديد من انواع لوريم ايبسم</h6>
-                        </div>
-                        <div class="ls-layer"
-                             style="slidedirection: right; slidedelay: 5000; durationin: 100; durationout: 2500; easingin: easeInOutQuint; easingout: easeInOutQuint; delayin: 0; delayout: 0;">
-
-                            <div class="ls-s-1 col-lg-12 nopadding img-wrapper"><img src="{% static 'img/m3.jpg' %}"></div>
-                            <h6 class="ls-s-1"
-                                style="slidedirection : fade; delayin : 0; slideoutdirection : fade; durationin : 400; durationout : 600; easingin : easeOutQuart; ">
-                                هنالك العديد من انواع لوريم ايبسم</h6>
                         </div>
 
                     </div>
-
+                    <div class="col-lg-12 padding-10 news-card">
+                        <ul class="news-data more">
+                            <li><i class="fa fa-caret-left" aria-hidden="true"></i> <a href="#">تصفح المزيد</a></li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="col-lg-12 padding-10 news-card">
-                    <ul class="news-data more">
-                        <li><i class="fa fa-caret-left" aria-hidden="true"></i> <a href="#">تصفح المزيد</a></li>
-                    </ul>
-                </div>
+                <div class="col-lg-1 nopadding"></div>
             </div>
-            <div class="col-lg-1 nopadding"></div>
-        </div>

@@ -1,38 +1,39 @@
 {% load staticfiles %}
-            <div class="col-lg-12 nopadding">
-                <div class="col-lg-12" style="background-color:#666;color:#fff;border-top:4px solid #fd4a29;"><h4>آخر
-                    أخبار العالم</h4></div>
 
-                {% for news in world_new %}
-                     <div class="col-lg-12 nopadding mid-news-card">
-                    <div class="col-lg-3 nopadding pull-right" style="height:150px;overflow:hidden;"><img
-                            src="{{ news.rss_thumbnail }}" style="width:auto;height:100%;min-height:150px;"></div>
-                    <div class="col-lg-9">
-                        <h4>{{ news.rss_title }}</h4>
-                        <ul class="news-data">
-                            <li><i class="fa fa-clock-o" aria-hidden="true"></i> {{ news.rss_publish_date }}</li>
-                            <li><i class="fa fa-folder-open" aria-hidden="true"></i> {{ news.rss_category.rss_category }}</li>
-                            <li><i class="fa fa-comments" aria-hidden="true"></i> 1348 تعليق</li>
-                            <li><i class="fa fa-eye" aria-hidden="true"></i>  {{ news.rss_views_no }} مشاهدة</li>
-                        </ul>
-                        <p>{{ news.rss_description }}</p>
-                        <div class="col-lg-12 nopadding news-card">
-                            <ul class="news-data more">
-                                <li><i class="fa fa-caret-left" aria-hidden="true"></i> <a href="#">اقرأ المزيد</a></li>
-                                <li></li>
+
+<div class="col-lg-12 nopadding">
+                    <div class="col-lg-12" style="background-color:#666;color:#fff;border-top:4px solid #fd4a29;"><h4>
+                        آخر أخبار العالم</h4></div>
+
+                    {% for news in world_new %}
+                                            <div class="col-lg-12 nopadding mid-news-card">
+                        <div class="col-lg-3 nopadding pull-right nimage">
+                            <span><a href="#"><img src="{% static 'img/news-link.png' %}"></a></span><img src="{{ news.rss_thumbnail }}" style="width:auto;height:100%;min-height:150px;">
+                        </div>
+                        <div class="col-lg-9">
+                            <h4>{{ news.rss_title }}</h4>
+                            <ul class="news-data">
+                                <li><i class="fa fa-clock-o" aria-hidden="true"></i> {{ news.rss_publish_date }}</li>
+                                <li><i class="fa fa-folder-open" aria-hidden="true"></i> {{ news.rss_category.rss_category }}</li>
+{#                                <li><i class="fa fa-comments" aria-hidden="true"></i> 1348 تعليق</li>#}
+                                <li><i class="fa fa-eye" aria-hidden="true"></i> {{ news.rss_views_no }} مشاهدة</li>
                             </ul>
+                            <p>{{ news.rss_description }}</p>
+
+                            <div class="col-lg-12 nopadding news-card">
+                                <ul class="news-data more">
+                                    <li><i class="fa fa-caret-left" aria-hidden="true"></i> <a href="#">اقرأ المزيد</a>
+                                    </li>
+                                    <li></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
+                    {% endfor %}
+
+
+
                 </div>
-                {% endfor %}
-
-
-
-            </div>
-
-            <br><br>
-
-
 
 
 

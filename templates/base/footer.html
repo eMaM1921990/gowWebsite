@@ -1,0 +1,63 @@
+{% load staticfiles %}
+<footer>
+    <div class="container" style="margin:40px auto;height:200px;">
+        <div class="col-lg-4 text-center">
+            <img class="footer-logo" src="{% static 'img/footer-logo.png' %}">
+
+            <p>
+                <small>جميع حقوق النشر محفوظة لدى Gate Of World - {{now}}
+                    ويحظر نشر أو توزيع أو طبع أي مادة دون إذن مسبق من المؤسسة
+                </small>
+            </p>
+        </div>
+        <div class="col-lg-8">
+            <div class="col-lg-4 pull-right">
+                <ul class="f-links">
+                    <li><a href="#">الرئيسية</a></li>
+                    <li><a href="#">سياسية</a></li>
+                    <li><a href="#">محلية</a></li>
+                    <li><a href="#">عربية و دولية</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-4 pull-right">
+                <ul class="f-links">
+                    <li><a href="#">آراء</a></li>
+                    <li><a href="#">تقارير و دراسات</a></li>
+                    <li><a href="#">رياضة</a></li>
+                    <li><a href="#">اقتصاد</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-4 pull-right">
+                <ul class="f-links">
+                    <li><a href="#">ثقافة و فنون</a></li>
+                    <li><a href="#">علوم و تكنولوجي</a></li>
+                    <li><a href="#">شكاوى الناس</a></li>
+                    <li><a href="#">اتصل بنا</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row" style="margin:0;">
+        <div class="container sub-footer">
+            <ul class="col-lg-6 pull-right">
+                <li><h4>تابعونا</h4></li>
+                <li><a href="#"><img src="{% static 'img/yt.png' %}"></a></li>
+                <li><a href="#"><img src="{% static 'img/gp.png' %}"></a></li>
+                <li><a href="#"><img src="{% static 'img/tw.png' %}"></a></li>
+                <li><a href="#"><img src="{% static 'img/fb.png' %}"></a></li>
+            </ul>
+
+            <ul class="col-lg-6 pull-right">
+                <li><a href="#">سياسة النشر</a></li>
+                <li><a href="#">حقوق النشر</a></li>
+                <li><a href="#">الإعلانات</a></li>
+                <li><a href="#">عن الموقع</a></li>
+                <li><a href="#">نسخة الموبايل</a></li>
+            </ul>
+            <img class="goup" src="{% static 'img/go-up.png' %}">
+        </div>
+    </div>
+
+</footer>

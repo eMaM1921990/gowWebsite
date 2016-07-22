@@ -18,3 +18,9 @@ def categoryNews(request,slug):
     requestHandle=RequestHandler()
     context=requestHandle.get_news_pages(slug)
     return render_to_response(template,context,context_instance=RequestContext(request))
+
+def latestNews(request):
+    return None
+
+def details(request,rss_id):
+    return None

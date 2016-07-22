@@ -1,6 +1,6 @@
 {% load staticfiles %}
 <!-- jQuery Version 1.11.1 -->
-<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/jquery.js' %}"></script>
 
 <!-- Bootstrap Core JavaScript -->
 <script src="{% static 'js/bootstrap.min.js' %}"></script>
@@ -13,7 +13,7 @@
 <script type="text/javascript">
     $(document).ready(function () {
         $('#layerslider').layerSlider({
-            skinsPath: '{% static 'layerslider/skins/'%}',
+            skinsPath:'{% static 'layerslider/skins/' %}',
             skin: 'minimal',
             autoStart: true,
             keybNav: true,
@@ -27,7 +27,7 @@
             thumbnailNavigation: false
         });
         $('#layerslider2').layerSlider({
-            skinsPath: '{% static 'layerslider/skins/'%}',
+            skinsPath: '{% static 'layerslider/skins/' %}',
             skin: 'minimal',
             autoStart: true,
             navStartStop: false,
@@ -41,7 +41,7 @@
             hoverPrevNext: false
         });
         $('#layerslider3').layerSlider({
-            skinsPath: '{% static 'layerslider/skins/'%}',
+            skinsPath: '{% static 'layerslider/skins/' %}',
             skin: 'minimal',
             autoStart: false,
             navStartStop: false,
@@ -56,7 +56,28 @@
             thumbnailNavigation: false
         });
     });
-{#    $(document).ready(function () {#}
-{#        $('#rootwizard').bootstrapWizard({'tabClass': 'nav nav-pills'});#}
-{#    });#}
+
+    function navSlide() {
+        var scroll_top = $(window).scrollTop();
+
+        if (scroll_top >= 180) { // the detection!
+            $('.secnav').addClass('navbar-fixed-top');
+        } else {
+            $('.secnav').removeClass('navbar-fixed-top');
+        }
+    }
+
+    // Handler
+    // =================================================
+
+    $(window).scroll(navSlide);
+
+
+    $('.goup').click(function () {      // When arrow is clicked
+        $('body,html').animate({
+            scrollTop: 0                       // Scroll to top of body
+        }, 1000);
+    });
+
 </script>
+

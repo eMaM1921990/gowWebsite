@@ -14,6 +14,7 @@ class RequestHandler():
         context['political_news']=self.ListOfPolitical()
         context['local_news']=self.ListOfLocalNews()
         context['common_news']=self.ListOfCommonNews()
+        context['quick_news']=self.ListCurrentNews()
         return context
 
 
@@ -46,6 +47,10 @@ class RequestHandler():
     def ListOfCommonNews(self):
         exeQuery=RssFeeds.objects.filter(rss_category__rss_is_world_common_news=True,rss_category__rss_is_active=True).order_by('-rss_views_no')[:24]
         return  exeQuery
+
+    def ListCurrentNews(self):
+        exeQuery=RssFeeds.objects.filter(rss_category__rss_is_active=True)[:12]
+        return exeQuery
 
     def AdvBanner(self):
         exeQuery=Adv.objects.all()
