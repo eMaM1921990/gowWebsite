@@ -19,6 +19,7 @@ class RequestHandler():
         context['local_news']=self.ListOfLocalNews()
         context['common_news']=self.ListOfCommonNews()
         context['quick_news']=self.ListCurrentNews()
+        context['video']=self.get_video()
         return context
 
 
@@ -87,6 +88,14 @@ class RequestHandler():
             return exeQuery
         except Exception as e:
             logger.debug("Error getting advs -- cause :"+str(e),exc_info=1)
+
+    def get_video(self):
+        try:
+            exeQuery=RssFeeds.objects.filter(rss_category__rss_is_active=True,rss_video__isnull=False)[:1]
+            print exeQuery.query
+            return exeQuery
+        except Exception as e:
+            logger.debug("Error getting video -- cause :"+str(e),exc_info=1)
 
 
     #Get news page

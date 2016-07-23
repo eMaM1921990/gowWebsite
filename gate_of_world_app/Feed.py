@@ -62,7 +62,6 @@ class Feed():
 
                 #check if media_player in feed_entity
                 if 'media_player' in feed_entity:
-                    print feed_entity['media_player']['url']
                     record.rss_video=feed_entity['media_player']['url']
 
                 record.save()

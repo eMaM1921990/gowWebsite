@@ -57,7 +57,7 @@ class RssFeeds(models.Model):
     rss_category = models.ForeignKey(RssCategories, db_column='rss_category', blank=True, null=True)
     rss_id= models.CharField(max_length=255, blank=True)
     rss_views_no=models.IntegerField(default=0)
-    rss_video=models.CharField(max_length=255, blank=True)
+    rss_video=models.CharField(max_length=255, blank=True,default=None)
     rss_image=models.CharField(max_length=255, blank=True)
 
     def thumbnail(self):
