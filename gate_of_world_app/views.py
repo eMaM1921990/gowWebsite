@@ -1,3 +1,4 @@
+from django.core import serializers
 from django.http.response import HttpResponse
 from django.shortcuts import render, render_to_response
 # Create your views here.
@@ -14,7 +15,7 @@ def home(request):
 
 def categoryNews(request,pk):
     context={}
-    template='list_news.html'
+    template='sections.html'
     requestHandle=RequestHandler()
     context=requestHandle.get_news_pages(pk)
     return render_to_response(template,context,context_instance=RequestContext(request))
@@ -27,3 +28,9 @@ def details(request,pk):
     requestHandle=RequestHandler()
     context=requestHandle.get_article_page(pk)
     return render_to_response(template,context,context_instance=RequestContext(request))
+
+def getMarqueUpdates(request):
+     requestHandle=RequestHandler()
+     news_object=requestHandle.ListCurrentNews()
+     data=serializers.serialize("json",news_object)
+     return HttpResponse(data)

@@ -65,6 +65,7 @@ INSTALLED_APPS = [
     'gate_of_world_app',
     'djcelery',
     'social_widgets',
+    'endless_pagination',
     # 'lockdown',
    # 'kombu.transport.django',# for development onlypython manage.py migrate
 ]
@@ -240,3 +241,7 @@ GRAPPELLI_ADMIN_TITLE='Gate of world - Admin panel'
 # LOCKDOWN_PASSWORDS = ('password', )
 # LOCKDOWN_URL_EXCEPTIONS = (r'^/admin',)
 # LOCKDOWN_FORM = 'lockdown.forms.LockdownForm'
+
+#Endless pagination
+ENDLESS_PAGINATION_PREVIOUS_LABEL='Previous'
+ENDLESS_PAGINATION_NEXT_LABEL='Next'

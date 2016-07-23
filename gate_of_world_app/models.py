@@ -20,15 +20,16 @@ import StringIO
 MANAGED=True
 
 class RssCategories(models.Model):
-    rss_category = models.CharField(unique=True, max_length=225)
+    rss_category = models.CharField(unique=True, max_length=225,verbose_name='Rss Category')
     rss_slug = models.CharField(unique=True, max_length=45)
     rss_is_active = models.BooleanField(blank=True,default=True)  # This field type is a guess.
-    rss_is_suggested=models.BooleanField(blank=True,default=True)
-    rss_is_world_news=models.BooleanField(blank=True,default=False)
-    rss_is_political_news=models.BooleanField(blank=True,default=False)
-    rss_is_local_news=models.BooleanField(blank=True,default=False)
-    rss_is_world_common_news=models.BooleanField(blank=True,default=False)
-    rss_order=models.IntegerField(default=0)
+    rss_is_suggested=models.BooleanField(blank=True,default=True,verbose_name='Suggested')
+    rss_is_world_news=models.BooleanField(blank=True,default=False,verbose_name='World News')
+    rss_is_political_news=models.BooleanField(blank=True,default=False,verbose_name='Political News')
+    rss_is_local_news=models.BooleanField(blank=True,default=False,verbose_name='Local News')
+    rss_is_world_common_news=models.BooleanField(blank=True,default=False,verbose_name='Common News')
+    rss_order=models.IntegerField(default=0,verbose_name='Order')
+    rss_show_in_footer=models.BooleanField(blank=True,default=False,verbose_name='Show in Footer')
 
     def save(self):
         super(RssCategories, self).save()
@@ -44,6 +45,7 @@ class RssCategories(models.Model):
         managed = MANAGED
         db_table = 'rss_categories'
         ordering=('rss_order',)
+        verbose_name_plural='RSS Categories'
 
 
 class RssFeeds(models.Model):
@@ -70,6 +72,7 @@ class RssFeeds(models.Model):
         managed = MANAGED
         db_table = 'rss_feeds'
         ordering=('-rss_publish_date',)
+        verbose_name_plural='Posts'
 
 
 class RssProviders(models.Model):
@@ -82,6 +85,7 @@ class RssProviders(models.Model):
     class Meta:
         managed = MANAGED
         db_table = 'rss_providers'
+        verbose_name_plural='RSS Providers'
 
 
 class Adv(models.Model):
@@ -107,3 +111,4 @@ class Adv(models.Model):
     class Meta:
         managed = MANAGED
         db_table = 'adv'
+        verbose_name_plural='Advertising'

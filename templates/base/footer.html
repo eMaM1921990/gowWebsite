@@ -5,7 +5,7 @@
             <img class="footer-logo" src="{% static 'img/footer-logo.png' %}">
 
             <p>
-                <small>جميع حقوق النشر محفوظة لدى Gate Of World - {{now}}
+                <small>جميع حقوق النشر محفوظة لدى Gate Of World - {% now "Y" %}
                     ويحظر نشر أو توزيع أو طبع أي مادة دون إذن مسبق من المؤسسة
                 </small>
             </p>
@@ -45,8 +45,8 @@
                 <li><h4>تابعونا</h4></li>
                 <li><a href="#"><img src="{% static 'img/yt.png' %}"></a></li>
                 <li><a href="#"><img src="{% static 'img/gp.png' %}"></a></li>
-                <li><a href="#"><img src="{% static 'img/tw.png' %}"></a></li>
-                <li><a href="#"><img src="{% static 'img/fb.png' %}"></a></li>
+                <li><a href="https://twitter.com/gateofworld"><img src="{% static 'img/tw.png' %}"></a></li>
+                <li><a href="https://www.facebook.com/gateofworld.net/"><img src="{% static 'img/fb.png' %}"></a></li>
             </ul>
 
             <ul class="col-lg-6 pull-right">

@@ -5,11 +5,11 @@ from models import *
 
 #category
 class RSSCategory(admin.ModelAdmin):
-    fields = ['rss_category','rss_is_active','rss_is_suggested','rss_is_world_news','rss_is_political_news','rss_is_local_news','rss_is_world_common_news','rss_order' ]
-    list_display = ['id', 'rss_category','rss_is_active','rss_is_suggested','rss_is_world_news','rss_is_political_news','rss_is_local_news','rss_is_world_common_news','rss_order' ]
+    fields = ['rss_category','rss_is_active','rss_is_suggested','rss_is_world_news','rss_is_political_news','rss_is_local_news','rss_is_world_common_news','rss_show_in_footer','rss_order' ]
+    list_display = ['id', 'rss_category','rss_is_active','rss_is_suggested','rss_is_world_news','rss_is_political_news','rss_is_local_news','rss_is_world_common_news','rss_show_in_footer','rss_order' ]
     list_per_page = 10
-    list_filter = ['rss_category','rss_is_suggested','rss_is_world_news','rss_is_political_news','rss_is_local_news','rss_is_world_common_news','rss_order' ]
-    list_editable = ['rss_category','rss_is_suggested','rss_is_active','rss_is_world_news','rss_is_political_news','rss_is_local_news','rss_is_world_common_news' ,'rss_order' ]
+    list_filter = ['rss_category','rss_is_suggested','rss_is_world_news','rss_is_political_news','rss_is_local_news','rss_is_world_common_news','rss_show_in_footer','rss_order' ]
+    list_editable = ['rss_category','rss_is_suggested','rss_is_active','rss_is_world_news','rss_is_political_news','rss_is_local_news','rss_is_world_common_news' ,'rss_show_in_footer','rss_order' ]
     search_fields = ('id', 'rss_category',)
 
 
