@@ -12,7 +12,8 @@
 				<p>
 
                     {% if article_feeds.rss_description %}
-                        {{ article_feeds.rss_description }}
+                       <br><br> {{ article_feeds.rss_description }}
+                        <br><br> <a href="{{ article_feeds.rss_link }}" target="_blank">للمزيد اضغط هنا</a>
                     {% else %}
                         <br><br> <a href="{{ article_feeds.rss_link }}" target="_blank">للمزيد اضغط هنا</a>
                     {% endif %}

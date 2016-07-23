@@ -2,27 +2,36 @@
 <html lang="en">
 {% include 'base/headTag.html' %}
 <body>
-    <!-- Navigation -->
-    {% include 'base/navigationMenu.html' %}
+
+
+{% include 'base/navigationMenu.html' %}
+
+	<div class="row page-content nopadding nomargin">
     <!-- Page Content -->
     <div class="container">
-
-
+	<div class="row">
+        {% include 'base/marque.html' %}
+    </div>
         <div class="row">
 			<div class="col-lg-8 pull-right nopadding">
-			{% include 'base/news_element.html' %}
+                {% for news in news_feed %}
+                {% include 'base/seection_element.html' %}
+                {% endfor %}
 
             </div>
+			{% include 'base/latestNewBlock.html' %}
 
 
-			{% include 'base/adv4.html' %}
 
-		<div class="row">
-			{% include 'base/worldCommon.html' %}
-        </div>
         </div>
         <!-- /.row -->
+
+		{% include 'base/adv2.html' %}
+
+
     </div>
-    {% include 'base/baseJS.html' %}
-</body>
+</div>
+{% include 'base/footer.html' %}
+{% include 'base/baseJS.html' %}</body>
+
 </html>

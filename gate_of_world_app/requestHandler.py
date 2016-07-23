@@ -93,8 +93,9 @@ class RequestHandler():
     def get_news_pages(self,catId):
         context={}
         context['nav']=self.FeedCategory()
-        context['common_news']=self.ListOfCommonNews()
+        context['last_three_feeds']=self.LastThreeFeeds()
         context['adv']=self.AdvBanner()
+        context['quick_news']=self.ListCurrentNews()
         context['news_feed']=self.getCategoryNew(catId)
         return context
 
