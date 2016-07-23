@@ -106,17 +106,17 @@ WSGI_APPLICATION = 'gowWebsite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 #Database Info
-# DB_USER='root'
-# DB_PASSWORD='admin'
-# DB_NAME='gate_of_world'
-# DB_HOST='localhost'
-# DB_PORT=3306
-
-DB_USER='eMaM1921990'
-DB_PASSWORD='ahmednano2011'
-DB_NAME='eMaM1921990$default'
-DB_HOST='eMaM1921990.mysql.pythonanywhere-services.com'
+DB_USER='root'
+DB_PASSWORD='admin'
+DB_NAME='gate_of_world'
+DB_HOST='localhost'
 DB_PORT=3306
+
+# DB_USER='eMaM1921990'
+# DB_PASSWORD='ahmednano2011'
+# DB_NAME='eMaM1921990$default'
+# DB_HOST='eMaM1921990.mysql.pythonanywhere-services.com'
+# DB_PORT=3306
 
 
 DATABASES = {
@@ -130,17 +130,17 @@ DATABASES = {
     }
 }
 
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd54asntq94mcto',
-        'USER': 'jxwhbwszuynxoj',
-        'PASSWORD': 'tTpud2fkekGAKB42h7K9eBJwEZ',
-        'HOST': 'ec2-54-243-203-93.compute-1.amazonaws.com',
-        'PORT': '5432',
-    }
-}
+#
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'd54asntq94mcto',
+#         'USER': 'jxwhbwszuynxoj',
+#         'PASSWORD': 'tTpud2fkekGAKB42h7K9eBJwEZ',
+#         'HOST': 'ec2-54-243-203-93.compute-1.amazonaws.com',
+#         'PORT': '5432',
+#     }
+# }
 
 
 

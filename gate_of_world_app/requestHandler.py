@@ -1,5 +1,9 @@
 __author__ = 'emam'
 from models import *
+import logging
+logger = logging.getLogger(__name__)
+
+
 class RequestHandler():
 
 
@@ -21,40 +25,68 @@ class RequestHandler():
     ## Common methods
 
     def FeedCategory(self):
-        exeQuery=RssCategories.objects.filter(rss_is_active=True)
-        return exeQuery
+        try:
+            exeQuery=RssCategories.objects.filter(rss_is_active=True)
+            return exeQuery
+        except Exception as e:
+            logger.debug("Error getting feeds categories list -- cause :"+str(e),exc_info=1)
+
 
     def LastThreeFeeds(self):
-        exeQuery=RssFeeds.objects.filter(rss_category__rss_is_active=True)[:3]
-        return exeQuery
+        try:
+            exeQuery=RssFeeds.objects.filter(rss_category__rss_is_active=True)[:3]
+            return exeQuery
+        except Exception as e:
+            logger.debug("Error getting last 3 feeds list -- cause :"+str(e),exc_info=1)
 
     def ListOfSuggestedFees(self):
-        exeQuery=RssFeeds.objects.filter(rss_category__rss_is_suggested=True,rss_category__rss_is_active=True).exclude(rss_description__isnull=True).order_by('-rss_views_no')[:3]
-        return exeQuery
+        try:
+            exeQuery=RssFeeds.objects.filter(rss_category__rss_is_suggested=True,rss_category__rss_is_active=True).exclude(rss_description__isnull=True).order_by('-rss_views_no')[:3]
+            return exeQuery
+        except Exception as e:
+            logger.debug("Error getting suggested feeds  list -- cause :"+str(e),exc_info=1)
 
     def ListOfWorldNews(self):
-        exeQuery=RssFeeds.objects.filter(rss_category__rss_is_world_news=True,rss_category__rss_is_active=True).exclude(rss_description__isnull=True)[:3]
-        return exeQuery
+        try:
+            exeQuery=RssFeeds.objects.filter(rss_category__rss_is_world_news=True,rss_category__rss_is_active=True).exclude(rss_description__isnull=True)[:3]
+            return exeQuery
+        except Exception as e:
+            logger.debug("Error getting last word news  list -- cause :"+str(e),exc_info=1)
 
     def ListOfPolitical(self):
-        exeQuery=RssFeeds.objects.filter(rss_category__rss_is_political_news=True,rss_category__rss_is_active=True).exclude(rss_description__isnull=True)[:3]
-        return exeQuery
+        try:
+            exeQuery=RssFeeds.objects.filter(rss_category__rss_is_political_news=True,rss_category__rss_is_active=True).exclude(rss_description__isnull=True)[:3]
+            return exeQuery
+        except Exception as e:
+            logger.debug("Error getting political news  list -- cause :"+str(e),exc_info=1)
 
     def ListOfLocalNews(self):
-        exeQuery=RssFeeds.objects.filter(rss_category__rss_is_local_news=True,rss_category__rss_is_active=True).exclude(rss_description__isnull=True)[:3]
-        return exeQuery
+        try:
+            exeQuery=RssFeeds.objects.filter(rss_category__rss_is_local_news=True,rss_category__rss_is_active=True).exclude(rss_description__isnull=True)[:3]
+            return exeQuery
+        except Exception as e:
+            logger.debug("Error getting  local news  list -- cause :"+str(e),exc_info=1)
 
     def ListOfCommonNews(self):
-        exeQuery=RssFeeds.objects.filter(rss_category__rss_is_world_common_news=True,rss_category__rss_is_active=True).order_by('-rss_views_no')[:24]
-        return  exeQuery
+        try:
+            exeQuery=RssFeeds.objects.filter(rss_category__rss_is_world_common_news=True,rss_category__rss_is_active=True).order_by('-rss_views_no')[:24]
+            return  exeQuery
+        except Exception as e:
+            logger.debug("Error getting last common news  list -- cause :"+str(e),exc_info=1)
 
     def ListCurrentNews(self):
-        exeQuery=RssFeeds.objects.filter(rss_category__rss_is_active=True)[:12]
-        return exeQuery
+        try:
+            exeQuery=RssFeeds.objects.filter(rss_category__rss_is_active=True)[:12]
+            return exeQuery
+        except Exception as e:
+            logger.debug("Error getting  current news  list -- cause :"+str(e),exc_info=1)
 
     def AdvBanner(self):
-        exeQuery=Adv.objects.all()
-        return exeQuery
+        try:
+            exeQuery=Adv.objects.all()
+            return exeQuery
+        except Exception as e:
+            logger.debug("Error getting advs -- cause :"+str(e),exc_info=1)
 
 
     #Get news page
@@ -64,10 +96,40 @@ class RequestHandler():
         context['common_news']=self.ListOfCommonNews()
         context['adv']=self.AdvBanner()
         context['news_feed']=self.getCategoryNew(catId)
-        print catId
         return context
 
     ## Internal common method
     def getCategoryNew(self,catId):
-        exeQuery=RssFeeds.objects.filter(rss_category__rss_slug=int(catId))
-        return exeQuery
+        try:
+            exeQuery=RssFeeds.objects.filter(rss_category__rss_slug=int(catId))
+            return exeQuery
+        except Exception as e:
+            logger.debug("Error getting section news  list -- cause :"+str(e),exc_info=1)
+
+    #Get article
+    def get_article_page(self,article_id):
+        context={}
+        context['nav']=self.FeedCategory()
+        context['last_three_feeds']=self.LastThreeFeeds()
+        context['adv']=self.AdvBanner()
+        context['quick_news']=self.ListCurrentNews()
+        context['article_feeds']=self.get_article_details(article_id)
+        return context
+
+
+    def get_article_details(self,article_id):
+        try:
+            ##udate seen
+            self.update_article_as_seen(article_id)
+            exeQuery=RssFeeds.objects.get(id=int(article_id))
+            return exeQuery
+        except Exception as e:
+            logger.debug("Error getting article details -- cause :"+str(e),exc_info=1)
+
+    def update_article_as_seen(self,article_id):
+        try:
+            record=RssFeeds.objects.get(id=int(article_id))
+            record.rss_views_no=record.rss_views_no+1
+            record.save()
+        except Exception as e:
+            logger.debug("Error during update feeds seen -- cause :"+str(e),exc_info=1)

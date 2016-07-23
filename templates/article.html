@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include 'base/headTag.html' %}
+<body>
+
+
+{% include 'base/navigationMenu.html' %}
+
+	<div class="row page-content nopadding nomargin">
+    <!-- Page Content -->
+    <div class="container">
+	<div class="row">
+        {% include 'base/marque.html' %}
+    </div>
+        <div class="row">
+			<div class="col-lg-8 pull-right nopadding">
+                {% include 'base/article_element.html' %}
+
+            </div>
+			{% include 'base/latestNewBlock.html' %}
+			
+			
+			
+        </div>
+        <!-- /.row -->
+
+		{% include 'base/adv2.html' %}
+			
+		
+    </div>
+</div>	
+{% include 'base/footer.html' %}
+{% include 'base/baseJS.html' %}</body>
+
+</html>

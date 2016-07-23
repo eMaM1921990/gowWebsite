@@ -22,5 +22,8 @@ def categoryNews(request,cat_id):
 def latestNews(request):
     return None
 
-def details(request,rss_id):
-    return None
+def details(request,pk):
+    template='article.html'
+    requestHandle=RequestHandler()
+    context=requestHandle.get_article_page(pk)
+    return render_to_response(template,context,context_instance=RequestContext(request))
