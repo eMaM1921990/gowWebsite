@@ -110,7 +110,7 @@ class Feed():
 
 
         except Exception as e:
-            logger.debug("Error save feed for category ["+feedProvider.rss_category.id+"] -- cause :"+str(e),exc_info=1)
+            logger.debug("Error save feed for category ["+str(feedProvider.rss_category.id)+"] -- cause :"+str(e),exc_info=1)
 
 
 
@@ -121,7 +121,7 @@ class Feed():
             feedProvider.rss_last_call=dateutil.parser.parse(lastModified)
             feedProvider.save()
         except Exception as e:
-            logger.debug("Error update feed ID is  ["+feedProvider.id+"] -- cause :"+str(e),exc_info=1)
+            logger.debug("Error update feed ID is  ["+str(feedProvider.id)+"] -- cause :"+str(e),exc_info=1)
 
 
     def markRssFeedIsPermenantRedirect(self,id,url):
@@ -130,7 +130,7 @@ class Feed():
             record.rss_url=url
             record.save()
         except Exception as e:
-            logger.debug("Error update feed url is  ["+id+"] -- cause :"+str(e),exc_info=1)
+            logger.debug("Error update feed url is  ["+str(id)+"] -- cause :"+str(e),exc_info=1)
 
 
     def markRssFeedsGone(self,id):
@@ -138,4 +138,4 @@ class Feed():
             record=RssProviders.objects.get(id=id)
             record.delete()
         except Exception as e:
-            logger.debug("Error delete feed with id :  ["+id+"] -- cause :"+str(e),exc_info=1)
+            logger.debug("Error delete feed with id :  ["+str(id)+"] -- cause :"+str(e),exc_info=1)
