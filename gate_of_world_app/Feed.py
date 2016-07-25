@@ -78,29 +78,31 @@ class Feed():
                     feeds=feedparser.parse(feedProvider.rss_url,modified=feedProvider.rss_last_call)
 
                 print int(feeds.status)
+                # Noticing update
                 if int(feeds.status)==200:
-                    print 'status --- 200'
+                    print 'status --- 200'+str(feedProvider.id)
                     self.updateProviderUpdatedTime(feedProvider,feeds.modified)
                     self.addFeedToDatabase(feeds,feedProvider.rss_category)
-
+                # Noticing temporary redirects
                 elif int(feeds.status)==302:
-                    print 'status --- 302'
+                    print 'status --- 302'+str(feedProvider.id)
                     feeds=feedparser.parse(feeds.href)
                     self.updateProviderUpdatedTime(feedProvider,feeds.modified)
                     self.addFeedToDatabase(feeds,feedProvider.rss_category)
-
+                # Noticing permanent redirects
                 elif int(feeds.status)==301:
-                    print 'status --- 301'
+                    print 'status --- 301'+str(feedProvider.id)
                     feeds=feedparser.parse(feeds.href)
                     self.updateProviderUpdatedTime(feedProvider,feeds.modified)
                     self.addFeedToDatabase(feeds,feedProvider.rss_category)
                     self.markRssFeedIsPermenantRedirect(feedProvider.id,feeds.href)
-
+                # notice Gone
                 elif int(feeds.status)==410:
-
+                    print 'status --- 410'+str(feedProvider.id)
                     self.markRssFeedsGone(feedProvider.id)
-
+                # notice no updates
                 elif int(feeds.status)==304:
+                    print 'status --- 304'+str(feedProvider.id)
                     self.updateProviderUpdatedTime(feedProvider,feeds.modified)
 
                 else:
