@@ -21,7 +21,7 @@ class Feed():
     def addFeedToDatabase(self,feeds,feedCategoryObj):
             for feed_entity in feeds['entries']:
                 try:
-                    print feed_entity
+
                     record=RssFeeds()
                     record.rss_category=feedCategoryObj
 
@@ -81,31 +81,27 @@ class Feed():
                     print int(feeds.status)
                     # Noticing update
                     if int(feeds.status)==200:
-                        print 'status --- 200'+str(feedProvider.id)
                         if feeds.modified:
                             self.updateProviderUpdatedTime(feedProvider,feeds.modified)
                         self.addFeedToDatabase(feeds,feedProvider.rss_category)
                     # Noticing temporary redirects
                     elif int(feeds.status)==302:
-                        print 'status --- 302'+str(feedProvider.id)
                         feeds=feedparser.parse(feeds.href)
                         if feeds.modified:
                             self.updateProviderUpdatedTime(feedProvider,feeds.modified)
                         self.addFeedToDatabase(feeds,feedProvider.rss_category)
                     # Noticing permanent redirects
                     elif int(feeds.status)==301:
-                        print 'status --- 301'+str(feedProvider.id)
                         feeds=feedparser.parse(feeds.href)
                         self.updateProviderUpdatedTime(feedProvider,feeds.modified)
                         self.addFeedToDatabase(feeds,feedProvider.rss_category)
                         self.markRssFeedIsPermenantRedirect(feedProvider.id,feeds.href)
                     # notice Gone
                     elif int(feeds.status)==410:
-                        print 'status --- 410'+str(feedProvider.id)
                         self.markRssFeedsGone(feedProvider.id)
                     # notice no updates
                     elif int(feeds.status)==304:
-                        print 'status --- 304'+str(feedProvider.id)
+
                         self.updateProviderUpdatedTime(feedProvider,feeds.modified)
 
                     else:
@@ -122,6 +118,7 @@ class Feed():
 
     def updateProviderUpdatedTime(self,feedProvider,lastModified):
         try:
+            print lastModified
             feedProvider.rss_last_call=dateutil.parser.parse(lastModified)
             feedProvider.save()
         except Exception as e:

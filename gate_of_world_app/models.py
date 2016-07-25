@@ -76,6 +76,7 @@ class RssFeeds(models.Model):
         db_table = 'rss_feeds'
         ordering=('-rss_publish_date',)
         verbose_name_plural='Posts'
+        unique_together=['rss_link','rss_title']
 
 
 class RssProviders(models.Model):
