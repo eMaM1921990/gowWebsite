@@ -1,5 +1,5 @@
 from celery.task.base import periodic_task
-#
+
 __author__ = 'emam'
 from djcelery import celery
 from Feed import *
@@ -16,5 +16,4 @@ def add(x, y):
     print x + y
 
 
-SyncFeed()
 
