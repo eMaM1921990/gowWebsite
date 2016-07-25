@@ -97,7 +97,7 @@ class Feed():
                     self.updateProviderUpdatedTime(feedProvider,feeds.modified)
                     self.addFeedToDatabase(feeds,feedProvider.rss_category)
                     self.markRssFeedIsPermenantRedirect(feedProvider.id,feeds.href)
-                # Noticing feeds marked “gone”
+
                 elif feeds.status==410:
                     self.markRssFeedsGone(feedProvider.id)
                 else:
