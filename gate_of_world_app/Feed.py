@@ -69,50 +69,50 @@ class Feed():
 
 
     def feedParser(self):
-        try:
+
             listFeedProvider=self.getFeedProviders()
             for feedProvider in listFeedProvider:
-                if feedProvider.rss_last_call is None:
-                    feeds=feedparser.parse(feedProvider.rss_url)
-                else:
-                    feeds=feedparser.parse(feedProvider.rss_url,modified=feedProvider.rss_last_call)
+                try:
+                    if feedProvider.rss_last_call is None:
+                        feeds=feedparser.parse(feedProvider.rss_url)
+                    else:
+                        feeds=feedparser.parse(feedProvider.rss_url,modified=feedProvider.rss_last_call)
 
-                print int(feeds.status)
-                # Noticing update
-                if int(feeds.status)==200:
-                    print 'status --- 200'+str(feedProvider.id)
-                    self.updateProviderUpdatedTime(feedProvider,feeds.modified)
-                    self.addFeedToDatabase(feeds,feedProvider.rss_category)
-                # Noticing temporary redirects
-                elif int(feeds.status)==302:
-                    print 'status --- 302'+str(feedProvider.id)
-                    feeds=feedparser.parse(feeds.href)
-                    self.updateProviderUpdatedTime(feedProvider,feeds.modified)
-                    self.addFeedToDatabase(feeds,feedProvider.rss_category)
-                # Noticing permanent redirects
-                elif int(feeds.status)==301:
-                    print 'status --- 301'+str(feedProvider.id)
-                    feeds=feedparser.parse(feeds.href)
-                    self.updateProviderUpdatedTime(feedProvider,feeds.modified)
-                    self.addFeedToDatabase(feeds,feedProvider.rss_category)
-                    self.markRssFeedIsPermenantRedirect(feedProvider.id,feeds.href)
-                # notice Gone
-                elif int(feeds.status)==410:
-                    print 'status --- 410'+str(feedProvider.id)
-                    self.markRssFeedsGone(feedProvider.id)
-                # notice no updates
-                elif int(feeds.status)==304:
-                    print 'status --- 304'+str(feedProvider.id)
-                    self.updateProviderUpdatedTime(feedProvider,feeds.modified)
+                    print int(feeds.status)
+                    # Noticing update
+                    if int(feeds.status)==200:
+                        print 'status --- 200'+str(feedProvider.id)
+                        self.updateProviderUpdatedTime(feedProvider,feeds.modified)
+                        self.addFeedToDatabase(feeds,feedProvider.rss_category)
+                    # Noticing temporary redirects
+                    elif int(feeds.status)==302:
+                        print 'status --- 302'+str(feedProvider.id)
+                        feeds=feedparser.parse(feeds.href)
+                        self.updateProviderUpdatedTime(feedProvider,feeds.modified)
+                        self.addFeedToDatabase(feeds,feedProvider.rss_category)
+                    # Noticing permanent redirects
+                    elif int(feeds.status)==301:
+                        print 'status --- 301'+str(feedProvider.id)
+                        feeds=feedparser.parse(feeds.href)
+                        self.updateProviderUpdatedTime(feedProvider,feeds.modified)
+                        self.addFeedToDatabase(feeds,feedProvider.rss_category)
+                        self.markRssFeedIsPermenantRedirect(feedProvider.id,feeds.href)
+                    # notice Gone
+                    elif int(feeds.status)==410:
+                        print 'status --- 410'+str(feedProvider.id)
+                        self.markRssFeedsGone(feedProvider.id)
+                    # notice no updates
+                    elif int(feeds.status)==304:
+                        print 'status --- 304'+str(feedProvider.id)
+                        self.updateProviderUpdatedTime(feedProvider,feeds.modified)
 
-                else:
+                    else:
 
-                    self.updateProviderUpdatedTime(feedProvider,feeds.modified)
+                        self.updateProviderUpdatedTime(feedProvider,feeds.modified)
 
-
-
-        except Exception as e:
-            logger.debug("Error save feed for category ["+str(feedProvider.rss_category.id)+"] -- cause :"+str(e),exc_info=1)
+                except Exception as e:
+                    print str(e)
+                    logger.debug("Error save feed for category ["+str(feedProvider.rss_category.id)+"] -- cause :"+str(e),exc_info=1)
 
 
 
