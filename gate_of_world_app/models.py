@@ -59,7 +59,7 @@ class RssFeeds(models.Model):
     rss_views_no=models.IntegerField(default=0)
     rss_video=models.CharField(max_length=255, blank=True,default=None,null=True)
     rss_image=models.CharField(max_length=255, blank=True,null=True)
-    rss_hex_digit=models.CharField(max_length=100, blank=True,unique=True)
+    rss_hex_digit=models.CharField(max_length=50, blank=True,unique=True)
 
     def thumbnail(self):
         return '<img src="%s" style="width:50px;height:50px"/>' % self.rss_thumbnail
@@ -77,7 +77,6 @@ class RssFeeds(models.Model):
         db_table = 'rss_feeds'
         ordering=('-rss_publish_date',)
         verbose_name_plural='Posts'
-        # unique_together=['rss_link','rss_title']
 
 
 class RssProviders(models.Model):
