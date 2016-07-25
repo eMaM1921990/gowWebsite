@@ -97,9 +97,13 @@ class Feed():
                     self.updateProviderUpdatedTime(feedProvider,feeds.modified)
                     self.addFeedToDatabase(feeds,feedProvider.rss_category)
                     self.markRssFeedIsPermenantRedirect(feedProvider.id,feeds.href)
-                #Noticing feeds marked “gone”
+                # Noticing feeds marked “gone”
                 elif feeds.status==410:
                     self.markRssFeedsGone(feedProvider.id)
+                else:
+                    logger.debug('Logged status'+str(feeds.status))
+
+
         except Exception as e:
             logger.debug("Error save feed for category ["+feedProvider.rss_category.id+"] -- cause :"+str(e),exc_info=1)
 
