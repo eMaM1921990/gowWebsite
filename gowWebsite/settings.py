@@ -113,6 +113,7 @@ DB_PASSWORD='Azsxdcfv@'
 # DB_PASSWORD='admin'
 DB_NAME='gate_'
 # DB_NAME='gate_of_world'
+
 DB_HOST='localhost'
 DB_PORT=3306
 
