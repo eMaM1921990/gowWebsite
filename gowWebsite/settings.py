@@ -18,7 +18,7 @@ import djcelery
 djcelery.setup_loader()
 
 ## Celery config ##
-BROKER_URL = 'amqp://guest:guest@localhost:5672//'
+BROKER_URL = 'amqp://test:test@localhost:5672//'
 # BROKER_URL = 'django://'
 
 
