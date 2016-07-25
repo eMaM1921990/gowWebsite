@@ -1,4 +1,5 @@
 from datetime import datetime
+import hashlib
 
 __author__ = 'emam'
 from models import RssProviders,RssFeeds
@@ -58,6 +59,11 @@ class Feed():
 
                     if 'media_player' in feed_entity:
                         record.rss_video=feed_entity['media_player']['url']
+
+                    ### hexdigit
+                    hexDigit=self.get_hexdigest(record.rss_title,record.rss_link)
+                    record.rss_hex_digit=hexDigit
+
                     record.save()
 
                 except Exception as e:
@@ -140,3 +146,9 @@ class Feed():
             record.delete()
         except Exception as e:
             logger.debug("Error delete feed with id :  ["+str(id)+"] -- cause :"+str(e),exc_info=1)
+
+
+    def get_hexdigest(self,title,url):
+        m = hashlib.md5()
+        m.update(title+url)
+        return m.hexdigest()

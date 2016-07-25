@@ -49,7 +49,7 @@ class RssCategories(models.Model):
 
 
 class RssFeeds(models.Model):
-    rss_link = models.CharField(max_length=255, blank=True,unique=True)
+    rss_link = models.CharField(max_length=255, blank=True)
     rss_title = models.CharField(max_length=255, blank=True)
     rss_description = models.CharField(max_length=255, blank=True,null=True)
     rss_thumbnail = models.CharField(max_length=255, blank=True,null=True)
@@ -59,6 +59,7 @@ class RssFeeds(models.Model):
     rss_views_no=models.IntegerField(default=0)
     rss_video=models.CharField(max_length=255, blank=True,default=None,null=True)
     rss_image=models.CharField(max_length=255, blank=True,null=True)
+    rss_hex_digit=models.CharField(max_length=100, blank=True,unique=True)
 
     def thumbnail(self):
         return '<img src="%s" style="width:50px;height:50px"/>' % self.rss_thumbnail
