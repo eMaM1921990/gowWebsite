@@ -49,7 +49,7 @@ class RssCategories(models.Model):
 
 
 class RssFeeds(models.Model):
-    rss_link = models.CharField(max_length=255, blank=True)
+    rss_link = models.CharField(max_length=255, blank=True,unique=True)
     rss_title = models.CharField(max_length=255, blank=True)
     rss_description = models.CharField(max_length=255, blank=True,null=True)
     rss_thumbnail = models.CharField(max_length=255, blank=True,null=True)
@@ -76,11 +76,11 @@ class RssFeeds(models.Model):
         db_table = 'rss_feeds'
         ordering=('-rss_publish_date',)
         verbose_name_plural='Posts'
-        unique_together=['rss_link','rss_title']
+        # unique_together=['rss_link','rss_title']
 
 
 class RssProviders(models.Model):
-    rss_url = models.CharField(unique=True, max_length=45)
+    rss_url = models.CharField(unique=True, max_length=100)
     rss_is_active = models.BooleanField(blank=True,default=True)  # This field type is a guess.
     rss_category = models.ForeignKey(RssCategories, db_column='rss_category')
     rss_add_at = models.DateTimeField(blank=True, null=True)
