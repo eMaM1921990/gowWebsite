@@ -3,7 +3,12 @@
                 <div class="cube col-lg-11 nopadding">
                     {% for adv in adv %}
                         {% if adv.position == '3' %}
-                            <img src="{{ adv.url.url }}" style="width:100%;height:auto;">
+                            {% if  adv.url.url%}
+                                <img src="{{ adv.url.url }}" style="width:100%;height:auto;">
+                                {% else %}
+                                <img src="{% static 'img/adv4.png' %}" style="width:100%;height:auto;">
+                                {% endif %}
+
                         {% endif %}
                     {% endfor %}
                 </div>

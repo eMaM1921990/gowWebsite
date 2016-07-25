@@ -109,7 +109,7 @@ WSGI_APPLICATION = 'gowWebsite.wsgi.application'
 #Database Info
 DB_USER='root'
 DB_PASSWORD='admin'
-DB_NAME='gate_of_world'
+DB_NAME='gate_'
 DB_HOST='localhost'
 DB_PORT=3306
 
