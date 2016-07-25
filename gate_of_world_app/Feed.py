@@ -82,13 +82,15 @@ class Feed():
                     # Noticing update
                     if int(feeds.status)==200:
                         print 'status --- 200'+str(feedProvider.id)
-                        self.updateProviderUpdatedTime(feedProvider,feeds.modified)
+                        if feeds.modified:
+                            self.updateProviderUpdatedTime(feedProvider,feeds.modified)
                         self.addFeedToDatabase(feeds,feedProvider.rss_category)
                     # Noticing temporary redirects
                     elif int(feeds.status)==302:
                         print 'status --- 302'+str(feedProvider.id)
                         feeds=feedparser.parse(feeds.href)
-                        self.updateProviderUpdatedTime(feedProvider,feeds.modified)
+                        if feeds.modified:
+                            self.updateProviderUpdatedTime(feedProvider,feeds.modified)
                         self.addFeedToDatabase(feeds,feedProvider.rss_category)
                     # Noticing permanent redirects
                     elif int(feeds.status)==301:

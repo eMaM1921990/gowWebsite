@@ -50,7 +50,7 @@ class Feed(admin.ModelAdmin):
         return False
 
     def has_delete_permission(self, request, obj=None):
-        return False
+        return True
 
 #Adv
 class Advertise(admin.ModelAdmin):
