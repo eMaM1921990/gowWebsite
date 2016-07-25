@@ -61,6 +61,7 @@ class RssFeeds(models.Model):
     rss_image=models.CharField(max_length=255, blank=True,null=True)
     rss_hex_digit=models.CharField(max_length=50, blank=True,unique=True)
 
+
     def thumbnail(self):
         return '<img src="%s" style="width:50px;height:50px"/>' % self.rss_thumbnail
     thumbnail.allow_tags = True
