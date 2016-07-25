@@ -68,6 +68,9 @@ class RssFeeds(models.Model):
         return '<a href="%s" >%s </a>' %(self.rss_link,self.rss_title)
     feed_title.allow_tags = True
 
+    def __unicode__(self):
+        return self.rss_title
+
     class Meta:
         managed = MANAGED
         db_table = 'rss_feeds'
