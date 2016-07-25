@@ -150,5 +150,5 @@ class Feed():
 
     def get_hexdigest(self,title,url):
         m = hashlib.md5()
-        m.update(title.encode("utf-8")+url.encode("utf-8"))
+        m.update(title.decode()+url.decode())
         return m.hexdigest()
