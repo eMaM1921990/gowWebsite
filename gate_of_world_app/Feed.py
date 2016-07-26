@@ -149,6 +149,8 @@ class Feed():
 
 
     def get_hexdigest(self,title,url):
+        print title
+        print url
         m = hashlib.md5()
         m.update(title.decode()+url.decode())
         return m.hexdigest()
