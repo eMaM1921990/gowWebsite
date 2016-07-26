@@ -4,7 +4,7 @@
                 <div class="cube col-lg-11 nopadding">
                     <ul class="nav nav-pills nav-justified nopadding">
                         <li class="active"><a href="#tab_a" data-toggle="pill">Facebook</a></li>
-                        <li></li>
+                        <li><a href="#tab_b" data-toggle="pill">Facebook Feeds</a></li>
                         <li></li>
                     </ul>
                     <div class="tab-content col-lg-12 col-md-12 no-gutter">
@@ -14,6 +14,10 @@
 
                         </div>
 
+                        <div class="tab-pane active" id="tab_b">
+                            {% social_widget_render "facebook/activity_feed.html" locale="en_US"  site="https://www.facebook.com/gateofworld.net" action="likes, recommends" colorscheme="light" header=True height=300 linktarget="_blank" max_age=0 recommendations=True  %}
+
+                        </div>
                     </div>
                     <!-- tab content -->
                 </div>
