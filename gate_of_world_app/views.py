@@ -3,10 +3,11 @@ from django.http.response import HttpResponse
 from django.shortcuts import render, render_to_response
 # Create your views here.
 from django.template import RequestContext
+from django.views.decorators.cache import never_cache
 from django.views.decorators.csrf import csrf_exempt
 from requestHandler import *
 
-
+@never_cache
 def home(request):
     template='home.html'
     requestHandle=RequestHandler()
