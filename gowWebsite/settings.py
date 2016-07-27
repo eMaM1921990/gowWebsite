@@ -18,8 +18,12 @@ import djcelery
 djcelery.setup_loader()
 
 ## Celery config ##
-BROKER_URL = 'amqp://test:test@localhost:5672//'
-# BROKER_URL = 'django://'
+
+BROKER_PASSWORD='test'
+BROKER_USER='test'
+BROKER_HOST='localhost'
+BROKER_PORT='5672'
+BROKER_URL = 'amqp://'+BROKER_PASSWORD+':'+BROKER_USER+'@'+BROKER_HOST+':'+BROKER_PORT+'//'
 
 
 CELERY_RESULT_BACKEND = 'djcelery.backends.database:DatabaseBackend'
@@ -110,10 +114,9 @@ WSGI_APPLICATION = 'gowWebsite.wsgi.application'
 DB_USER='gate_user_'
 # DB_USER='root'
 DB_PASSWORD='Azsxdcfv@'
-# DB_PASSWORD='admin'
+# DB_PASSWORD='0122308791'
 DB_NAME='gate_'
 # DB_NAME='gate_of_world'
-
 DB_HOST='localhost'
 DB_PORT=3306
 
