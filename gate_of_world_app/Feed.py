@@ -1,5 +1,7 @@
 from datetime import datetime
 import hashlib
+import urllib
+from BeautifulSoup import BeautifulSoup
 
 __author__ = 'emam'
 from models import RssProviders,RssFeeds
@@ -61,8 +63,8 @@ class Feed():
                         record.rss_video=feed_entity['media_player']['url']
 
                     ### hexdigit
-                    # hexDigit=self.get_hexdigest(record.rss_title,record.rss_link)
-                    record.rss_hex_digit=None
+                    hexDigit=self.get_hexdigest(record.rss_title,record.rss_link)
+                    record.rss_hex_digit=hexDigit
 
                     record.save()
 
@@ -148,9 +150,10 @@ class Feed():
             logger.debug("Error delete feed with id :  ["+str(id)+"] -- cause :"+str(e),exc_info=1)
 
 
-    # def get_hexdigest(self,title,url):
-    #     print title
-    #     print url
-    #     m = hashlib.md5()
-    #     m.update(title.decode()+url.decode())
-    #     return m.hexdigest()
+    def get_hexdigest(self,title,url):
+        url=urllib.unquote(url).decode('utf8')
+        title=title.decode('utf-8')
+        m = hashlib.md5()
+        m.update(title.decode()+url.decode())
+        return m.hexdigest()
+

@@ -59,7 +59,7 @@ class RssFeeds(models.Model):
     rss_views_no=models.IntegerField(default=0)
     rss_video=models.CharField(max_length=255, blank=True,default=None,null=True)
     rss_image=models.CharField(max_length=255, blank=True,null=True)
-    rss_hex_digit=models.CharField(max_length=50, blank=True,unique=True,null=True)
+    rss_hex_digit=models.CharField(max_length=50, blank=True,unique=True)
 
 
     def thumbnail(self):
