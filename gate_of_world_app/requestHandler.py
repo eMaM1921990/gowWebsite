@@ -99,7 +99,7 @@ class RequestHandler():
 
 
     #Get news page
-    def get_news_pages(self,catId):
+    def get_sections(self,catId):
         context={}
         context['nav']=self.FeedCategory()
         context['last_three_feeds']=self.LastThreeFeeds()
@@ -143,3 +143,26 @@ class RequestHandler():
             record.save()
         except Exception as e:
             logger.debug("Error during update feeds seen -- cause :"+str(e),exc_info=1)
+
+
+
+
+    #Get latest news
+    def get_latest_news(self):
+        context={}
+        context['nav']=self.FeedCategory()
+        context['last_three_feeds']=self.LastThreeFeeds()
+        context['adv']=self.AdvBanner()
+        context['quick_news']=self.ListCurrentNews()
+        context['news_feed']=self.get_today_news()
+        return context
+
+
+
+    def get_today_news(self):
+        try:
+            feeds=RssFeeds.object.filter(rss_publish_date=datetime.date.today())
+            return feeds
+        except Exception as e:
+            logger.debug("Error getting latest news  list -- cause :"+str(e),exc_info=1)
+

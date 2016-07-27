@@ -16,11 +16,14 @@ def home(request):
 def categoryNews(request,pk):
     template='sections.html'
     requestHandle=RequestHandler()
-    context=requestHandle.get_news_pages(pk)
+    context=requestHandle.get_sections(pk)
     return render_to_response(template,context,context_instance=RequestContext(request))
 
 def latestNews(request):
-    return None
+    template='sections.html'
+    requestHandle=RequestHandler()
+    context=requestHandle.get_latest_news()
+    return render_to_response(template,context,context_instance=RequestContext(request))
 
 def details(request,pk):
     template='article.html'
