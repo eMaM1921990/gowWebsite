@@ -1,7 +1,6 @@
 from datetime import datetime
 import hashlib
 import urllib
-from BeautifulSoup import BeautifulSoup
 
 __author__ = 'emam'
 from models import RssProviders,RssFeeds
