@@ -1,0 +1,1 @@
+curl http://www.gateofworld.net/api/v1/fetchfeeds
