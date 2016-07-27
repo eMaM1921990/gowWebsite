@@ -25,7 +25,7 @@
                         </ul>
                         <p class="ls-s-1"
                            style="slidedirection : bottom; delayin : 0; slideoutdirection : bottom; durationin : 800; durationout : 400; easingin : easeOutQuart; ">
-                            {{ news.rss_description }}
+                            {{ news.rss_description | slice:":150"}}
                         </p>
 
                     </div>

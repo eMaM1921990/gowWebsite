@@ -1,3 +1,8 @@
+# encoding=utf8
+import sys
+reload(sys)
+sys.setdefaultencoding('utf8')
+
 from datetime import datetime
 import hashlib
 import urllib
@@ -23,7 +28,7 @@ class Feed():
     def addFeedToDatabase(self,feeds,feedCategoryObj):
             for feed_entity in feeds['entries']:
                 try:
-
+                    print feed_entity
                     record=RssFeeds()
                     record.rss_category=feedCategoryObj
 
@@ -58,6 +63,11 @@ class Feed():
                         for thumbnail in feed_entity['media_content']:
                             record.rss_thumbnail=thumbnail['url']
 
+                    ## overwrite
+                    if 'media_thumbnail' in feed_entity:
+                        for thumbnail in feed_entity['media_thumbnail']:
+                            record.rss_thumbnail=thumbnail['url']
+
                     if 'media_player' in feed_entity:
                         record.rss_video=feed_entity['media_player']['url']
 
@@ -88,13 +98,13 @@ class Feed():
                     print int(feeds.status)
                     # Noticing update
                     if int(feeds.status)==200:
-                        if feeds.modified:
+                        if hasattr(feeds,'modified'):
                             self.updateProviderUpdatedTime(feedProvider,feeds.modified)
                         self.addFeedToDatabase(feeds,feedProvider.rss_category)
                     # Noticing temporary redirects
                     elif int(feeds.status)==302:
                         feeds=feedparser.parse(feeds.href)
-                        if feeds.modified:
+                        if hasattr(feeds,'modified'):
                             self.updateProviderUpdatedTime(feedProvider,feeds.modified)
                         self.addFeedToDatabase(feeds,feedProvider.rss_category)
                     # Noticing permanent redirects

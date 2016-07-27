@@ -1,3 +1,4 @@
+from datetime import datetime
 __author__ = 'emam'
 from models import *
 import logging
@@ -161,11 +162,13 @@ class RequestHandler():
 
     def get_today_news(self):
         try:
-            feeds=RssFeeds.object.filter(rss_publish_date=datetime.date.today())
+            now = datetime.now().date()
+            feeds=RssFeeds.objects.filter(rss_publish_date__date__lte=now,rss_publish_date__date__gte=now)
             if feeds:
                 return feeds
             else:
-                return None
+                return []
         except Exception as e:
             logger.debug("Error getting latest news  list -- cause :"+str(e),exc_info=1)
+
 
