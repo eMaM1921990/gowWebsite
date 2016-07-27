@@ -162,7 +162,10 @@ class RequestHandler():
     def get_today_news(self):
         try:
             feeds=RssFeeds.object.filter(rss_publish_date=datetime.date.today())
-            return feeds
+            if feeds:
+                return feeds
+            else:
+                return None
         except Exception as e:
             logger.debug("Error getting latest news  list -- cause :"+str(e),exc_info=1)
 
