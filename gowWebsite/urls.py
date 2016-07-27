@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url, include, patterns
 from django.contrib import admin
-from gate_of_world_app import views
+from gate_of_world_app import views,api
 from gowWebsite import settings
 
 urlpatterns = [
@@ -26,6 +26,11 @@ urlpatterns = [
     url(r'^sections/(?P<pk>[0-9]+)/$',views.categoryNews, name='categoryNews'),
     url(r'^lastnews/',views.latestNews, name='lastnews'),
     url(r'^article/(?P<pk>[0-9]+)/$',views.details, name='news'),
+
+
+
+    ## apis
+    url(r'^api/v1/fetchfeeds/$',api.fetchFeeds, name='fecthFeeds'),
 ]
 if settings.DEBUG:
     # static files (images, css, javascript, etc.)

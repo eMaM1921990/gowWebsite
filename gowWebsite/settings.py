@@ -70,8 +70,7 @@ INSTALLED_APPS = [
     'djcelery',
     'social_widgets',
     'endless_pagination',
-    # 'lockdown',
-   # 'kombu.transport.django',# for development onlypython manage.py migrate
+    'rest_framework',
 ]
 
 MIDDLEWARE_CLASSES = [
