@@ -13,7 +13,7 @@
                             {% for news in common_news|slice:":8" %}
                             <div class="ls-s-1 col-lg-3 popular">
                                 <span><span><a href="#"><img src="{% static 'img/news-link.png' %}"></a></span>
-                                    {% if  news.rss_thumbnail != None and news.rss_thumbnail|length > 0 %}
+                                    {% if  news.rss_thumbnail != None and new.rss_thumbnail|length > 0 %}
                                         <img src="{{ news.rss_thumbnail }}">
                                     {% else %}
                                          <img src="{% static 'img/placeholder-min.jpg' %}" >
@@ -31,7 +31,7 @@
                         <div class="ls-layer nopadding"
                              style="slidedirection: right; slidedelay: 16000; durationin: 100; durationout: 2500; easingin: easeInOutQuint; easingout: easeInOutQuint; delayin: 0; delayout: 0;">
 
-                             {% for news in common_news|slice:":9:16" %}
+                             {% for news in common_news|slice:":16" %}
                             <div class="ls-s-1 col-lg-3 popular">
                                 <span><span><a href="#">
 
@@ -56,7 +56,7 @@
                         <div class="ls-layer nopadding"
                              style="slidedirection: right; slidedelay: 16000; durationin: 100; durationout: 2500; easingin: easeInOutQuint; easingout: easeInOutQuint; delayin: 0; delayout: 0;">
 
-                            {% for news in common_news|slice:":17:24" %}
+                            {% for news in common_news|slice:":24" %}
                             <div class="ls-s-1 col-lg-3 popular">
                                 <span><span><a href="#"><img src="{% static 'img/news-link.png' %}"></a></span>
                                      {% if  news.rss_thumbnail != None and news.rss_thumbnail|length > 0 %}
