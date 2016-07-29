@@ -13,3 +13,4 @@ dateutils==0.6.6
 django-social-widgets==0.4.0
 django-endless-pagination
 djangorestframework
+BeautifulSoup
