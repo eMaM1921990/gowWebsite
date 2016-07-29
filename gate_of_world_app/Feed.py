@@ -32,7 +32,6 @@ class Feed():
 
     def addFeedToDatabase(self,feeds,feedCategoryObj,Providers):
             for feed_entity in feeds['entries']:
-                print feed_entity
                 try:
                     record=RssFeeds()
                     record.rss_category=feedCategoryObj
@@ -43,13 +42,10 @@ class Feed():
                         else:
                             record.rss_description=None
 
-
-
                     if 'link' in feed_entity:
                         record.rss_link=feed_entity['link']
                     else:
                         record.rss_link=None
-
 
                     if 'title' in feed_entity:
                         record.rss_title=feed_entity['title']
@@ -90,7 +86,6 @@ class Feed():
 
                     # s=postFacebookPage(record.rss_title)
 
-                    print record.rss_thumbnail
                     record.save()
 
 
