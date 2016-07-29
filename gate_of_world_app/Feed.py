@@ -32,6 +32,7 @@ class Feed():
 
     def addFeedToDatabase(self,feeds,feedCategoryObj,Providers):
             for feed_entity in feeds['entries']:
+                print feed_entity
                 try:
                     record=RssFeeds()
                     record.rss_category=feedCategoryObj
@@ -71,6 +72,8 @@ class Feed():
                         print 'media thumbnail'
                         for thumbnail in feed_entity['media_thumbnail']:
                             record.rss_thumbnail=thumbnail['url']
+                    elif 'href' in feed_entity:
+                        record.rss_thumbnail=feed_entity['href']
                     else:
                         record.rss_thumbnail=None
 
