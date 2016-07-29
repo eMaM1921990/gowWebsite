@@ -9,14 +9,17 @@
 {#					<li><i class="fa fa-comments" aria-hidden="true"></i> 1348 تعليق</li>#}
                     <li><i class="fa fa-eye" aria-hidden="true"></i> {{ article_feeds.rss_views_no }} مشاهدة</li>
                 </ul>
+            <br><br>
 				<p>
 
-                    {% if article_feeds.rss_description %}
-                       <br><br> {{ article_feeds.rss_description }}
-                        <br><br> <a href="{{ article_feeds.rss_link }}" target="_blank">للمزيد اضغط هنا</a>
-                    {% else %}
-                        <br><br> <a href="{{ article_feeds.rss_link }}" target="_blank">للمزيد اضغط هنا</a>
-                    {% endif %}
+                    {{ article_feeds.rss_full_article|safe }}
+
+{#                    {% if article_feeds.rss_description %}#}
+{#                       <br><br> {{ article_feeds.rss_description }}#}
+{#                        <br><br> <a href="{{ article_feeds.rss_link }}" target="_blank">للمزيد اضغط هنا</a>#}
+{#                    {% else %}#}
+{#                        <br><br> <a href="{{ article_feeds.rss_link }}" target="_blank">للمزيد اضغط هنا</a>#}
+{#                    {% endif %}#}
                 </p>
 
                 {% if  article_feeds.rss_video%}

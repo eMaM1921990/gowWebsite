@@ -60,6 +60,7 @@ class RssFeeds(models.Model):
     rss_video=models.CharField(max_length=255, blank=True,default=None,null=True)
     rss_image=models.CharField(max_length=255, blank=True,null=True)
     rss_hex_digit=models.CharField(max_length=50, blank=True,unique=True)
+    rss_full_article=models.TextField()
 
 
     def thumbnail(self):
@@ -101,6 +102,7 @@ class RssProviders(models.Model):
 class Adv(models.Model):
     position = models.CharField(unique=True, max_length=45,choices=[('1','One'),('2','Two'),('3','Three'),('4','Four'),('5','Five')])
     url=models.ImageField(upload_to=settings.ADV_URL)
+    adv_url = models.CharField(unique=True, max_length=255)
 
     def adv_image(self):
         return '<img src="%s" />' % self.url.url

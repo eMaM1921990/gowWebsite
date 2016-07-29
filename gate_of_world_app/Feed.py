@@ -2,7 +2,7 @@
 import re
 import sys
 import urllib2
-from BeautifulSoup import BeautifulSoup
+from bs4 import BeautifulSoup
 
 reload(sys)
 sys.setdefaultencoding('utf8')
@@ -82,8 +82,8 @@ class Feed():
 
                     ## Parse HTML
                     # print Providers
-                    # self.ParseHTML(record.rss_link,record.rss_description,Providers.rss_parent_tag,Providers.rss_child_tag,Providers.rss_child_class_tag)
-
+                    fullArticle=self.ParseHTML(record.rss_link,record.rss_description,Providers.rss_parent_tag,Providers.rss_child_tag,Providers.rss_child_class_tag)
+                    record.rss_full_article=fullArticle
                     # s=postFacebookPage(record.rss_title)
 
                     record.save()
@@ -179,23 +179,14 @@ class Feed():
 
 
 
-    # def ParseHTML(self,url,desc,Tag,Tag2,classTag):
-    #
-    #
-    #     fullText=''
-    #     url=urllib.unquote(url).decode('utf8')
-    #     soup = BeautifulSoup(urllib2.urlopen(url).read())
-    #     # retrieve all of the paragraph tags
-    #     if Tag:
-    #         paragraphs = soup.find(Tag).find(Tag2, {'class': classTag}).find_all('p')
-    #     else:
-    #         paragraphs = soup.findAll({'class': 'story-body__inner'}).find_all('p')
-    #     print classTag
-    #     print len(paragraphs)
-    #     for paragraph in paragraphs:
-    #         print paragraph.string
-    #         fullText=fullText+paragraph.string
-    #     print fullText
-    #     return fullText
+    def ParseHTML(self,url,desc,Tag,Tag2,classTag):
+        url=urllib.unquote(url).decode('utf8')
+        print url
+        soup = BeautifulSoup(urllib2.urlopen(url).read(),"html.parser")
+        # retrieve all of the paragraph tags
+        paragraphs = soup.find_all(Tag2,{'class': classTag})
+        # for p in paragraphs:
+        #     print p.text
+        return unicode(paragraphs[0]).encode('utf-8')
 
 
