@@ -1,6 +1,4 @@
 {% load staticfiles %}
-
-
 <div class="col-lg-8 pull-right nopadding">
     <div class="cube col-lg-12 nopadding">
         <div class="col-lg-12" style="background-color:#666;color:#fff;border-top:4px solid #fd4a29;"><h4>
@@ -12,7 +10,15 @@
                     <div class="ls-layer"
                          style="slidedirection: right; slidedelay: 16000; durationin: 100; durationout: 2500; easingin: easeInOutQuint; easingout: easeInOutQuint; delayin: 0; delayout: 0;">
 
-                        <div class="ls-s-1 col-lg-12 nopadding img-wrapper"><img src="{{ news.rss_thumbnail }}"></div>
+                        <div class="ls-s-1 col-lg-12 nopadding img-wrapper">
+
+
+                            {% if  news.rss_thumbnail != None and news.rss_thumbnail|length > 0 %}
+                                <img src="{{ news.rss_thumbnail }}">
+                            {% else %}
+                                <img src="{% static 'img/placeholder_setion_min.png' %}">
+                            {% endif %}
+                        </div>
                         <h3 class="ls-s-1"
                             style="slidedirection : bottom; delayin : 0; slideoutdirection : bottom; durationin : 400; durationout : 600; easingin : easeOutQuart; ">
                                 <a href="{% url 'news' news.id %}">{{ news.rss_title }}</a></h3>
