@@ -41,8 +41,7 @@ class Feed():
                             record.rss_description=feed_entity['summary']
                         else:
                             record.rss_description=None
-                    else:
-                        record.rss_description=None
+
 
 
                     if 'link' in feed_entity:
@@ -65,7 +64,6 @@ class Feed():
 
                     if 'media_content' in feed_entity:
                         for thumbnail in feed_entity['media_content']:
-                            print thumbnail['url']
                             record.rss_thumbnail=thumbnail['url']
                     #
                     # ## overwrite
@@ -89,6 +87,7 @@ class Feed():
 
                     # s=postFacebookPage(record.rss_title)
 
+                    print record.rss_thumbnail
                     record.save()
 
 
