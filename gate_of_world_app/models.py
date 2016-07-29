@@ -89,6 +89,7 @@ class RssProviders(models.Model):
     rss_parent_tag=models.CharField(max_length=10,null=True,blank=True)
     rss_child_tag=models.CharField(max_length=10,null=True,blank=True)
     rss_child_class_tag=models.CharField(max_length=50,null=True,blank=True)
+    rss_img_class=models.CharField(max_length=50,null=True,blank=True)
 
 
     class Meta:
