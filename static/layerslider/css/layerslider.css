@@ -592,6 +592,7 @@ body * .ls-container img,
 	box-shadow: none;
 	border: 0px;
 	padding: 0px;
+	width: 43%;
 }
 
 html * .ls-wp-container .ls-layer > *,
