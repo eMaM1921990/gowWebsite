@@ -7,12 +7,11 @@
 
             <div id="layerslider" class="nopadding hero-news-card">
                 {% for news in slider %}
-                    <div class="ls-layer"
-                         style="slidedirection: right; slidedelay: 16000; durationin: 100; durationout: 2500; easingin: easeInOutQuint; easingout: easeInOutQuint; delayin: 0; delayout: 0;">
+                    <div class="ls-layer"  style="slidedirection: right; slidedelay: 16000; durationin: 100; durationout: 2500; easingin: easeInOutQuint; easingout: easeInOutQuint; delayin: 0; delayout: 0;">
 
                         <div class="ls-s-1 col-lg-12 nopadding img-wrapper">
 
-
+{#                            <img src="{{ news.rss_thumbnail }}">#}
                             {% if  news.rss_thumbnail != None and news.rss_thumbnail|length > 0 %}
                                 <img src="{{ news.rss_thumbnail }}">
                             {% else %}
@@ -29,9 +28,8 @@
 {#                            <li><i class="fa fa-comments" aria-hidden="true"></i> 1348 تعليق</li>#}
                             <li><i class="fa fa-eye" aria-hidden="true"></i> {{ news.rss_views_no }} مشاهدة</li>
                         </ul>
-                        <p class="ls-s-1"
-                           style="slidedirection : bottom; delayin : 0; slideoutdirection : bottom; durationin : 800; durationout : 400; easingin : easeOutQuart; ">
-                            {{ news.rss_description | slice:":150"}}
+                        <p class="ls-s-1"   style="slidedirection : bottom; delayin : 0; slideoutdirection : bottom; durationin : 800; durationout : 400; easingin : easeOutQuart; ">
+                            {{ news.rss_description | slice:":150"|safe}}
                         </p>
 
                     </div>
