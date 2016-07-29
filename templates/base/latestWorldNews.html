@@ -24,7 +24,7 @@
 {#                                <li><i class="fa fa-comments" aria-hidden="true"></i> 1348 تعليق</li>#}
                                 <li><i class="fa fa-eye" aria-hidden="true"></i> {{ news.rss_views_no }} مشاهدة</li>
                             </ul>
-                            <p>{{ news.rss_description|slice:":150"}}</p>
+                            <p>{{ news.rss_description|slice:":150" |safe}}</p>
 
                             <div class="col-lg-12 nopadding news-card">
                                 <ul class="news-data more">
