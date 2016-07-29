@@ -82,7 +82,6 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-        # 'lockdown.middleware.LockdownMiddleware',
 
 ]
 
@@ -233,7 +232,7 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
 
-MEDIA_BASE='/home/emam/'
+MEDIA_BASE=BASE_DIR
 MEDIA_ROOT = os.path.join(MEDIA_BASE, 'media')
 MEDIA_URL = '/media/'
 ADV_URL='adv/'
@@ -251,3 +250,10 @@ GRAPPELLI_ADMIN_TITLE='Gate of world - Admin panel'
 #Endless pagination
 ENDLESS_PAGINATION_PREVIOUS_LABEL='Previous'
 ENDLESS_PAGINATION_NEXT_LABEL='Next'
+
+#FACEBOOK APP
+FB_APP_ID='203148250087468'
+FB_APP_SECRET='f70e99e1aa3966a9cd8d6d0b4be8f434'
+FB__PAGE_ACCESS_TOKEN='203148250087468|y62OHfDtEgOG3bePvzbRYRjlYF4'
+FB_ACCESS_TOKEN='EAAC4wyNIgCwBAIkQnXRaYfZCxxrLZBrttlGAevLEUnrVwOZBRmENHL1A7NUHp3IAWItaH4ZAmNvZAR54paZAZBLJ7K5vKXWZAPZBX5toWpy7Nc2PNCs3Wkec1myZBOK7psMkpSoEDcf6k0ZBqFpmnyeuo4bHeo7xo8HHgZCzVkz7BN3aEwZDZD'
+FB_PAGE_ID='163649380440031'

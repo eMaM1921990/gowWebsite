@@ -19,7 +19,7 @@ class RSSCategory(admin.ModelAdmin):
 
 #RSS Provider
 class RSSProviders(admin.ModelAdmin):
-    fields = ['rss_url', 'rss_is_active','rss_category','rss_add_at']
+    fields = ['rss_url', 'rss_is_active','rss_category','rss_add_at','rss_parent_tag','rss_child_tag','rss_child_class_tag']
     list_display = ('id', 'rss_url', 'rss_is_active','rss_category','rss_last_call')
     list_per_page = 10
     list_filter = ( 'rss_category',)

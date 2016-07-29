@@ -1,5 +1,9 @@
 # encoding=utf8
+import re
 import sys
+import urllib2
+from BeautifulSoup import BeautifulSoup
+
 reload(sys)
 sys.setdefaultencoding('utf8')
 
@@ -12,6 +16,7 @@ from models import RssProviders,RssFeeds
 import feedparser
 import dateutil.parser
 import logging
+from social import *
 logger = logging.getLogger(__name__)
 
 class Feed():
@@ -25,10 +30,9 @@ class Feed():
             return None
 
 
-    def addFeedToDatabase(self,feeds,feedCategoryObj):
+    def addFeedToDatabase(self,feeds,feedCategoryObj,Providers):
             for feed_entity in feeds['entries']:
                 try:
-                    print feed_entity
                     record=RssFeeds()
                     record.rss_category=feedCategoryObj
 
@@ -75,10 +79,18 @@ class Feed():
                     hexDigit=self.get_hexdigest(record.rss_title,record.rss_link)
                     record.rss_hex_digit=hexDigit
 
+                    ## Parse HTML
+                    # print Providers
+                    self.ParseHTML(record.rss_link,record.rss_description,Providers.rss_parent_tag,Providers.rss_child_tag,Providers.rss_child_class_tag)
+
+                    # s=postFacebookPage(record.rss_title)
+
                     record.save()
 
+
+
                 except Exception as e:
-                    print "Error save feed -- cause :"+str(e)
+                    print str(e)
                     logger.debug("Error save feed -- cause :"+str(e),exc_info=1)
 
 
@@ -95,23 +107,22 @@ class Feed():
                     else:
                         feeds=feedparser.parse(feedProvider.rss_url,modified=feedProvider.rss_last_call)
 
-                    print int(feeds.status)
                     # Noticing update
                     if int(feeds.status)==200:
                         if hasattr(feeds,'modified'):
                             self.updateProviderUpdatedTime(feedProvider,feeds.modified)
-                        self.addFeedToDatabase(feeds,feedProvider.rss_category)
+                        self.addFeedToDatabase(feeds,feedProvider.rss_category,feedProvider)
                     # Noticing temporary redirects
                     elif int(feeds.status)==302:
                         feeds=feedparser.parse(feeds.href)
                         if hasattr(feeds,'modified'):
                             self.updateProviderUpdatedTime(feedProvider,feeds.modified)
-                        self.addFeedToDatabase(feeds,feedProvider.rss_category)
+                        self.addFeedToDatabase(feeds,feedProvider.rss_category,feedProvider)
                     # Noticing permanent redirects
                     elif int(feeds.status)==301:
                         feeds=feedparser.parse(feeds.href)
                         self.updateProviderUpdatedTime(feedProvider,feeds.modified)
-                        self.addFeedToDatabase(feeds,feedProvider.rss_category)
+                        self.addFeedToDatabase(feeds,feedProvider.rss_category,feedProvider)
                         self.markRssFeedIsPermenantRedirect(feedProvider.id,feeds.href)
                     # notice Gone
                     elif int(feeds.status)==410:
@@ -135,7 +146,6 @@ class Feed():
 
     def updateProviderUpdatedTime(self,feedProvider,lastModified):
         try:
-            print lastModified
             feedProvider.rss_last_call=dateutil.parser.parse(lastModified)
             feedProvider.save()
         except Exception as e:
@@ -165,4 +175,26 @@ class Feed():
         m = hashlib.md5()
         m.update(title.decode()+url.decode())
         return m.hexdigest()
+
+
+
+    # def ParseHTML(self,url,desc,Tag,Tag2,classTag):
+    #
+    #
+    #     fullText=''
+    #     url=urllib.unquote(url).decode('utf8')
+    #     soup = BeautifulSoup(urllib2.urlopen(url).read())
+    #     # retrieve all of the paragraph tags
+    #     if Tag:
+    #         paragraphs = soup.find(Tag).find(Tag2, {'class': classTag}).find_all('p')
+    #     else:
+    #         paragraphs = soup.findAll({'class': 'story-body__inner'}).find_all('p')
+    #     print classTag
+    #     print len(paragraphs)
+    #     for paragraph in paragraphs:
+    #         print paragraph.string
+    #         fullText=fullText+paragraph.string
+    #     print fullText
+    #     return fullText
+
 

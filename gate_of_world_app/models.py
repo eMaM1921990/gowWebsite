@@ -86,6 +86,10 @@ class RssProviders(models.Model):
     rss_category = models.ForeignKey(RssCategories, db_column='rss_category')
     rss_add_at = models.DateTimeField(blank=True, null=True)
     rss_last_call = models.DateTimeField(blank=True, null=True)
+    rss_parent_tag=models.CharField(max_length=10,null=True,blank=True)
+    rss_child_tag=models.CharField(max_length=10,null=True,blank=True)
+    rss_child_class_tag=models.CharField(max_length=50,null=True,blank=True)
+
 
     class Meta:
         managed = MANAGED
