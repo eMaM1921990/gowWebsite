@@ -1,0 +1,12 @@
+{% load staticfiles%}
+<div class="col-lg-8">
+{% for adv in adv %}
+        {% if adv.position == '1' %}
+            {% if adv.url.url %}
+            <img src="{{ adv.url.url }}" style="margin:30px 0;width:100%;height:auto;">
+                {% else %}
+                <img src="{% static 'img/adv1.png' %}" style="margin:30px 0;width:100%;height:auto;">
+                {% endif %}
+        {% endif %}
+{% endfor %}
+</div>
