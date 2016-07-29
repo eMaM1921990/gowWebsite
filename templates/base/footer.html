@@ -34,7 +34,7 @@
             </div>
             <div class="col-lg-4 pull-right">
                 <ul class="f-links">
-                   {% for nav in nav|slice:"8:11" %}
+                   {% for nav in nav|slice:"8:10" %}
                         {% if nav.rss_show_in_footer %}
                             <li><a href="{% url 'categoryNews' nav.rss_slug  %}">{{ nav.rss_category }}</a></li>
                         {% endif %}
