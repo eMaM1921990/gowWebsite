@@ -81,7 +81,7 @@ class Feed():
 
                     ## Parse HTML
                     # print Providers
-                    self.ParseHTML(record.rss_link,record.rss_description,Providers.rss_parent_tag,Providers.rss_child_tag,Providers.rss_child_class_tag)
+                    # self.ParseHTML(record.rss_link,record.rss_description,Providers.rss_parent_tag,Providers.rss_child_tag,Providers.rss_child_class_tag)
 
                     # s=postFacebookPage(record.rss_title)
 
