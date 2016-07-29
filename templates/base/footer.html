@@ -34,8 +34,11 @@
             </div>
             <div class="col-lg-4 pull-right">
                 <ul class="f-links">
-                    <li><a href="#">ثقافة و فنون</a></li>
-                    <li><a href="#">علوم و تكنولوجي</a></li>
+                   {% for nav in nav|slice:"8:11" %}
+                        {% if nav.rss_show_in_footer %}
+                            <li><a href="{% url 'categoryNews' nav.rss_slug  %}">{{ nav.rss_category }}</a></li>
+                        {% endif %}
+                    {% endfor %}
                     <li><a href="#">شكاوى الناس</a></li>
                     <li><a href="#">اتصل بنا</a></li>
                 </ul>
