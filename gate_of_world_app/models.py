@@ -120,6 +120,11 @@ class Adv(models.Model):
             self.url= InMemoryUploadedFile(output,'ImageField', "%s.jpg" %self.url.name.split('.')[0], 'image/jpeg', output.len, None)
         super(Adv, self).save(*args, **kwargs)
 
+
+    def __unicode__(self):
+        return self.adv_url
+
+
     class Meta:
         managed = MANAGED
         db_table = 'adv'
