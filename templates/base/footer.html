@@ -13,10 +13,14 @@
         <div class="col-lg-8">
             <div class="col-lg-4 pull-right">
                 <ul class="f-links">
-                    <li><a href="#">الرئيسية</a></li>
-                    <li><a href="#">سياسية</a></li>
-                    <li><a href="#">محلية</a></li>
-                    <li><a href="#">عربية و دولية</a></li>
+                    <li><a href="/">الرئيسية</a></li>
+                    {% for nav in nav|slice:":3" %}
+                        {% if nav.rss_show_in_footer %}
+                            <li><a href="{% url 'categoryNews' nav.rss_slug  %}">{{ nav.rss_category }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+
+
                 </ul>
             </div>
             <div class="col-lg-4 pull-right">
