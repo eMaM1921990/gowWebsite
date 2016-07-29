@@ -68,9 +68,11 @@ class Feed():
                             record.rss_thumbnail=thumbnail['url']
 
                     ## overwrite
-                    if 'media_thumbnail' in feed_entity:
+                    elif 'media_thumbnail' in feed_entity:
                         for thumbnail in feed_entity['media_thumbnail']:
                             record.rss_thumbnail=thumbnail['url']
+                    else:
+                        record.rss_thumbnail=None
 
                     if 'media_player' in feed_entity:
                         record.rss_video=feed_entity['media_player']['url']
