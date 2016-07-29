@@ -11,12 +11,12 @@
 
                         <div class="ls-s-1 col-lg-12 nopadding img-wrapper">
 
-                            <img src="{{ news.rss_thumbnail }}">
-{#                            {% if  news.rss_thumbnail != None and news.rss_thumbnail|length > 0 %}#}
-{#                                <img src="{{ news.rss_thumbnail }}">#}
-{#                            {% else %}#}
-{#                                <img src="{% static 'img/articleplaceholder.jpg' %}">#}
-{#                            {% endif %}#}
+{#                            <img src="{{ news.rss_thumbnail }}">#}
+                            {% if  news.rss_thumbnail != None and news.rss_thumbnail|length > 0 %}
+                                <img src="{{ news.rss_thumbnail }}">
+                            {% else %}
+                                <img src="{% static 'img/articleplaceholder.jpg' %}">
+                            {% endif %}
                         </div>
                         <h3 class="ls-s-1"
                             style="slidedirection : bottom; delayin : 0; slideoutdirection : bottom; durationin : 400; durationout : 600; easingin : easeOutQuart; ">
@@ -29,7 +29,7 @@
                             <li><i class="fa fa-eye" aria-hidden="true"></i> {{ news.rss_views_no }} مشاهدة</li>
                         </ul>
                         <p class="ls-s-1"   style="slidedirection : bottom; delayin : 0; slideoutdirection : bottom; durationin : 800; durationout : 400; easingin : easeOutQuart; ">
-                            {{ news.rss_description | slice:":150"}}
+                            {{ news.rss_description | slice:":150"|safe}}
                         </p>
 
                     </div>
