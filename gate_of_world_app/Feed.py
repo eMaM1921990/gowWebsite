@@ -64,8 +64,8 @@ class Feed():
 
 
                     if 'media_content' in feed_entity:
-                        print 'media content'
                         for thumbnail in feed_entity['media_content']:
+                            print thumbnail['url']
                             record.rss_thumbnail=thumbnail['url']
 
                     ## overwrite
