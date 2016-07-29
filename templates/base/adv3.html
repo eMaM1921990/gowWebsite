@@ -5,7 +5,10 @@
                 {% if adv %}
                     {% for adv in adv %}
                         {% if adv.position == '3' %}
+                            <a href="{{ adv.adv_url }}" target="_blank">
                                 <img src="{{ adv.url.url }}" style="width:100%;height:auto;">
+                            </a>
+
 
                         {% endif %}
                     {% endfor %}
