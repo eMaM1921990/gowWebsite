@@ -13,12 +13,12 @@
                                 <div class="col-lg-3 pull-right nopadding">
                                     <span><a href="#"><img src="{% static 'img/news-link-sm.png' %}"></a></span>
                                     {% if  new.rss_thumbnail != None and new.rss_thumbnail|length > 0 %}
-                                        <img src="{{ news.rss_thumbnail }}"></div>
+                                        <img src="{{ news.rss_thumbnail }}">
                                     {% else %}
                                         <img src="{% static 'img/homePlaceholder.gif' %}">
                                     {% endif %}
 
-
+                                </div>
                                 <div class="col-lg-9 pull-right no-gutter-left">
                                     <p><a href="#">{{ news.rss_title }}</a></p>
                                     <ul class="news-data no-gutter-right">
@@ -43,4 +43,4 @@
                     <!-- tab content -->
                 </div>
                 <div class="col-lg-1 nopadding"></div>
-            </div>
+</div>
