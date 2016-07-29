@@ -25,10 +25,11 @@
             </div>
             <div class="col-lg-4 pull-right">
                 <ul class="f-links">
-                    <li><a href="#">آراء</a></li>
-                    <li><a href="#">تقارير و دراسات</a></li>
-                    <li><a href="#">رياضة</a></li>
-                    <li><a href="#">اقتصاد</a></li>
+                   {% for nav in nav|slice:"4:7" %}
+                        {% if nav.rss_show_in_footer %}
+                            <li><a href="{% url 'categoryNews' nav.rss_slug  %}">{{ nav.rss_category }}</a></li>
+                        {% endif %}
+                    {% endfor %}
                 </ul>
             </div>
             <div class="col-lg-4 pull-right">
