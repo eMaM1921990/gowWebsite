@@ -1,33 +1,20 @@
 {% load staticfiles %}
 <div class="col-lg-4 pull-right nopadding sideblock">
-                <div class="cube col-lg-11 nopadding">
-                    <div class="col-lg-12 title"><h4>ألبوم الصور</h4></div>
-                    <div id="layerslider-container2">
+    <div class="cube col-lg-11 nopadding">
+        <div class="col-lg-12 title"><h4>Forex</h4></div>
+        {% comment %}{% endcomment %}
 
-{#                        <div id="layerslider2" class="nopadding">#}
-{#                            {% for news in quick_news %}#}
-{#                            <div class="ls-layer"#}
-{#                                 style="slidedirection: right; slidedelay: 5000; durationin: 100; durationout: 2500; easingin: easeInOutQuint; easingout: easeInOutQuint; delayin: 0; delayout: 0;">#}
-{#                                <h6 class="ls-s-1" style="slidedirection : fade; delayin : 0; slideoutdirection : fade; durationin : 400; durationout : 600; easingin : easeOutQuart; ">#}
-{#                                    <a href="{% url 'news' news.id %}">{{ news.rss_title }}</a></h6>#}
-{##}
-{#                                <div style=""></div>#}
-{#                                <div class="ls-s-1 col-lg-12 nopadding img-wrapper"><img src="{{ news.rss_thumbnail }}"></div>#}
-{#                            </div>#}
-{#                            {% endfor %}#}
-{##}
-{##}
-{#                        </div>#}
-
-
-                        <script id="real-15373" type="text/javascript">var _REALAMW = _REALAMW || {}; 		_REALAMW['15373'] = {width:'270',currency:'EUR-USD;USD-JPY;GBP-USD;USD-CHF;AUD-USD;USD-CAD;NZD-USD',lang:'en',id:'15373',theme:2,shared:true};(function() {	var REALAMW = document.createElement('script'); REALAMW.type = 'text/javascript'; REALAMW.async = true; REALAMW.src = 'http://widget.realtimeforex.com/js/live-rates_client.js';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(REALAMW, s);})();</script>
-
-                    </div>
-                    <div class="col-lg-12 padding-10 news-card">
-{#                        <ul class="news-data more">#}
-{#                            <li><i class="fa fa-caret-left" aria-hidden="true"></i> <a href="#">تصفح المزيد</a></li>#}
-{#                        </ul>#}
-                    </div>
-                </div>
-                <div class="col-lg-1 nopadding"></div>
+        <!-- myfxbook.com volume widget - Start -->
+        <div>
+            <script class="powered" type="text/javascript"
+                    src="http://widgets.myfxbook.com/scripts/fxVolume.js?symbols=1,2,3,5&servers="></script>
+            <div style="color: #706f6f;font-weight: bold;font-size: 11px;font-family: Tahoma;">Powered by <a
+                    href="https://www.myfxbook.com" class="myfxbookLink"><b style="color: #575454;">Myfxbook.com</b></a>
             </div>
+            <script type="text/javascript">showVolumeWidget()</script>
+        </div>
+        <!-- myfxbook.com volume widget - End -->
+
+    </div>
+    <div class="col-lg-1 nopadding"></div>
+</div>
