@@ -1,9 +1,13 @@
 {% load staticfiles %}
 <div class="row vspace">
             <div class="col-lg-3 nomargin nopadding text-center section-block" style="background-color:#7ebb2b;">
-                <span></span><img src="{% static 'img/section1.png' %}"><h4 class="nomargin"
-                                                             style="background-color:rgba(88, 131, 30, 0.55);">صحة
-                الأسرة و الطفل</h4></div>
+                <span></span>
+                <a href="{% url 'categoryNews' 10 %}">
+                <img src="{% static 'img/section1.png' %}">
+                    </a>
+                <h4 class="nomargin" style="background-color:rgba(88, 131, 30, 0.55);">صحة
+                الأسرة و الطفل</h4>
+            </div>
             <div class="col-lg-3 nomargin nopadding text-center section-block" style="background-color:#0072bc;">
                 <span></span><img src="{% static 'img/section2.png' %}"><h4 class="nomargin"
                                                              style="background-color:rgba(30, 52, 131, 0.55);">علوم و
