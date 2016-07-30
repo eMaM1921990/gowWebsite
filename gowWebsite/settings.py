@@ -109,12 +109,12 @@ WSGI_APPLICATION = 'gowWebsite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 #Database Info
-DB_USER='gate_user_'
-# DB_USER='root'
-DB_PASSWORD='Azsxdcfv@'
-# DB_PASSWORD='admin'
-DB_NAME='gate_'
-# DB_NAME='gate_of_world'
+# DB_USER='gate_user_'
+DB_USER='root'
+# DB_PASSWORD='Azsxdcfv@'
+DB_PASSWORD='admin'
+# DB_NAME='gate_'
+DB_NAME='gate_of_world'
 DB_HOST='localhost'
 DB_PORT=3306
 
@@ -242,5 +242,5 @@ ENDLESS_PAGINATION_NEXT_LABEL='Next'
 FB_APP_ID='203148250087468'
 FB_APP_SECRET='f70e99e1aa3966a9cd8d6d0b4be8f434'
 FB__PAGE_ACCESS_TOKEN='203148250087468|y62OHfDtEgOG3bePvzbRYRjlYF4'
-FB_ACCESS_TOKEN='EAAC4wyNIgCwBAIkQnXRaYfZCxxrLZBrttlGAevLEUnrVwOZBRmENHL1A7NUHp3IAWItaH4ZAmNvZAR54paZAZBLJ7K5vKXWZAPZBX5toWpy7Nc2PNCs3Wkec1myZBOK7psMkpSoEDcf6k0ZBqFpmnyeuo4bHeo7xo8HHgZCzVkz7BN3aEwZDZD'
+FB_ACCESS_TOKEN='EAAC4wyNIgCwBAAd2lGSwzUXqZBZCIok8ZA2SyLRnYbrdKYJjkgA8rNtMuH8CqinwTeESF917q9Cy4PJzuZBCQZCyfri9HKyApmHXupQCtez4fZBPwlvagFeZCcUHMvtFKePcBNaoC33EgbqslhrbuLY2mZAoX1TMze1RbUZCZCQv3VPwZDZD'
 FB_PAGE_ID='163649380440031'
