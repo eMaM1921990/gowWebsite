@@ -1,5 +1,7 @@
 {% load staticfiles %}
 {% load social_widgets %}
+
+
 <div class="col-lg-12 pull-right nopadding">
 			<div class="news-article">
 
@@ -7,8 +9,10 @@
 
                 {% if  article_feeds.rss_thumbnail != None and article_feeds.rss_thumbnail|length > 0 %}
                     <img src="{{ article_feeds.rss_thumbnail }}">
+                    <meta property="og:image" content="{{ article_feeds.rss_thumbnail }}"/>
                 {% else %}
                     <img src="{% static 'img/articleplaceholder.jpg' %}">
+                    <meta property="og:image" content="{% static 'img/articleplaceholder.jpg' %}"/>
                 {% endif %}
 
             </div>
