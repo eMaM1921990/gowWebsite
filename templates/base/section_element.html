@@ -7,7 +7,7 @@
                             <span><a href="#"><img src="{% static 'img/news-link.png' %}"></a></span>
 
 
-                             {% if  news.rss_thumbnail != None and news.rss_thumbnail|length > 0 %}
+                             {% if  news.rss_thumbnail != None %}
                                         <img src="{{ news.rss_thumbnail }}" style="width:auto;height:100%;min-height:150px;">
                                     {% else %}
                                          <img src="{% static 'img/placeholder_setion_min.png' %}" >

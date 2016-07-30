@@ -16,7 +16,7 @@
                     </a>
                 </span>
 
-                 {% if  new.rss_thumbnail != None and new.rss_thumbnail|length > 0 %}
+                 {% if  new.rss_thumbnail != None  %}
                         <img src="{{ new.rss_thumbnail }}">
                     {% else %}
                         <img src="{% static 'img/homePlaceholder.gif' %}">

@@ -7,7 +7,7 @@
 
 			<div class="col-lg-12 nopadding img-wrapper">
 
-                {% if  article_feeds.rss_thumbnail != None and article_feeds.rss_thumbnail|length > 0 %}
+                {% if  article_feeds.rss_thumbnail != None  %}
                     <img src="{{ article_feeds.rss_thumbnail }}">
                     <meta property="og:image" content="{{ article_feeds.rss_thumbnail }}"/>
                 {% else %}
