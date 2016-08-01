@@ -33,9 +33,7 @@ __author__ = 'emam'
 def postFacebookPage(post):
     try:
         access_token=settings.FB_LONG_TERM_ACCESS_TOKEN
-        print access_token
         graph = facebook.GraphAPI(access_token)
         x=graph.put_object(settings.FB_PAGE_ID, "feed", message=post)
-        print x
     except Exception as e:
         print str(e)

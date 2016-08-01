@@ -185,7 +185,6 @@ class Feed():
 
     def ParseHTML(self,url,desc,Tag,Tag2,classTag):
         url=urllib.unquote(url).decode('utf8')
-        print url
         soup = BeautifulSoup(urllib2.urlopen(url).read(),"html.parser")
         # retrieve all of the paragraph tags
         paragraphs = soup.find_all(Tag2,{'class': classTag})
