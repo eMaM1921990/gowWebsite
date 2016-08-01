@@ -170,3 +170,24 @@ class RequestHandler():
             return []
 
 
+    def get_videos_news(self):
+        context={}
+        context['nav']=self.FeedCategory()
+        context['last_three_feeds']=self.LastThreeFeeds()
+        context['adv']=self.AdvBanner()
+        context['quick_news']=self.ListCurrentNews()
+        context['news_feed']=self.get_list_of_videos()
+        return context
+
+
+    def get_list_of_videos(self):
+        try:
+            feeds=RssFeeds.objects.filter().exclude(rss_video__isnull=True)
+            return feeds
+
+        except Exception as e:
+            return []
+            logger.debug("Error getting videos  list -- cause :"+str(e),exc_info=1)
+
+
+

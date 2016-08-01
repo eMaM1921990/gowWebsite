@@ -25,6 +25,7 @@ urlpatterns = [
     url(r'^$', views.home),
     url(r'^sections/(?P<pk>[0-9]+)/$',views.categoryNews, name='categoryNews'),
     url(r'^lastnews/',views.latestNews, name='lastnews'),
+    url(r'^videos/',views.latestNews, name='videos'),
     url(r'^article/(?P<pk>[0-9]+)/$',views.details, name='news'),
 
 

@@ -40,3 +40,10 @@ def getMarqueUpdates(request):
      news_object=requestHandle.ListCurrentNews()
      data=serializers.serialize("json",news_object)
      return HttpResponse(data)
+
+@never_cache
+def videos_new(request):
+    template='sections.html'
+    requestHandle=RequestHandler()
+    context=requestHandle.get_videos_news()
+    return render_to_response(template,context,context_instance=RequestContext(request))
