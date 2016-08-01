@@ -14,18 +14,20 @@ def home(request):
     context=requestHandle.get_main_content()
     return render_to_response(template,context,context_instance=RequestContext(request))
 
+@never_cache
 def categoryNews(request,pk):
     template='sections.html'
     requestHandle=RequestHandler()
     context=requestHandle.get_sections(pk)
     return render_to_response(template,context,context_instance=RequestContext(request))
 
+@never_cache
 def latestNews(request):
     template='sections.html'
     requestHandle=RequestHandler()
     context=requestHandle.get_latest_news()
     return render_to_response(template,context,context_instance=RequestContext(request))
-
+@never_cache
 def details(request,pk):
     template='article.html'
     requestHandle=RequestHandler()
