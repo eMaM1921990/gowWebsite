@@ -85,10 +85,11 @@ class Feed():
                     fullArticle=self.ParseHTML(record.rss_link,record.rss_description,Providers.rss_parent_tag,Providers.rss_child_tag,Providers.rss_child_class_tag)
                     record.rss_full_article=fullArticle
 
-                    # try:
-                    #     postFacebookPage(record.rss_title)
-                    # except Exception as e:
-                    #     logger.debug("publish facebook :"+str(e),exc_info=1)
+                    try:
+                        postFacebookPage(record.rss_title)
+                    except Exception as e:
+                        logger.debug("publish facebook :"+str(e),exc_info=1)
+
                     record.save()
 
 
