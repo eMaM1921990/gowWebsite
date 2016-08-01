@@ -162,8 +162,8 @@ class RequestHandler():
 
     def get_today_news(self):
         try:
-            now = datetime.now().date()
-            feeds=RssFeeds.objects.filter(rss_publish_date__date__gte=now-timedelta(days=1))
+            now=datetime.date.today()-timedelta(days=1)
+            feeds=RssFeeds.objects.filter(rss_publish_date__date__gte=now)
             print feeds.query
             if feeds:
                 return feeds
