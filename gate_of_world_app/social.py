@@ -3,6 +3,9 @@ import urlparse
 from django.conf import settings
 import facebook
 import subprocess
+import json
+import requests
+
 
 __author__ = 'emam'
 
@@ -30,10 +33,16 @@ __author__ = 'emam'
 #
 
 
-def postFacebookPage(post):
+def short_url(url):
+    post_url = 'https://www.googleapis.com/urlshortener/v1/url?key='+settings.API_KEY
+    params = json.dumps({'longUrl': url})
+    response = requests.post(post_url,params,headers={'Content-Type': 'application/json'})
+    return response.json()['id']
+
+def postFacebookPage(post,post_id):
     try:
         access_token=settings.FB_LONG_TERM_ACCESS_TOKEN
         graph = facebook.GraphAPI(access_token)
-        x=graph.put_object(settings.FB_PAGE_ID, "feed", message=post)
+        x=graph.put_object(settings.FB_PAGE_ID, "feed", message=post+short_url(settings.site_name+str(post_id))+settings.hash_tag)
     except Exception as e:
         print str(e)
