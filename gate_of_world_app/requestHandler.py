@@ -183,6 +183,7 @@ class RequestHandler():
     def get_list_of_videos(self):
         try:
             feeds=RssFeeds.objects.filter().exclude(rss_video__isnull=True)
+            print feeds.query
             return feeds
 
         except Exception as e:
