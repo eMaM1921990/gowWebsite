@@ -1,6 +1,6 @@
 __author__ = 'emam'
 from models import *
-from datetime import datetime as dt, timedelta
+import datetime ,timedelta
 import logging
 logger = logging.getLogger(__name__)
 
@@ -163,7 +163,7 @@ class RequestHandler():
     def get_today_news(self):
         try:
 
-            enddate=dt.date.today()
+            enddate=datetime.date.today()
             feeds=RssFeeds.objects.filter(rss_publish_date__gte=enddate)
             print feeds.query
             if feeds:
