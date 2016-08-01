@@ -252,7 +252,7 @@ FB_LONG_TERM_ACCESS_TOKEN='EAALv7jM41FEBAFK469IRfLf2sT3LPEiNDtMcGKszKNZB0b3bnfxM
 API_KEY='AIzaSyD_O88gGv8hcrYbMH10MeD43DhQBDbeJi0'
 
 #Hash Tag
-hash_tag='#بوابة_العالم'
+hash_tag=unicode('#بوابة_العالم').encode('utf-8')
 
 #HostName
 site_name="http://gateofworld.net/article/"
