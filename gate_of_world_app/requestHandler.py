@@ -163,6 +163,7 @@ class RequestHandler():
     def get_today_news(self):
         try:
             now=datetime.date.today()-timedelta(days=1)
+            print now
             feeds=RssFeeds.objects.filter(rss_publish_date__gte=now)
             print feeds.query
             if feeds:
@@ -170,6 +171,8 @@ class RequestHandler():
             else:
                 return []
         except Exception as e:
+            print str(e)
             logger.debug("Error getting latest news  list -- cause :"+str(e),exc_info=1)
+            return []
 
 
