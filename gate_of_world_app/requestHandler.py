@@ -182,7 +182,7 @@ class RequestHandler():
 
     def get_list_of_videos(self):
         try:
-            feeds=RssFeeds.objects.filter().exclude(rss_video__isnull=False)
+            feeds=RssFeeds.objects.all().exclude(rss_video__isnull=False)
             print feeds.query
             return feeds
 
