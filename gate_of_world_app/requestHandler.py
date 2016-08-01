@@ -1,6 +1,6 @@
 __author__ = 'emam'
 from models import *
-import datetime ,timedelta
+import datetime
 import logging
 logger = logging.getLogger(__name__)
 
