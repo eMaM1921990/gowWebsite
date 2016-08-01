@@ -12,7 +12,7 @@
                                     {% else %}
                                          <img src="{% static 'img/placeholder_setion_min.png' %}" >
                                     {% endif %}
-                        </div>
+                        </div>اى
                         <div class="col-lg-9">
                             <h4><a href="{% url 'news' news.id %}">{{ news.rss_title }}</a></h4>
                             <ul class="news-data">
@@ -21,8 +21,9 @@
 {#                                <li><i class="fa fa-comments" aria-hidden="true"></i> 1348 تعليق</li>#}
                                 <li><i class="fa fa-eye" aria-hidden="true"></i> {{ news.rss_views_no }} مشاهدة</li>
                             </ul>
-                            <p>{{ news.rss_description |slice:":100"|safe}}</p>
-
+                            {% if news.rss_description %}
+                            <p>{{ news.rss_description |slice:":100"|safe}} </p>
+                           {% endif %}
 
                         </div>
                     </div>
