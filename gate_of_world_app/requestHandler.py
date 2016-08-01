@@ -182,11 +182,12 @@ class RequestHandler():
 
     def get_list_of_videos(self):
         try:
-            feeds=RssFeeds.objects.filter().exclude(rss_video__isnull=True)
+            feeds=RssFeeds.objects.filter().exclude(rss_video__isnull=False)
             print feeds.query
             return feeds
 
         except Exception as e:
+            print str(e)
             return []
             logger.debug("Error getting videos  list -- cause :"+str(e),exc_info=1)
 
