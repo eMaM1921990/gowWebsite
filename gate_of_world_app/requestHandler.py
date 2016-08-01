@@ -163,7 +163,7 @@ class RequestHandler():
     def get_today_news(self):
         try:
 
-            enddate=datetime.date.today()
+            enddate=dt.date.today()
             feeds=RssFeeds.objects.filter(rss_publish_date__gte=enddate)
             print feeds.query
             if feeds:
