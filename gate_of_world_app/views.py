@@ -43,7 +43,7 @@ def getMarqueUpdates(request):
 
 @never_cache
 def videos_new(request):
-    template='sections.html'
+    template='videos.html'
     requestHandle=RequestHandler()
     context=requestHandle.get_videos_news()
     return render_to_response(template,context,context_instance=RequestContext(request))
