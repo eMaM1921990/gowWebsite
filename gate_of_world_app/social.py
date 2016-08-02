@@ -46,3 +46,11 @@ def postFacebookPage(post,post_id):
         x=graph.put_object(settings.FB_PAGE_ID, "feed", message=post+short_url(settings.site_name+str(post_id))+settings.hash_tag)
     except Exception as e:
         print str(e)
+
+
+def postTweeter():
+      auth = tweepy.OAuthHandler(cfg['consumer_key'], cfg['consumer_secret'])
+      auth.set_access_token(cfg['access_token'], cfg['access_token_secret'])
+      api=tweepy.API(auth)
+      tweet = "Hello, world!"
+      api.update_with_media(image_path, tweet)

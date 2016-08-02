@@ -15,3 +15,4 @@ django-endless-pagination
 djangorestframework
 BeautifulSoup
 facebook-sdk
+tweepy
