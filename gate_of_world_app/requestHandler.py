@@ -57,7 +57,7 @@ class RequestHandler():
 
     def ListOfPolitical(self):
         try:
-            exeQuery=RssFeeds.objects.filter(rss_category__rss_is_political_news=True,rss_category__rss_is_active=True).exclude(rss_description__isnull=True.exclude(rss_thumbnail__isnull=True))[:3]
+            exeQuery=RssFeeds.objects.filter(rss_category__rss_is_political_news=True,rss_category__rss_is_active=True).exclude(rss_description__isnull=True).exclude(rss_thumbnail__isnull=True)[:3]
             return exeQuery
         except Exception as e:
             logger.debug("Error getting political news  list -- cause :"+str(e),exc_info=1)
