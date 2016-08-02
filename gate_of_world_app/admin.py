@@ -31,12 +31,12 @@ class RSSProviders(admin.ModelAdmin):
 
 #RSS FEED
 class Feed(admin.ModelAdmin):
-    fields = ('thumbnail','feed_title','rss_link','rss_description','rss_category')
+    fields = ('thumbnail','feed_title','rss_link','rss_description','rss_category','rss_views_no','rss_video','rss_full_article',)
     list_display = ('thumbnail','feed_title','rss_publish_date','rss_category')
     list_per_page = 10
     list_filter = ( 'rss_category',)
     search_fields = ('id', 'rss_link', 'rss_title','rss_publish_date')
-    readonly_fields = ('thumbnail','feed_title','rss_link','rss_description','rss_category',)
+    readonly_fields = ('thumbnail','feed_title','rss_link','rss_description','rss_category','rss_views_no','rss_video','rss_full_article',)
     formfield_overrides = {
         models.TextField: {'widget': Textarea(
                            attrs={'rows': 10,
