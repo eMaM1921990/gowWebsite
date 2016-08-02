@@ -44,7 +44,7 @@ def postFacebookPage(post,post_id):
     try:
         access_token=settings.FB_LONG_TERM_ACCESS_TOKEN
         graph = facebook.GraphAPI(access_token)
-        x=graph.put_object(settings.FB_PAGE_ID, "feed", message=post+short_url(settings.site_name+str(post_id))+settings.hash_tag)
+        x=graph.put_object(settings.FB_PAGE_ID, "feed", message=post+' '+settings.hash_tag)
     except Exception as e:
         print str(e)
 

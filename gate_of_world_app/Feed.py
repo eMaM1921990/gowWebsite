@@ -93,6 +93,11 @@ class Feed():
                         except Exception as e:
                             logger.debug("publish facebook :"+str(e),exc_info=1)
 
+                        try:
+                            postTweeter(record.rss_title,None)
+                        except Exception as e:
+                            logger.debug("publish twitter :"+str(e),exc_info=1)
+
 
                 except Exception as e:
                     print str(e)
