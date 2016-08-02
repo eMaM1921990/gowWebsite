@@ -5,6 +5,7 @@ import facebook
 import subprocess
 import json
 import requests
+import tweepy
 
 
 __author__ = 'emam'
@@ -48,9 +49,8 @@ def postFacebookPage(post,post_id):
         print str(e)
 
 
-def postTweeter():
-      auth = tweepy.OAuthHandler(cfg['consumer_key'], cfg['consumer_secret'])
-      auth.set_access_token(cfg['access_token'], cfg['access_token_secret'])
+def postTweeter(post,post_id,img):
+      auth = tweepy.OAuthHandler(settings.consumer_key, settings.consumer_secret)
+      auth.set_access_token(settings.access_token, settings.access_token_secret)
       api=tweepy.API(auth)
-      tweet = "Hello, world!"
-      api.update_with_media(image_path, tweet)
+      api.update_with_media(img, post)
