@@ -71,7 +71,7 @@ class RequestHandler():
 
     def ListOfCommonNews(self):
         try:
-            exeQuery=RssFeeds.objects.filter(rss_category__rss_is_world_common_news=True,rss_category__rss_is_active=True).order_by('-rss_views_no')[:24]
+            exeQuery=RssFeeds.objects.filter(rss_category__rss_is_world_common_news=True,rss_category__rss_is_active=True).exclude(rss_thumbnail__isnull=True)[:24]
             return  exeQuery
         except Exception as e:
             logger.debug("Error getting last common news  list -- cause :"+str(e),exc_info=1)
