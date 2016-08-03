@@ -89,12 +89,12 @@ class Feed():
                     ## post incase feeds is saved
                     if record.id:
                         try:
-                            postFacebookPage(record.rss_title,record.id)
+                            postFacebookPage(record.rss_title,record.id,record.rss_thumbnail)
                         except Exception as e:
                             logger.debug("publish facebook :"+str(e),exc_info=1)
 
                         try:
-                            postTweeter(record.rss_title,None)
+                            postTweeter(record.rss_title,record.id,record.rss_thumbnail)
                         except Exception as e:
                             logger.debug("publish twitter :"+str(e),exc_info=1)
 

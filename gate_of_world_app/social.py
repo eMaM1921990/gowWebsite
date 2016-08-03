@@ -1,8 +1,5 @@
-import urllib
-import urlparse
 from django.conf import settings
 import facebook
-import subprocess
 import json
 import requests
 import tweepy
@@ -40,17 +37,47 @@ def short_url(url):
     response = requests.post(post_url,params,headers={'Content-Type': 'application/json'})
     return response.json()['id']
 
-def postFacebookPage(post,post_id):
+def postFacebookPage(post,post_id,img_url):
     try:
         access_token=settings.FB_LONG_TERM_ACCESS_TOKEN
         graph = facebook.GraphAPI(access_token)
-        x=graph.put_object(settings.FB_PAGE_ID, "feed", message=post+' '+settings.hash_tag)
+        #upload image first
+        img=img_url if img_url else settings.DEFAULT_IMG
+        shortUrl=short_url(settings.SITE_NAME+str(post_id))
+        graph.put_object(settings.FB_PAGE_ID,"photos",message=post+"\n"+shortUrl+"\n"+settings.HASH_TAG,url=img)
+
+        # attachment =  {}
+        # # attachment['name']='Link name'
+        # attachment['link']='www.gateofworld.net'
+        # # attachment['caption']='Check out this example'
+        # # attachment['description']='This is a longer description of the attachment'
+        # attachment['picture']='http://cache.albayan.com/polopoly_fs/1.2690215.1470235195!/image/628069473.jpg_gen/derivatives/rectangular_320/628069473.jpg'
+        # # graph.put_wall_post(settings.FB_PAGE_ID,message='Check this out...', attachment=attachment)
+        # # x=graph.put_object(settings.FB_PAGE_I D, "feed", message=post+"\n"+settings.HASH_TAG,picture='http://cache.albayan.com/polopoly_fs/1.2690215.1470235195!/image/628069473.jpg_gen/derivatives/rectangular_320/628069473.jpg')
+        # graph.put_wall_post(profile_id=settings.FB_PAGE_ID,message=post+"\n"+settings.HASH_TAG, object_attachment=return_json)
+
     except Exception as e:
         print str(e)
 
 
-def postTweeter(post,post_id,img):
-      auth = tweepy.OAuthHandler(settings.consumer_key, settings.consumer_secret)
-      auth.set_access_token(settings.access_token, settings.access_token_secret)
-      api=tweepy.API(auth)
-      api.update_with_media(img, post)
+def postTweeter(post,post_id,img_url):
+      try:
+          auth = tweepy.OAuthHandler(settings.CONSUMER_KEY, settings.CONSUMER_SECRET)
+          auth.set_access_token(settings.ACCESS_TOKEN, settings.ACCESS_TOKEN_SECRET)
+          api=tweepy.API(auth)
+          img=img_url if img_url else settings.DEFAULT_IMG
+          shortUrl=short_url(settings.SITE_NAME+str(post_id))
+          filename = 'temp.jpg'
+          request = requests.get(img, stream=True)
+          if request.status_code == 200:
+                with open(filename, 'wb') as image:
+                    for chunk in request:
+                        image.write(chunk)
+          api.update_with_media(filename,post+"\n"+shortUrl+"\n"+settings.HASH_TAG)
+          # api.update_status('tweepy + oauth!')
+
+
+      except Exception as e:
+          print str(e)
+
+

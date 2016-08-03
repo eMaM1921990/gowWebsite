@@ -248,16 +248,18 @@ FB_PAGE_ID='163649380440031'
 FB_LONG_TERM_ACCESS_TOKEN='EAALv7jM41FEBAFK469IRfLf2sT3LPEiNDtMcGKszKNZB0b3bnfxMIts4kpZAXZATVAgYpBoZBOsHB05N2hO9xZChBT3XNTcD1Hg2cZBQDcXwM1qZCP6bNY6ZAFcDGI99B7EOV95y17p8lhGFKPARD9pOKMgjkAajaLMZD'
 
 #Twiiter
-consumer_key='cG3xwCrfTUlotE869Us4v7txI'
-consumer_secret='aFRTgIzEbSPtE0tGDkYj61wqmEDESSaCZbUDaACLCf7PH2nwfO'
-access_token='2363066922-BbcVjotUCfdB8PW0GjOWQmPzF6HOW01OV9XQghB'
-access_token_secret='iZxpTzY7KRhiX4LYhfVCsFHjWF37O1FSfdq24C0HDxhcl'
+CONSUMER_KEY='zxEMYN5cTc1wHzHn6lVX7ixjw'
+CONSUMER_SECRET='GUvKfrcBMd3jUbcxWmbaUrPRFjUcj2ZYvgf42AFD0tHxslb91R'
+ACCESS_TOKEN='4354865956-IqjursWRRCvMs2Jm9uL0UoyConWHmRUu91Uhfpx'
+ACCESS_TOKEN_SECRET='KPkR4IIXZXnmEdgJdOkH0Nm4j17ydaoU4zRDA8x4E73d4'
 
 #Shorter URL
-API_KEY='AIzaSyD_O88gGv8hcrYbMH10MeD43DhQBDbeJi0'
+API_KEY='AIzaSyCLGQJkB39FCPJehRJvflmIWuCKYetb9ts'
 
 #Hash Tag
-hash_tag='#بوابة_العالم'
+HASH_TAG='#بوابة_العالم'
 
 #HostName
-site_name="http://gateofworld.net/article/"
+SITE_NAME="http://gateofworld.net/article/"
+
+DEFAULT_IMG='http://gateofworld.net/static/img/articleplaceholder.jpg'
