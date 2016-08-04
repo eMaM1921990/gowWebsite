@@ -58,7 +58,8 @@ class RequestHandler():
     def ListOfPolitical(self,context):
         try:
             excludedIDs=self.get_id_from_context(context)
-            exeQuery=RssFeeds.objects.filter(rss_category__rss_is_political_news=True,rss_category__rss_is_active=True).exclude(rss_thumbnail__isnull=True).exclude(rss_description__isnull=True,id__in=excludedIDs)[:3]
+            exeQuery=RssFeeds.objects.filter(rss_category__rss_is_political_news=True,rss_category__rss_is_active=True).exclude(rss_thumbnail__isnull=True,rss_description__isnull=True)[:3]
+            print exeQuery.query
             return exeQuery
         except Exception as e:
             logger.debug("Error getting political news  list -- cause :"+str(e),exc_info=1)
@@ -66,7 +67,7 @@ class RequestHandler():
     def ListOfLocalNews(self,context):
         try:
             excludedIDs=self.get_id_from_context(context)
-            exeQuery=RssFeeds.objects.filter(rss_category__rss_is_local_news=True,rss_category__rss_is_active=True).exclude(rss_description__isnull=True).exclude(rss_thumbnail__isnull=True,id__in=excludedIDs)[:3]
+            exeQuery=RssFeeds.objects.filter(rss_category__rss_is_local_news=True,rss_category__rss_is_active=True).exclude(rss_description__isnull=True).exclude(rss_thumbnail__isnull=True)[:3]
             return exeQuery
         except Exception as e:
             logger.debug("Error getting  local news  list -- cause :"+str(e),exc_info=1)
@@ -106,6 +107,7 @@ class RequestHandler():
         dict=[]
         for i in context:
             dict.append(i['id'])
+        print len(dict)
         return dict
 
 
