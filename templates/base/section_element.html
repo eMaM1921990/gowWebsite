@@ -22,7 +22,7 @@
                                 <li><i class="fa fa-eye" aria-hidden="true"></i> {{ news.rss_views_no }} مشاهدة</li>
                             </ul>
                             {% if news.rss_description %}
-                            <p>{{ news.rss_description |slice:":100"|safe}} </p>
+                            <p>{{ news.rss_description |slice:":100"|striptags}} </p>
                            {% endif %}
 
                         </div>

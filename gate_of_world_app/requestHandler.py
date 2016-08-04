@@ -16,8 +16,8 @@ class RequestHandler():
         context['slider']=self.ListOfSuggestedFees()
         context['adv']=self.AdvBanner()
         context['world_new']=self.ListOfWorldNews()
-        context['political_news']=self.ListOfPolitical()
-        context['local_news']=self.ListOfLocalNews()
+        context['political_news']=self.ListOfPolitical(context['world_new'])
+        context['local_news']=self.ListOfLocalNews(context['political_news'])
         context['common_news']=self.ListOfCommonNews()
         context['quick_news']=self.ListCurrentNews()
         context['video']=self.get_video()
@@ -55,16 +55,18 @@ class RequestHandler():
         except Exception as e:
             logger.debug("Error getting last word news  list -- cause :"+str(e),exc_info=1)
 
-    def ListOfPolitical(self):
+    def ListOfPolitical(self,context):
         try:
-            exeQuery=RssFeeds.objects.filter(rss_category__rss_is_political_news=True,rss_category__rss_is_active=True).exclude(rss_thumbnail__isnull=True).exclude(rss_description__isnull=True)[:3]
+            excludedIDs=self.get_id_from_context(context)
+            exeQuery=RssFeeds.objects.filter(rss_category__rss_is_political_news=True,rss_category__rss_is_active=True).exclude(rss_thumbnail__isnull=True).exclude(rss_description__isnull=True,id__in=excludedIDs)[:3]
             return exeQuery
         except Exception as e:
             logger.debug("Error getting political news  list -- cause :"+str(e),exc_info=1)
 
-    def ListOfLocalNews(self):
+    def ListOfLocalNews(self,context):
         try:
-            exeQuery=RssFeeds.objects.filter(rss_category__rss_is_local_news=True,rss_category__rss_is_active=True).exclude(rss_description__isnull=True).exclude(rss_thumbnail__isnull=True)[:3]
+            excludedIDs=self.get_id_from_context(context)
+            exeQuery=RssFeeds.objects.filter(rss_category__rss_is_local_news=True,rss_category__rss_is_active=True).exclude(rss_description__isnull=True).exclude(rss_thumbnail__isnull=True,id__in=excludedIDs)[:3]
             return exeQuery
         except Exception as e:
             logger.debug("Error getting  local news  list -- cause :"+str(e),exc_info=1)
@@ -97,6 +99,14 @@ class RequestHandler():
             return exeQuery
         except Exception as e:
             logger.debug("Error getting video -- cause :"+str(e),exc_info=1)
+
+
+
+    def get_id_from_context(self,context):
+        dict=[]
+        for i in context:
+            dict.append(i['id'])
+        return dict
 
 
     #Get news page
