@@ -52,6 +52,9 @@ def videos_new(request):
 @never_cache
 def contect_us(request):
     myForm=ContactForm()
+    if request.POST:
+        if myForm.is_valid():
+            myForm.sendMail()
     requestHandle=RequestHandler()
     context=requestHandle.get_contact_page()
     context['form']=myForm

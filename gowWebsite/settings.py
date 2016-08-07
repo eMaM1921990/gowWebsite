@@ -271,4 +271,5 @@ EMAIL_SUBJECT='Request'
 DEFAULT_FROM_EMAIL = 'social@gateofworld.net'
 EMAIL_HOST_USER = 'social@gateofworld.net'
 EMAIL_HOST_PASSWORD = 'PCG8p^?_CSOR'
-EMAIL_TO='admin@adlebanon.com'
+EMAIL_TO='eMaM151987@gmail.com'
+# admin@adlebanon.com
