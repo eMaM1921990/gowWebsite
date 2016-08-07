@@ -27,6 +27,7 @@ urlpatterns = [
     url(r'^lastnews/',views.latestNews, name='lastnews'),
     url(r'^videos/',views.latestNews, name='videos'),
     url(r'^article/(?P<pk>[0-9]+)/$',views.details, name='news'),
+    url(r'^contactus/$',views.contect_us, name='contactus'),
 
 
 

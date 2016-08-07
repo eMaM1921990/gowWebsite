@@ -39,8 +39,8 @@
                             <li><a href="{% url 'categoryNews' nav.rss_slug  %}">{{ nav.rss_category }}</a></li>
                         {% endif %}
                     {% endfor %}
-                    <li><a href="#">شكاوى الناس</a></li>
-                    <li><a href="#">اتصل بنا</a></li>
+                    <li><a href="{% url 'contactus' %}">شكاوى الناس</a></li>
+                    <li><a href="{% url 'contactus' %}">اتصل بنا</a></li>
                 </ul>
             </div>
 
@@ -58,11 +58,11 @@
             </ul>
 
             <ul class="col-lg-6 pull-right">
-                <li><a href="#">سياسة النشر</a></li>
-                <li><a href="#">حقوق النشر</a></li>
-                <li><a href="#">الإعلانات</a></li>
-                <li><a href="#">عن الموقع</a></li>
-                <li><a href="#">نسخة الموبايل</a></li>
+                <li><a href="{% url 'contactus' %}">سياسة النشر</a></li>
+                <li><a href="{% url 'contactus' %}">حقوق النشر</a></li>
+                <li><a href="{% url 'contactus' %}">الإعلانات</a></li>
+                <li><a href="{% url 'contactus' %}">عن الموقع</a></li>
+                <li><a href="{% url 'contactus' %}">نسخة الموبايل</a></li>
             </ul>
             <img class="goup" src="{% static 'img/go-up.png' %}">
         </div>

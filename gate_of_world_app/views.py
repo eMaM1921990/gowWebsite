@@ -5,6 +5,7 @@ from django.shortcuts import render, render_to_response
 from django.template import RequestContext
 from django.views.decorators.cache import never_cache
 from django.views.decorators.csrf import csrf_exempt
+from forms import ContactForm
 from requestHandler import *
 
 @never_cache
@@ -46,4 +47,12 @@ def videos_new(request):
     template='videos.html'
     requestHandle=RequestHandler()
     context=requestHandle.get_videos_news()
+    return render_to_response(template,context,context_instance=RequestContext(request))
+
+
+def contect_us(request):
+    context={}
+    myForm=ContactForm()
+    context['form']=myForm
+    template="contactus.html"
     return render_to_response(template,context,context_instance=RequestContext(request))

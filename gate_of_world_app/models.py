@@ -49,9 +49,9 @@ class RssCategories(models.Model):
 
 
 class RssFeeds(models.Model):
-    rss_link = models.CharField(max_length=255, blank=True)
-    rss_title = models.CharField(max_length=255, blank=True)
-    rss_description = models.CharField(max_length=255, blank=True,null=True)
+    rss_link = models.CharField(max_length=400, blank=True)
+    rss_title = models.CharField(max_length=400, blank=True)
+    rss_description = models.CharField(max_length=400, blank=True,null=True)
     rss_thumbnail = models.CharField(max_length=255, blank=True,null=True)
     rss_publish_date = models.DateTimeField(blank=True, null=True)
     rss_category = models.ForeignKey(RssCategories, db_column='rss_category', blank=True, null=True)
