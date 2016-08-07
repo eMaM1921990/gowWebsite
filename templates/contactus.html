@@ -6,48 +6,61 @@
 
 {% include 'base/navigationMenu.html' %}
 
-	<div class="row page-content nopadding nomargin">
+<div class="row page-content nopadding nomargin">
     <!-- Page Content -->
     <div class="container">
-	<div class="row">
-        {% include 'base/marque.html' %}
-    </div>
         <div class="row">
-			<div class="col-lg-8 pull-right nopadding">
-                <form class="form-contact" action="" method="POST">
-                    {% csrf_token %}
+            {% include 'base/marque.html' %}
+        </div>
+        <div class="row">
+            <div class="col-lg-8 pull-right nopadding">
+                <form class="form-horizontal" action="" method="POST">
+                    <fieldset>
+                        {% csrf_token %}
 
-                    <div class="form-group">
-                      <label class="col-md-4 control-label" for="textinput">{{ form.first_name.label }}</label>
-                      <div class="col-md-4">
-                        {{ form.first_name }}
-                      </div>
-                    </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="textinput">{{ form.first_name.label }}</label>
 
-                    <div class="form-group">
-                      <label class="col-md-4 control-label" for="textinput">{{ form.last_name.label }}</label>
-                      <div class="col-md-4">
-                        {{ form.last_name }}
-                      </div>
-                    </div>
-{#                    {{ form.as_p }}#}
-                    <input type="submit" value="Submit"  class="btn btn-primary">
+                            <div class="col-md-4">
+                                {{ form.first_name }}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="textinput">{{ form.last_name.label }}</label>
+
+                            <div class="col-md-4">
+                                {{ form.last_name }}
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="selectbasic">{{ form.typeChoices.label }}</label>
+
+                            <div class="col-md-4">
+                                {{ form.typeChoices }}
+                            </div>
+                        </div>
+
+                        {#                    {{ form.as_p }}#}
+                        <input type="submit" value="Submit" class="btn btn-primary">
+                    </fieldset>
                 </form>
 
 
             </div>
-			{% include 'base/latestNewBlock.html' %}
-			
-			
-			
+            {% include 'base/latestNewBlock.html' %}
+
+
         </div>
         <!-- /.row -->
 
-		{% include 'base/adv2.html' %}
-			
-		
+        {% include 'base/adv2.html' %}
+
+
     </div>
-</div>	
+</div>
 {% include 'base/footer.html' %}
 {% include 'base/baseJS.html' %}</body>
 
