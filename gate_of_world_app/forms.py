@@ -23,7 +23,7 @@ class ContactForm(forms.Form):
     email = forms.EmailField(max_length=30, label='Email', widget=forms.TextInput(attrs={'placeholder': 'Email','class':'form-control input-md'}),
                              required=True)
     department = forms.ChoiceField(choices=typeChoices, label='Department', widget=forms.Select(attrs={'class':'form-control'}), required=True)
-    content = forms.CharField(required=True, widget=forms.Textarea)
+    content = forms.CharField(required=True, widget=forms.Textarea(attrs={'class':'form-control input-md'}))
 
     def is_valid(self):
         if hasattr(self, 'cleaned_data'):
