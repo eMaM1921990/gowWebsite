@@ -46,6 +46,5 @@ class ContactForm(forms.Form):
             message += 'Email: ' + self.cleaned_data['email'] + '\n'
             message += 'Department: ' + self.cleaned_data['department'] + '\n'
             message += 'content: ' + self.cleaned_data['content']
-            send_mail('Request From gate', message, 'confirmation@kazaorder.org', ['admin@adlebanon.com'],
-                      fail_silently=True)
+            send_mail('Request From gate', message, settings.EMAIL_HOST_USER, [settings.EMAIL_TO],fail_silently=True)
 

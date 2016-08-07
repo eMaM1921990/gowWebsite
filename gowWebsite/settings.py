@@ -258,3 +258,17 @@ HASH_TAG='#بوابة_العالم'
 SITE_NAME="http://gateofworld.net/article/"
 
 DEFAULT_IMG='http://gateofworld.net/static/img/articleplaceholder.jpg'
+
+
+
+
+## Rerporting mail
+EMAIL_HOST = "mail.gateofworld.net"
+EMAIL_PORT = 25
+EMAIL_USE_SSL = False
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_SUBJECT='Request'
+DEFAULT_FROM_EMAIL = 'social@gateofworld.net'
+EMAIL_HOST_USER = 'social@gateofworld.net'
+EMAIL_HOST_PASSWORD = 'PCG8p^?_CSOR'
+EMAIL_TO='admin@adlebanon.com'
