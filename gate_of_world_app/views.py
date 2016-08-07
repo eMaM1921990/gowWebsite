@@ -49,10 +49,12 @@ def videos_new(request):
     context=requestHandle.get_videos_news()
     return render_to_response(template,context,context_instance=RequestContext(request))
 
-
+@never_cache
 def contect_us(request):
     context={}
     myForm=ContactForm()
     context['form']=myForm
+    requestHandle=RequestHandler()
+    context=requestHandle.get_contact_page()
     template="contactus.html"
     return render_to_response(template,context,context_instance=RequestContext(request))
