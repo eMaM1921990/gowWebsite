@@ -22,7 +22,7 @@ class ContactForm(forms.Form):
                                 widget=forms.TextInput(attrs={'placeholder': 'Last name','class':'form-control input-md'}), required=True)
     email = forms.EmailField(max_length=30, label='Email', widget=forms.TextInput(attrs={'placeholder': 'Email','class':'form-control input-md'}),
                              required=True)
-    department = forms.ChoiceField(choices=typeChoices, label='Department', widget=forms.Select(), required=True)
+    department = forms.ChoiceField(choices=typeChoices, label='Department', widget=forms.Select(attrs={'class':'form-control'}), required=True)
     content = forms.CharField(required=True, widget=forms.Textarea)
 
     def is_valid(self):
