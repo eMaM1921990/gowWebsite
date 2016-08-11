@@ -67,7 +67,7 @@ def postTweeter(post,post_id,img_url):
           api=tweepy.API(auth)
           img=img_url if img_url else settings.DEFAULT_IMG
           shortUrl=short_url(settings.SITE_NAME+str(post_id))
-          filename = 'temp.jpg'
+          filename = settings.ADV_URL+'temp.jpg'
           request = requests.get(img, stream=True)
           if request.status_code == 200:
                 with open(filename, 'wb') as image:
@@ -78,6 +78,6 @@ def postTweeter(post,post_id,img_url):
 
 
       except Exception as e:
-          print str(e)
+          print 'cannot post to twitter cause '+str(e)
 
 
