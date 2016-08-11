@@ -91,16 +91,18 @@ class Feed():
                         try:
                             postFacebookPage(record.rss_title,record.id,record.rss_thumbnail)
                         except Exception as e:
+                            print "publish facebook :"+str(e)
                             logger.debug("publish facebook :"+str(e),exc_info=1)
 
                         try:
                             postTweeter(record.rss_title,record.id,record.rss_thumbnail)
                         except Exception as e:
+                            print "publish twitter :"+str(e)
                             logger.debug("publish twitter :"+str(e),exc_info=1)
 
 
                 except Exception as e:
-                    print str(e)
+                    print "Error save feed -- cause :"+str(e)
                     logger.debug("Error save feed -- cause :"+str(e),exc_info=1)
 
 
@@ -147,7 +149,7 @@ class Feed():
                         self.updateProviderUpdatedTime(feedProvider,feeds.modified)
 
                 except Exception as e:
-                    print str(e)
+                    print "Error save feed for category ["+str(feedProvider.rss_category.id)+"] -- cause :"+str(e)
                     logger.debug("Error save feed for category ["+str(feedProvider.rss_category.id)+"] -- cause :"+str(e),exc_info=1)
 
 
@@ -159,6 +161,7 @@ class Feed():
             feedProvider.rss_last_call=dateutil.parser.parse(lastModified)
             feedProvider.save()
         except Exception as e:
+            print "Error update feed ID is  ["+str(feedProvider.id)+"] -- cause :"+str(e)
             logger.debug("Error update feed ID is  ["+str(feedProvider.id)+"] -- cause :"+str(e),exc_info=1)
 
 
@@ -168,6 +171,7 @@ class Feed():
             record.rss_url=url
             record.save()
         except Exception as e:
+            print "Error update feed url is  ["+str(id)+"] -- cause :"+str(e)
             logger.debug("Error update feed url is  ["+str(id)+"] -- cause :"+str(e),exc_info=1)
 
 
@@ -176,6 +180,7 @@ class Feed():
             record=RssProviders.objects.get(id=id)
             record.delete()
         except Exception as e:
+            print "Error delete feed with id :  ["+str(id)+"] -- cause :"+str(e)
             logger.debug("Error delete feed with id :  ["+str(id)+"] -- cause :"+str(e),exc_info=1)
 
 
