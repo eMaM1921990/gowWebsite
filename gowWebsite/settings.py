@@ -161,7 +161,7 @@ LOGGING = {
         },
     },
     'handlers': {
-        'default': {
+        'file': {
             'level':'DEBUG',
             'class':'logging.handlers.RotatingFileHandler',
             'filename': 'gate_log.log',
