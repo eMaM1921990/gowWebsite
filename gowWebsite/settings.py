@@ -16,16 +16,16 @@ import os
 # Django settings for celery_test project.
 from datetime import timedelta
 import djcelery
+
 djcelery.setup_loader()
 
 ## Celery config ##
 
-BROKER_PASSWORD='guest'
-BROKER_USER='guest'
-BROKER_HOST='localhost'
-BROKER_PORT='5672'
-BROKER_URL = 'amqp://'+BROKER_PASSWORD+':'+BROKER_USER+'@'+BROKER_HOST+':'+BROKER_PORT+'//'
-
+BROKER_PASSWORD = 'guest'
+BROKER_USER = 'guest'
+BROKER_HOST = 'localhost'
+BROKER_PORT = '5672'
+BROKER_URL = 'amqp://' + BROKER_PASSWORD + ':' + BROKER_USER + '@' + BROKER_HOST + ':' + BROKER_PORT + '//'
 
 CELERY_RESULT_BACKEND = 'djcelery.backends.database:DatabaseBackend'
 CELERYBEAT_SCHEDULER = 'djcelery.schedulers.DatabaseScheduler'
@@ -42,7 +42,7 @@ CELERY_TIMEZONE = 'UTC'
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-TEMPLATE_DIR = BASE_DIR+ '/templates'
+TEMPLATE_DIR = BASE_DIR + '/templates'
 
 
 # Quick-start development settings - unsuitable for production
@@ -109,26 +109,24 @@ WSGI_APPLICATION = 'gowWebsite.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
-#Database Info
-# DB_USER='gate_user_'
-DB_USER='root'
-# DB_PASSWORD='Azsxdcfv@'
-DB_PASSWORD='admin'
-# DB_NAME='gate_'
-DB_NAME='gate_of_world'
-DB_HOST='localhost'
-DB_PORT=3306
-
-
+# Database Info
+DB_USER = 'gate_user_'
+# DB_USER='root'
+DB_PASSWORD = 'Azsxdcfv@'
+# DB_PASSWORD='admin'
+DB_NAME = 'gate_'
+# DB_NAME='gate_of_world'
+DB_HOST = 'localhost'
+DB_PORT = 3306
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME':DB_NAME,
+        'NAME': DB_NAME,
         'USER': DB_USER,
         'PASSWORD': DB_PASSWORD,
-        'HOST': DB_HOST,   # Or an IP Address that your DB is hosted on
-        'PORT':DB_PORT,
+        'HOST': DB_HOST,  # Or an IP Address that your DB is hosted on
+        'PORT': DB_PORT,
     }
 }
 
@@ -214,14 +212,14 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
 
-MEDIA_BASE=BASE_DIR
+MEDIA_BASE = BASE_DIR
 MEDIA_ROOT = os.path.join(MEDIA_BASE, 'media')
 MEDIA_URL = '/media/'
-ADV_URL='adv/'
+ADV_URL = 'adv/'
 
 
 #GRAPPELLI
-GRAPPELLI_ADMIN_TITLE='Gate of world - Admin panel'
+GRAPPELLI_ADMIN_TITLE = 'Gate of world - Admin panel'
 
 
 #Lock
@@ -230,30 +228,30 @@ GRAPPELLI_ADMIN_TITLE='Gate of world - Admin panel'
 # LOCKDOWN_FORM = 'lockdown.forms.LockdownForm'
 
 #Endless pagination
-ENDLESS_PAGINATION_PREVIOUS_LABEL='Previous'
-ENDLESS_PAGINATION_NEXT_LABEL='Next'
+ENDLESS_PAGINATION_PREVIOUS_LABEL = 'Previous'
+ENDLESS_PAGINATION_NEXT_LABEL = 'Next'
 
 #FACEBOOK APP
-FB_APP_ID='826756294038609'
-FB_APP_SECRET='cc13da2f747e5bfb2941a616d74e517f'
-FB__PAGE_ACCESS_TOKEN='203148250087468|y62OHfDtEgOG3bePvzbRYRjlYF4'
-FB_ACCESS_TOKEN='EAALv7jM41FEBAFSBaXD4gEo5f0qudxJw6F8JcYS1yW5ouOvXvZBsA3kaSfHTWP4DrOaitvqejWqe9PANglUEU6eQ8bKwbMMMBaZA4iksJElZB8Echil9kpW2ZCH2UE2ZB22dZAEVopQUiFVpgPiJPFHZAv16KupgFeZCXYGUfoeZCwQZDZD'
-FB_PAGE_ID='163649380440031'
-FB_LONG_TERM_ACCESS_TOKEN='EAALv7jM41FEBAFK469IRfLf2sT3LPEiNDtMcGKszKNZB0b3bnfxMIts4kpZAXZATVAgYpBoZBOsHB05N2hO9xZChBT3XNTcD1Hg2cZBQDcXwM1qZCP6bNY6ZAFcDGI99B7EOV95y17p8lhGFKPARD9pOKMgjkAajaLMZD'
+FB_APP_ID = '826756294038609'
+FB_APP_SECRET = 'cc13da2f747e5bfb2941a616d74e517f'
+FB__PAGE_ACCESS_TOKEN = '203148250087468|y62OHfDtEgOG3bePvzbRYRjlYF4'
+FB_ACCESS_TOKEN = 'EAALv7jM41FEBAFSBaXD4gEo5f0qudxJw6F8JcYS1yW5ouOvXvZBsA3kaSfHTWP4DrOaitvqejWqe9PANglUEU6eQ8bKwbMMMBaZA4iksJElZB8Echil9kpW2ZCH2UE2ZB22dZAEVopQUiFVpgPiJPFHZAv16KupgFeZCXYGUfoeZCwQZDZD'
+FB_PAGE_ID = '163649380440031'
+FB_LONG_TERM_ACCESS_TOKEN = 'EAALv7jM41FEBAFK469IRfLf2sT3LPEiNDtMcGKszKNZB0b3bnfxMIts4kpZAXZATVAgYpBoZBOsHB05N2hO9xZChBT3XNTcD1Hg2cZBQDcXwM1qZCP6bNY6ZAFcDGI99B7EOV95y17p8lhGFKPARD9pOKMgjkAajaLMZD'
 
 #Twiiter
-CONSUMER_KEY='brBZW6hDUEt2UXpHCEUjvXfoO'
-CONSUMER_SECRET='2QdRox3mJhKbsExPhL453dLHIbx8C55vGRNqzIjfnX1zn0Ki81'
-ACCESS_TOKEN='760943321036578816-nlanEReiJ0qxnk0VnPuwkLkaSQewgC8'
-ACCESS_TOKEN_SECRET='aq0KXEmi64rdjWnqLKDu7WJtwwsdBReTQwYyN1o2myT6u'
+CONSUMER_KEY = 'brBZW6hDUEt2UXpHCEUjvXfoO'
+CONSUMER_SECRET = '2QdRox3mJhKbsExPhL453dLHIbx8C55vGRNqzIjfnX1zn0Ki81'
+ACCESS_TOKEN = '760943321036578816-nlanEReiJ0qxnk0VnPuwkLkaSQewgC8'
+ACCESS_TOKEN_SECRET = 'aq0KXEmi64rdjWnqLKDu7WJtwwsdBReTQwYyN1o2myT6u'
 
 #Shorter URL
-API_KEY='AIzaSyCLGQJkB39FCPJehRJvflmIWuCKYetb9ts'
+API_KEY = 'AIzaSyCLGQJkB39FCPJehRJvflmIWuCKYetb9ts'
 
 #Hash Tag
-HASH_TAG='#بوابة_العالم'
+HASH_TAG = '#بوابة_العالم'
 
 #HostName
-SITE_NAME="http://gateofworld.net/article/"
+SITE_NAME = "http://gateofworld.net/article/"
 
-DEFAULT_IMG='http://gateofworld.net/static/img/articleplaceholder.jpg'
+DEFAULT_IMG = 'http://gateofworld.net/static/img/articleplaceholder.jpg'
