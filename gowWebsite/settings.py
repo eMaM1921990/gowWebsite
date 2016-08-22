@@ -152,45 +152,45 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 #Logging
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'formatters': {
-        'standard': {
-            'format': '%(asctime)s [%(levelname)s] %(name)s: %(message)s'
-        },
-    },
-    'handlers': {
-        'default': {
-            'level':'DEBUG',
-            'class':'logging.handlers.RotatingFileHandler',
-            'filename': 'gate_log.log',
-            'maxBytes': 1024*1024*5, # 5 MB
-            'backupCount': 5,
-            'formatter':'standard',
-        },
-        'request_handler': {
-            'level':'DEBUG',
-            'class':'logging.handlers.RotatingFileHandler',
-            'filename': 'gate_log_request.log',
-            'maxBytes': 1024*1024*5, # 5 MB
-            'backupCount': 5,
-            'formatter':'standard',
-        },
-    },
-    'loggers': {
-        '': {
-            'handlers': ['default'],
-            'level': 'DEBUG',
-            'propagate': True
-        },
-        'django.request': {
-            'handlers': ['request_handler'],
-            'level': 'DEBUG',
-            'propagate': False
-        },
-    }
-}
+# LOGGING = {
+#     'version': 1,
+#     'disable_existing_loggers': False,
+#     'formatters': {
+#         'standard': {
+#             'format': '%(asctime)s [%(levelname)s] %(name)s: %(message)s'
+#         },
+#     },
+#     'handlers': {
+#         'default': {
+#             'level':'DEBUG',
+#             'class':'logging.handlers.RotatingFileHandler',
+#             'filename': 'gate_log.log',
+#             'maxBytes': 1024*1024*5, # 5 MB
+#             'backupCount': 5,
+#             'formatter':'standard',
+#         },
+#         'request_handler': {
+#             'level':'DEBUG',
+#             'class':'logging.handlers.RotatingFileHandler',
+#             'filename': 'gate_log_request.log',
+#             'maxBytes': 1024*1024*5, # 5 MB
+#             'backupCount': 5,
+#             'formatter':'standard',
+#         },
+#     },
+#     'loggers': {
+#         '': {
+#             'handlers': ['default'],
+#             'level': 'DEBUG',
+#             'propagate': True
+#         },
+#         'django.request': {
+#             'handlers': ['request_handler'],
+#             'level': 'DEBUG',
+#             'propagate': False
+#         },
+#     }
+# }
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
