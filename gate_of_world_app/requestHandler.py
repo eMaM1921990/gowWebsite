@@ -205,3 +205,12 @@ class RequestHandler():
 
 
 
+
+    #Get contact page
+    def get_contact_page(self):
+        context={}
+        context['nav']=self.FeedCategory()
+        context['last_three_feeds']=self.LastThreeFeeds()
+        context['adv']=self.AdvBanner()
+        context['quick_news']=self.ListCurrentNews()
+        return context
