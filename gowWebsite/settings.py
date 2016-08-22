@@ -161,10 +161,10 @@ LOGGING = {
         },
     },
     'handlers': {
-        'file': {
+        'default': {
             'level':'DEBUG',
             'class':'logging.handlers.RotatingFileHandler',
-            'filename': 'gate_log.log',
+            'filename': '/tmp/gate_log/gate_log.log',
             'maxBytes': 1024*1024*5, # 5 MB
             'backupCount': 5,
             'formatter':'standard',
@@ -172,7 +172,7 @@ LOGGING = {
         'request_handler': {
             'level':'DEBUG',
             'class':'logging.handlers.RotatingFileHandler',
-            'filename': 'gate_log_request.log',
+            'filename': '/tmp/gate_log/gate_log_request.log',
             'maxBytes': 1024*1024*5, # 5 MB
             'backupCount': 5,
             'formatter':'standard',
