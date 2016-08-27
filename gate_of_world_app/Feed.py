@@ -53,7 +53,7 @@ class Feed():
                     record.rss_title = None
 
                 if 'published' in feed_entity:
-                    if datetime.today().date() >= dateutil.parser.parse(feed_entity['published']):
+                    if datetime.today().date() >= dateutil.parser.parse(feed_entity['published']).date():
                         record.rss_publish_date = dateutil.parser.parse(feed_entity['published'])
 
                 else:
@@ -76,18 +76,18 @@ class Feed():
                 if 'media_player' in feed_entity:
                     record.rss_video = feed_entity['media_player']['url']
 
-                ### hexdigit
+                # hex digit
                 hexDigit = self.get_hexdigest(record.rss_title, record.rss_link)
                 record.rss_hex_digit = hexDigit
 
-                ## Parse HTML
+                # Parse HTML
                 fullArticle = self.ParseHTML(record.rss_link, record.rss_description, Providers.rss_parent_tag,
                                              Providers.rss_child_tag, Providers.rss_child_class_tag)
                 record.rss_full_article = fullArticle
 
                 record.save()
 
-                ## post incase feeds is saved
+                # post in-case feeds is saved
                 if record.id:
                     try:
                         postFacebookPage(record.rss_title, record.id, record.rss_thumbnail)
