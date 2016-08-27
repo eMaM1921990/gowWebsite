@@ -73,7 +73,7 @@ def postTweeter(post,post_id,img_url):
                 with open(filename, 'wb') as image:
                     for chunk in request:
                         image.write(chunk)
-          api.update_with_media(filename,post+"\n"+shortUrl+"\n"+settings.HASH_TAG)
+          api.update_with_media(filename, post[:50]+"\n"+shortUrl+"\n"+settings.HASH_TAG)
           # api.update_status('tweepy + oauth!')
 
 
