@@ -149,7 +149,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-#Logging
+# Logging
 # LOGGING = {
 #     'version': 1,
 #     'disable_existing_loggers': False,
@@ -218,20 +218,20 @@ MEDIA_URL = '/media/'
 ADV_URL = 'adv/'
 
 
-#GRAPPELLI
+# GRAPPELLI
 GRAPPELLI_ADMIN_TITLE = 'Gate of world - Admin panel'
 
 
-#Lock
+# Lock
 # LOCKDOWN_PASSWORDS = ('password', )
 # LOCKDOWN_URL_EXCEPTIONS = (r'^/admin',)
 # LOCKDOWN_FORM = 'lockdown.forms.LockdownForm'
 
-#Endless pagination
+# Endless pagination
 ENDLESS_PAGINATION_PREVIOUS_LABEL = 'Previous'
 ENDLESS_PAGINATION_NEXT_LABEL = 'Next'
 
-#FACEBOOK APP
+# FACEBOOK APP
 FB_APP_ID = '826756294038609'
 FB_APP_SECRET = 'cc13da2f747e5bfb2941a616d74e517f'
 FB__PAGE_ACCESS_TOKEN = '203148250087468|y62OHfDtEgOG3bePvzbRYRjlYF4'
@@ -239,19 +239,19 @@ FB_ACCESS_TOKEN = 'EAALv7jM41FEBAFSBaXD4gEo5f0qudxJw6F8JcYS1yW5ouOvXvZBsA3kaSfHT
 FB_PAGE_ID = '163649380440031'
 FB_LONG_TERM_ACCESS_TOKEN = 'EAALv7jM41FEBAFK469IRfLf2sT3LPEiNDtMcGKszKNZB0b3bnfxMIts4kpZAXZATVAgYpBoZBOsHB05N2hO9xZChBT3XNTcD1Hg2cZBQDcXwM1qZCP6bNY6ZAFcDGI99B7EOV95y17p8lhGFKPARD9pOKMgjkAajaLMZD'
 
-#Twiiter
+# Twitter
 CONSUMER_KEY = 'brBZW6hDUEt2UXpHCEUjvXfoO'
 CONSUMER_SECRET = '2QdRox3mJhKbsExPhL453dLHIbx8C55vGRNqzIjfnX1zn0Ki81'
 ACCESS_TOKEN = '760943321036578816-nlanEReiJ0qxnk0VnPuwkLkaSQewgC8'
 ACCESS_TOKEN_SECRET = 'aq0KXEmi64rdjWnqLKDu7WJtwwsdBReTQwYyN1o2myT6u'
 
-#Shorter URL
+# Shorter URL
 API_KEY = 'AIzaSyCLGQJkB39FCPJehRJvflmIWuCKYetb9ts'
 
-#Hash Tag
+# Hash Tag
 HASH_TAG = '#بوابة_العالم'
 
-#HostName
+# HostName
 SITE_NAME = "http://gateofworld.net/article/"
 
 DEFAULT_IMG = 'http://gateofworld.net/static/img/articleplaceholder.jpg'
