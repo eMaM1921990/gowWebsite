@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.forms import Textarea
+from redactor.widgets import RedactorEditor
 from models import *
 # Register your models here.
 
@@ -46,8 +47,8 @@ class Feed(admin.ModelAdmin):
     readonly_fields = (
         'thumbnail','rss_views_no', )
     formfield_overrides = {
-        models.TextField: {'widget': Textarea(
-            attrs={'class': 'ckeditor'})},
+        models.TextField: {'widget':
+            RedactorEditor()},
     }
 
 
@@ -57,8 +58,6 @@ class Feed(admin.ModelAdmin):
     def has_delete_permission(self, request, obj=None):
         return True
 
-    class Media:
-        js = ('/static/js/ckeditor.js',)
 
 
 #Adv

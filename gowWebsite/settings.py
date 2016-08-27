@@ -72,6 +72,7 @@ INSTALLED_APPS = [
     'social_widgets',
     'endless_pagination',
     'rest_framework',
+    'redactor',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -255,3 +256,7 @@ HASH_TAG = '#بوابة_العالم'
 SITE_NAME = "http://gateofworld.net/article/"
 
 DEFAULT_IMG = 'http://gateofworld.net/static/img/articleplaceholder.jpg'
+
+# REDACTOR
+REDACTOR_OPTIONS = {'lang': 'en'}
+REDACTOR_UPLOAD = 'uploads/'

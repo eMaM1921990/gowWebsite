@@ -28,6 +28,7 @@ urlpatterns = [
     url(r'^videos/',views.latestNews, name='videos'),
     url(r'^article/(?P<pk>[0-9]+)/$',views.details, name='news'),
     url(r'^contactus/$',views.contect_us, name='contactus'),
+    url(r'^redactor/', include('redactor.urls')),
 
 
 

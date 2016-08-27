@@ -16,3 +16,4 @@ djangorestframework
 BeautifulSoup
 facebook-sdk
 tweepy
+django-wysiwyg-redactor
