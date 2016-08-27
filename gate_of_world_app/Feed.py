@@ -65,7 +65,6 @@ class Feed():
                 #
                 # ## overwrite
                 elif 'media_thumbnail' in feed_entity:
-                    print 'media thumbnail'
                     for thumbnail in feed_entity['media_thumbnail']:
                         record.rss_thumbnail = thumbnail['url']
                 elif 'href' in feed_entity:

@@ -44,12 +44,10 @@ class Feed(admin.ModelAdmin):
     list_filter = ( 'rss_category',)
     search_fields = ('id', 'rss_link', 'rss_title', 'rss_publish_date')
     readonly_fields = (
-        'thumbnail', )
+        'thumbnail','rss_views_no', )
     formfield_overrides = {
         models.TextField: {'widget': Textarea(
-            attrs={'rows': 10,
-                   'cols': 40,
-                   'style': 'height: 1em;'})},
+            attrs={'class': 'ckeditor'})},
     }
 
 
@@ -58,6 +56,9 @@ class Feed(admin.ModelAdmin):
 
     def has_delete_permission(self, request, obj=None):
         return True
+
+    class Media:
+        js = ('/static/js/ckeditor.js',)
 
 
 #Adv
