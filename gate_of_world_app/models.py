@@ -11,6 +11,7 @@ from __future__ import unicode_literals
 from django.core.files.uploadedfile import InMemoryUploadedFile
 from django.db import models
 from django.utils.text import slugify
+from redactor.fields import RedactorField
 from gowWebsite import settings
 from PIL import Image as Img
 import StringIO
@@ -60,8 +61,8 @@ class RssFeeds(models.Model):
     rss_video = models.CharField(max_length=255, blank=True, default=None, null=True)
     rss_image = models.CharField(max_length=255, blank=True, null=True)
     rss_hex_digit = models.CharField(max_length=50, blank=True, unique=True)
-    rss_full_article = models.TextField()
-
+    # rss_full_article = models.TextField()
+    rss_full_article = RedactorField(verbose_name=u'Full Article')
 
     def thumbnail(self):
         return '<img src="%s" style="width:50px;height:50px"/>' % self.rss_thumbnail

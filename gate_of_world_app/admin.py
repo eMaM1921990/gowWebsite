@@ -46,10 +46,10 @@ class Feed(admin.ModelAdmin):
     search_fields = ('id', 'rss_link', 'rss_title', 'rss_publish_date')
     readonly_fields = (
         'thumbnail','rss_views_no', )
-    formfield_overrides = {
-        models.TextField: {'widget':
-            RedactorEditor()},
-    }
+    # formfield_overrides = {
+    #     models.TextField: {'widget':
+    #         RedactorEditor()},
+    # }
 
 
     def has_add_permission(self, request, obj=None):
