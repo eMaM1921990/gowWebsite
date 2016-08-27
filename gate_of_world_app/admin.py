@@ -44,8 +44,7 @@ class Feed(admin.ModelAdmin):
     list_filter = ( 'rss_category',)
     search_fields = ('id', 'rss_link', 'rss_title', 'rss_publish_date')
     readonly_fields = (
-        'thumbnail', 'feed_title', 'rss_link', 'rss_description', 'rss_category', 'rss_views_no', 'rss_video',
-        'rss_full_article',)
+        'thumbnail', )
     formfield_overrides = {
         models.TextField: {'widget': Textarea(
             attrs={'rows': 10,
