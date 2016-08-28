@@ -8,6 +8,8 @@
 # Also note: You'll have to insert the output of 'django-admin.py sqlcustom [app_label]'
 # into your database.
 from __future__ import unicode_literals
+import hashlib
+from uuid import uuid4
 from django.core.files.uploadedfile import InMemoryUploadedFile
 from django.db import models
 from django.utils.text import slugify
@@ -19,6 +21,10 @@ import StringIO
 
 MANAGED = True
 
+def f():
+    d = uuid4()
+    str = d.hex
+    return str[0:16]
 
 class RssCategories(models.Model):
     rss_category = models.CharField(unique=True, max_length=225, verbose_name='Rss Category')
@@ -60,7 +66,7 @@ class RssFeeds(models.Model):
     rss_views_no = models.IntegerField(default=0)
     rss_video = models.CharField(max_length=255, blank=True, default=None, null=True)
     rss_image = models.CharField(max_length=255, blank=True, null=True)
-    rss_hex_digit = models.CharField(max_length=50, blank=True, unique=True)
+    rss_hex_digit = models.CharField(max_length=50, blank=True, unique=True, default=f)
     rss_full_article = models.TextField()
     # rss_full_article = RedactorField(verbose_name=u'Full Article')
 
@@ -76,6 +82,8 @@ class RssFeeds(models.Model):
 
     def __unicode__(self):
         return self.rss_title
+
+
 
     class Meta:
         managed = MANAGED
