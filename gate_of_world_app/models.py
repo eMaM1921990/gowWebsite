@@ -67,7 +67,7 @@ class RssFeeds(models.Model):
     rss_id = models.CharField(max_length=255, blank=True)
     rss_views_no = models.IntegerField(default=0)
     rss_video = models.CharField(max_length=255, blank=True, default=None, null=True,
-                                 help_text="Note:please add youtube video code in https://www.youtube.com/embed/<youTube video code>")
+                                 help_text="Note:please add youtube video code in https://www.youtube.com/embed/[youTube video code]")
     rss_image = models.CharField(max_length=255, blank=True, null=True)
     rss_hex_digit = models.CharField(max_length=50, blank=True, unique=True, default=f)
     rss_full_article = models.TextField()
