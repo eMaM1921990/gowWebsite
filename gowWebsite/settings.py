@@ -100,6 +100,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'gate_of_world_app.context_processors.google_analytics'
             ]
         },
     },
@@ -260,3 +261,7 @@ DEFAULT_IMG = 'http://gateofworld.net/static/img/articleplaceholder.jpg'
 # REDACTOR
 REDACTOR_OPTIONS = {'lang': 'en'}
 REDACTOR_UPLOAD = 'uploads/'
+
+# GOOGLE ANALYTICS
+GOOGLE_ANALYTICS_PROPERTY_ID = 'UA-82095126-1'
+GOOGLE_ANALYTICS_DOMAIN = 'gateofworld.net'
