@@ -1,7 +1,7 @@
 # This is an auto-generated Django model module.
 # You'll have to do the following manually to clean this up:
 # * Rearrange models' order
-#   * Make sure each model has one field with primary_key=True
+# * Make sure each model has one field with primary_key=True
 #   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
 # Feel free to rename the models, but don't rename db_table values or field names.
 #
@@ -21,10 +21,12 @@ import StringIO
 
 MANAGED = True
 
+
 def f():
     d = uuid4()
     str = d.hex
     return str[0:16]
+
 
 class RssCategories(models.Model):
     rss_category = models.CharField(unique=True, max_length=225, verbose_name='Rss Category')
@@ -64,7 +66,8 @@ class RssFeeds(models.Model):
     rss_category = models.ForeignKey(RssCategories, db_column='rss_category', blank=True, null=True)
     rss_id = models.CharField(max_length=255, blank=True)
     rss_views_no = models.IntegerField(default=0)
-    rss_video = models.CharField(max_length=255, blank=True, default=None, null=True)
+    rss_video = models.CharField(max_length=255, blank=True, default=None, null=True,
+                                 help_text="Note:please add youtube video code in https://www.youtube.com/embed/<youTube video code>")
     rss_image = models.CharField(max_length=255, blank=True, null=True)
     rss_hex_digit = models.CharField(max_length=50, blank=True, unique=True, default=f)
     rss_full_article = models.TextField()
@@ -82,7 +85,6 @@ class RssFeeds(models.Model):
 
     def __unicode__(self):
         return self.rss_title
-
 
 
     class Meta:
