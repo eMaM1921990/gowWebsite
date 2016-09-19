@@ -17,3 +17,4 @@ BeautifulSoup
 facebook-sdk
 tweepy
 django-wysiwyg-redactor
+django-advertising

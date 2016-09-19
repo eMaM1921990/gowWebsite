@@ -56,6 +56,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+USE_X_FORWARDED_HOST = True
+
+TEMPLATE_DEBUG = False
+
+
 
 # Application definition
 
@@ -68,11 +73,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'gate_of_world_app',
-    'djcelery',
     'social_widgets',
     'endless_pagination',
     'rest_framework',
-    'redactor',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -112,12 +115,12 @@ WSGI_APPLICATION = 'gowWebsite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 # Database Info
-DB_USER = 'gate_user_'
-# DB_USER='root'
-DB_PASSWORD = 'Azsxdcfv@'
-# DB_PASSWORD='admin'
-DB_NAME = 'gate_'
-# DB_NAME='gate_of_world'
+# DB_USER = 'gate_user_'
+DB_USER = 'root'
+# DB_PASSWORD = 'Azsxdcfv@'
+DB_PASSWORD = '0122308791'
+# DB_NAME = 'gate_'
+DB_NAME = 'gate_of_world'
 DB_HOST = 'localhost'
 DB_PORT = 3306
 
@@ -153,7 +156,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Logging
 # LOGGING = {
-#     'version': 1,
+# 'version': 1,
 #     'disable_existing_loggers': False,
 #     'formatters': {
 #         'standard': {
