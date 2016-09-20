@@ -4,16 +4,16 @@
 {% for news in news_feed %}
    <div class="col-lg-12 nopadding mid-news-card">
                         <div class="col-lg-3 nopadding pull-right nimage">
-{#                            <span><a href="#"><img src="{% static 'img/news-link.png' %}"></a></span>#}
-{##}
-{##}
-{#                             {% if  news.rss_thumbnail != None %}#}
-{#                                        <img src="{{ news.rss_thumbnail }}" style="width:auto;height:100%;min-height:150px;">#}
-{#                                    {% else %}#}
-{#                                         <img src="{% static 'img/placeholder_setion_min.png' %}" >#}
-{#                                    {% endif %}#}
+                            <span><a href="#"><img src="{% static 'img/news-link.png' %}"></a></span>
 
-                            <iframe src="{{ news.rss_video }}" width="355" height="200" frameborder="0"></iframe>
+
+                             {% if  news.rss_thumbnail != None %}
+                                        <img src="{{ news.rss_thumbnail }}" style="width:auto;height:100%;min-height:150px;">
+                                    {% else %}
+                                         <img src="{% static 'img/placeholder_setion_min.png' %}" >
+                                    {% endif %}
+
+{#                            <iframe src="{{ news.rss_video }}" width="355" height="200" frameborder="0"></iframe>#}
                         </div>
                         <div class="col-lg-9">
                             <h4><a href="{% url 'news' news.id %}">{{ news.rss_title }}</a></h4>
