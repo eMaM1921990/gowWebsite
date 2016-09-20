@@ -34,7 +34,7 @@
                 <li><i class="fa fa-clock-o" aria-hidden="true"></i> {{ news.rss_publish_date }}</li>
                 <li><i class="fa fa-folder-open" aria-hidden="true"></i> {{ news.rss_category.rss_category }}</li>
             </ul>
-            <p>{{ news.rss_description|slice:":150" |safe}}</p>
+            <p>{{ news.rss_description|slice:":150" |safe|striptags}}</p>
 
             <div class="col-lg-12 nopadding news-card">
                 <ul class="news-data more">
