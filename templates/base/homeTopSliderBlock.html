@@ -23,7 +23,7 @@
                                 <a href="{% url 'news' news.id %}">{{ news.rss_title }}</a></h3>
                         <ul class="ls-s-1 news-data"
                             style="slidedirection : bottom; delayin : 0; slideoutdirection : bottom; durationin : 600; durationout : 500; easingin : easeOutQuart; ">
-                            <li><i class="fa fa-clock-o" aria-hidden="true"></i> {{ news.rss_publish_date }}</li>
+                            <li><i class="fa fa-clock-o" aria-hidden="true"></i> {{ news.rss_publish_date|date:"c" }}</li>
                             <li><i class="fa fa-folder-open" aria-hidden="true"></i> {{ news.rss_category.rss_category }}</li>
 {#                            <li><i class="fa fa-comments" aria-hidden="true"></i> 1348 تعليق</li>#}
                             <li><i class="fa fa-eye" aria-hidden="true"></i> {{ news.rss_views_no }} مشاهدة</li>
