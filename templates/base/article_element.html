@@ -18,7 +18,7 @@
             </div>
                 <h3>{{ article_feeds.rss_title }}</h3>
                 <ul class="news-data no-gutter">
-                    <li><i class="fa fa-clock-o" aria-hidden="true"></i> {{ article_feeds.rss_publish_date|date:"d Y  N  "}}</li>
+                    <li><i class="fa fa-clock-o" aria-hidden="true"></i> {{ article_feeds.rss_publish_date|date:"d-N-Y"}}</li>
                     <li><i class="fa fa-folder-open" aria-hidden="true"></i> {{ article_feeds.rss_category.rss_category }}</li>
 {#					<li><i class="fa fa-comments" aria-hidden="true"></i> 1348 تعليق</li>#}
                     <li><i class="fa fa-eye" aria-hidden="true"></i> {{ article_feeds.rss_views_no }} مشاهدة</li>
