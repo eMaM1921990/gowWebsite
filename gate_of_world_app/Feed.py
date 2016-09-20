@@ -53,8 +53,8 @@ class Feed():
                     record.rss_title = None
 
                 if 'published' in feed_entity:
-                    if datetime.today().date() >= dateutil.parser.parse(feed_entity['published']).date():
-                        record.rss_publish_date = dateutil.parser.parse(feed_entity['published'])
+                    # if datetime.today().date() >= dateutil.parser.parse(feed_entity['published']).date():
+                    record.rss_publish_date = dateutil.parser.parse(feed_entity['published'])
 
                 else:
                     record.rss_publish_date = None
