@@ -22,7 +22,7 @@
                                 <div class="col-lg-9 pull-right no-gutter-left">
                                     <p><a href="{% url 'news' news.id %}">{{ news.rss_title }}</a></p>
                                     <ul class="news-data no-gutter-right">
-                                        <li><i class="fa fa-clock-o" aria-hidden="true"></i> {{ news.rss_publish_date|date:"c" }}</li>
+                                        <li><i class="fa fa-clock-o" aria-hidden="true"></i> {{ news.rss_publish_date }}</li>
                                         <li><i class="fa fa-folder-open" aria-hidden="true"></i> <a href="#">{{ news.rss_category.rss_category }}</a>
                                         </li>
                                     </ul>
