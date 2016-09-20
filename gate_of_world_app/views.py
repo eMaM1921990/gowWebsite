@@ -8,55 +8,63 @@ from django.views.decorators.csrf import csrf_exempt
 from forms import ContactForm
 from requestHandler import *
 
-@never_cache
-def home(request):
-    template='home.html'
-    requestHandle=RequestHandler()
-    context=requestHandle.get_main_content()
-    return render_to_response(template,context,context_instance=RequestContext(request))
 
 @never_cache
-def categoryNews(request,pk):
-    template='sections.html'
-    requestHandle=RequestHandler()
-    context=requestHandle.get_sections(pk)
-    return render_to_response(template,context,context_instance=RequestContext(request))
+def home(request):
+    template = 'home.html'
+    requestHandle = RequestHandler()
+    context = requestHandle.get_main_content()
+    return render_to_response(template, context, context_instance=RequestContext(request))
+
+
+@never_cache
+def categoryNews(request, pk):
+    template = 'sections.html'
+    requestHandle = RequestHandler()
+    context = requestHandle.get_sections(pk)
+    return render_to_response(template, context, context_instance=RequestContext(request))
+
 
 @never_cache
 def latestNews(request):
-    template='sections.html'
-    requestHandle=RequestHandler()
-    context=requestHandle.get_latest_news()
-    return render_to_response(template,context,context_instance=RequestContext(request))
+    template = 'sections.html'
+    requestHandle = RequestHandler()
+    context = requestHandle.get_latest_news()
+    return render_to_response(template, context, context_instance=RequestContext(request))
+
+
 @never_cache
-def details(request,pk):
-    template='article.html'
-    requestHandle=RequestHandler()
-    context=requestHandle.get_article_page(pk)
-    return render_to_response(template,context,context_instance=RequestContext(request))
+def details(request, pk):
+    template = 'article.html'
+    requestHandle = RequestHandler()
+    context = requestHandle.get_article_page(pk)
+    return render_to_response(template, context, context_instance=RequestContext(request))
+
 
 @csrf_exempt
 def getMarqueUpdates(request):
-     requestHandle=RequestHandler()
-     news_object=requestHandle.ListCurrentNews()
-     data=serializers.serialize("json",news_object)
-     return HttpResponse(data)
+    requestHandle = RequestHandler()
+    news_object = requestHandle.ListCurrentNews()
+    data = serializers.serialize("json", news_object)
+    return HttpResponse(data)
+
 
 @never_cache
 def videos_new(request):
-    template='videos.html'
-    requestHandle=RequestHandler()
-    context=requestHandle.get_videos_news()
-    return render_to_response(template,context,context_instance=RequestContext(request))
+    template = 'videos.html'
+    requestHandle = RequestHandler()
+    context = requestHandle.get_videos_news()
+    return render_to_response(template, context, context_instance=RequestContext(request))
+
 
 @never_cache
 def contect_us(request):
-    myForm=ContactForm()
+    myForm = ContactForm()
     if request.POST:
         if myForm.is_valid():
             myForm.sendMail()
-    requestHandle=RequestHandler()
-    context=requestHandle.get_contact_page()
-    context['form']=myForm
-    template="contactus.html"
-    return render_to_response(template,context,context_instance=RequestContext(request))
+    requestHandle = RequestHandler()
+    context = requestHandle.get_contact_page()
+    context['form'] = myForm
+    template = "contactus.html"
+    return render_to_response(template, context, context_instance=RequestContext(request))

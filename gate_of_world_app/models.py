@@ -2,7 +2,7 @@
 # You'll have to do the following manually to clean this up:
 # * Rearrange models' order
 # * Make sure each model has one field with primary_key=True
-#   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
+# * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
 # Feel free to rename the models, but don't rename db_table values or field names.
 #
 # Also note: You'll have to insert the output of 'django-admin.py sqlcustom [app_label]'
@@ -12,6 +12,7 @@ import hashlib
 from uuid import uuid4
 from django.core.files.uploadedfile import InMemoryUploadedFile
 from django.db import models
+from django.utils import timezone
 from django.utils.text import slugify
 from redactor.fields import RedactorField
 from gowWebsite import settings
@@ -62,7 +63,7 @@ class RssFeeds(models.Model):
     rss_title = models.CharField(max_length=400, blank=True)
     rss_description = models.CharField(max_length=400, blank=True, null=True)
     rss_thumbnail = models.CharField(max_length=255, blank=True, null=True, default=None)
-    rss_publish_date = models.DateTimeField(auto_now=True)
+    rss_publish_date = models.DateTimeField(default=timezone.now())
     rss_category = models.ForeignKey(RssCategories, db_column='rss_category', blank=True, null=True)
     rss_id = models.CharField(max_length=255, blank=True)
     rss_views_no = models.IntegerField(default=0)
@@ -85,7 +86,6 @@ class RssFeeds(models.Model):
 
     def __unicode__(self):
         return self.rss_title
-
 
     class Meta:
         managed = MANAGED
@@ -127,7 +127,7 @@ class Adv(models.Model):
         if self.url:
             img = Img.open(StringIO.StringIO(self.url.read()))
             # if img.mode != 'RGB':
-            #     img = img.convert('RGB')
+            # img = img.convert('RGB')
             # img.thumbnail((self.url.width/1,self.url.height/1), Img.ANTIALIAS)
             output = StringIO.StringIO()
             img.save(output, format='JPEG', quality=90)
