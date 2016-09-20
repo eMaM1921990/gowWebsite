@@ -30,9 +30,11 @@
                 {% social_widget_render "google/plus_share_button.html" %}
 
             <br><br>
+            {% if not  article_feeds.rss_video %}
 				<p>
                     {{ article_feeds.rss_full_article|safe }}
                 </p>
+            {% endif %}
 
                 {% if  article_feeds.rss_video %}
                     <div class="col-lg-12 nopadding img-wrapper">
