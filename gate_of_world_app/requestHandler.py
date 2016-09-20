@@ -120,7 +120,7 @@ class RequestHandler():
         return dict
 
 
-    #Get news page
+    # Get news page
     def get_sections(self, catId):
         context = {}
         context['nav'] = self.FeedCategory()
