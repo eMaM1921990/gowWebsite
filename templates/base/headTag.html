@@ -1,19 +1,26 @@
 {% load staticfiles %}
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+
     <title>بوابة العالم</title>
     <link rel="stylesheet" href="{% static 'layerslider/css/layerslider.css' %}" type="text/css">
-	<link href="https://fonts.googleapis.com/css?family=Cairo" rel="stylesheet">
+	<!--<link href="https://fonts.googleapis.com/css?family=Cairo" rel="stylesheet">-->
+    <link href="{% static 'fonts/stylesheet.css' %}" rel="stylesheet">
     <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
 	<link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet">
 	<link href="{% static 'css/style.css' %}" rel="stylesheet">
     <!-- Custom CSS -->
     <style>
-    body {font-family: 'Cairo', sans-serif;direction:rtl!important;text-align:right!important;}
+    body {
+	    font-family: 'Cairo', sans-serif!important;
+        /* padding-top: 70px;
+         Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+		direction:rtl!important;
+		text-align:right!important;
+    }
     </style>
 </head>

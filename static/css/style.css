@@ -90,7 +90,7 @@ li{list-style:none;}
 .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus{background-color:#fd4a29;}
 
 footer{background-image:url('../img/footer-bg.jpg');background-size:contain;background-position:top;background-repeat:no-repeat;margin-top:40px;min-height:160px;}
-.header-branding{background-image:url('../img/footer-bg.jpg');background-size:cover;background-position:top;background-repeat:no-repeat;margin:0;height:140px;}
+.header-branding{background-image:url('../img/footer-bg.jpg');background-size:cover;background-position:top;background-repeat:no-repeat;margin:0;/*height:140px;*/}
 footer .container{padding:30px 0;}
 footer .container .f-links{float:right;width:80%;padding-right:0;margin-right:0;}
 footer .container .f-links li{border-bottom:1px solid #a9a9a9;padding:0 0 5px;margin:10px 0;}
@@ -104,14 +104,14 @@ footer .container .f-links li a{color:#525252;}
 footer .row{background-color:#ededed;border-top:1px solid #838383;}
 .sub-footer{height: 100px;position:relative;}
 .sub-footer ul li{float:right;padding:5px;}
-.navbar:nth-child(1) ul li{float:right;padding:10px;}
+.navbar:nth-child(1) ul li{float:left;padding:5px;}
 .navbar:nth-child(1) ul li i{margin-left:5px;}
 .navbar:nth-child(1) ul li a{color:#fff;}
 .navbar:nth-child(1){min-height:40px;height: 41px;background-color:#fd4a29;color: #fff;border:none;border-radius:0;margin-bottom: 0;}
-.navbar:nth-child(1) ul:nth-child(2) li{float:left;padding:5px;}
+.navbar:nth-child(1) ul:nth-child(2) li{float:right;padding:10px;}
 .navbar:nth-child(1) ul:nth-child(2) li h4{font-size:12px;line-height:20px;}
-.sub-footer ul:nth-child(1) li:nth-child(1), .navbar:nth-child(1) ul:nth-child(2) li:nth-child(5), .navbar:nth-child(1) ul:nth-child(2) li:nth-child(6){padding:0 0 0 10px;}
-.sub-footer ul:nth-child(1) li img, .navbar:nth-child(1) ul:nth-child(2) li img{width:30px;height:auto;}
+.sub-footer ul:nth-child(1) li:nth-child(1), .navbar:nth-child(1) ul:nth-child(1) li:nth-child(5), .navbar:nth-child(1) ul:nth-child(1) li:nth-child(6){padding:0 0 0 10px;}
+.sub-footer ul:nth-child(1) li img, .navbar:nth-child(1) ul:nth-child(1) li img{width:30px;height:auto;}
 .sub-footer ul:nth-child(2) li{float:left;font-size:12px;}
 .sub-footer ul:nth-child(2) li::before{content:" - ";margin-left: 8px;}
 .sub-footer ul:nth-child(2) li:last-child::before{content:"";}
@@ -130,7 +130,422 @@ footer .row{background-color:#ededed;border-top:1px solid #838383;}
 .goup{position: absolute;bottom: 15px;left: 50%;margin-left: -28px;cursor:pointer;}
 
 
-.fb_iframe_widget, .fb_iframe_widget span, .fb_iframe_widget span iframe[style] {  width: 100% !important;  }
+
+
+
+.news-article{overflow:hidden;}
+.news-article h3{float:right;width:100%;margin:30px 0 15px;line-height: 32px;}
+.news-article ul{width:100%;float:right;margin:10px 0;}
+.news-article p{width:100%;float:right;margin:5px 0;font-size:15px;}
+
+
+
+
+
+
+
+
+
+/* Responsive Work Starts Here */
+
+
+
+
+
+
+
+
+/* 40+ inch TV */
+@media only screen and (min-width:2160px) {}
+
+
+
+/* 3X-Large desktop */
+@media only screen and (min-width:1921px)  and (max-width:2159px) {}
+
+
+
+/* 2X-Large desktop */
+@media only screen and (min-width:1601px) and (max-width:1920px){}
+
+
+
+/* X-Large desktop */
+@media only screen and (min-width:1441px) and (max-width:1600px){}
+
+
+
+
+/* Large desktop */
+@media only screen and (min-width:1365px) and (max-width:1440px){}
+
+
+/* Medium desktop */
+@media only screen and (min-width:1025px) and (max-width:1360px){}
+
+
+
+
+
+
+
+/* Small desktop & iPad/iPad mini landscape */
+@media only screen and (max-width: 1024px) {
+    
+    
+    .header-branding>.container{margin:0 auto!important;}
+    .nav>li>a {
+    padding: 8px;
+}
+    .navbar-header{
+        position:absolute;
+        left:10px;
+        bottom:0px;
+    }    
+    .hero-news-card .img-wrapper img {
+    width: 150%;
+    min-height: 200px;
+}
+        
+.hero-news-card {
+    height: 522px;
+}   
+.ls-minimal .ls-bottom-nav-wrapper {
+    top: -300px;
+}
+        .hero-news-card h3, .hero-news-card ul, .hero-news-card p {
+position:relative;
+            float:right;
+    top: 0;
+}
+        .news-card {
+    padding:8px!important;
+}
+        .hero-news-card h3 {
+    width: 95%;
+    font-size: 20px;
+    line-height: 26px;
+    margin-bottom: 10px;
+}
+.news-data li {
+    font-size: 12px;
+    margin: 3px 0px 3px 20px;
+}
+.news-data.more{margin-bottom: 5px;} 
+#layerslider2 .ls-nav-next {
+    right: 200px;}    
+ .mid-news-card .more li:nth-child(1) {
+    width: 25%;
+    margin-left: 0;
+}   
+.mid-news-card .more li:nth-child(2) {
+    width: 75%;
+    margin-left: 0;
+}
+.min-news-card .more li:nth-child(1) {
+    width: 30%;
+    margin-left: 0;
+}
+.min-news-card .more li:nth-child(2) {
+    width: 70%;
+    margin-left: 0;
+}    
+.vspace {
+    margin-top: 15px!important;
+    margin-bottom: 0px!important;
+}  
+.nav-pills li {
+    padding: 0 2px;
+}    
+.nav-pills > li > a{    white-space: nowrap;}    
+.page-content .news-card{
+    position: relative;
+    float: left;
+    width: 100%;
+    padding: 5px!important;
+}    
+.mid-news-card h4{margin-top: 0;}
+.qouted-news {margin-top: -35px!important;}  
+    #layerslider-container3 .ls-minimal .ls-nav-prev, #layerslider-container3 .ls-minimal .ls-nav-next {display:none;}    
+.navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
+    margin-left: 0px;
+}  
+.popular>span {
+    height: 130px;
+    }
+    
+    
+    
+}
+
+
+
+
+
+
+
+/* Nexus 10 Portrait */
+    @media only screen and (min-width:769px) and (max-width: 960px) {
+        
+               
+        
+        
+        
+  
+        
+}
+
+
+/* 7-8 inch tablets & iPad */
+    @media only screen and (min-width:651px) and (max-width: 768px) {
+        
+
+
+}
+
+
+
+
+/* iPad landscape */
+@media (max-width: 1024px) and (orientation:landscape) {
+    
+    .hero-news-card {
+    height: 500px;
+}
+    .hero-news-card .img-wrapper img {
+        width: 112%;}
+    
+}
+
+
+
+/* iPhone 6 plus landscape */
+@media (max-width: 768px) and (orientation:landscape) {}
+
+
+
+/* iPhone 6 landscape */
+@media (min-width:640px) and (max-width: 667px) and (orientation:landscape) {}
+
+
+
+/* iPhone 5 landscape */
+@media (min-width:540px) and (max-width: 570px) and (orientation:landscape) {}
+
+
+
+
+
+
+
+
+/* 6 inch tablets */
+@media (max-width: 650px) and (orientation:portrait) {
+    
+    .container > .navbar-header, .container-fluid > .navbar-header, .container > .navbar-collapse, .container-fluid > .navbar-collapse {
+    margin-right: 0;
+    margin-left: 0;
+}
+    .navbar-nav {
+    margin: 8px 60px 8px 0;
+}
+    .navbar-brand{position: absolute;
+    left: 0;
+    bottom: 0;}
+    .navbar:nth-child(1) {height: auto;padding: 8px 0 0 5px;}
+    .navbar-inverse ul:nth-child(2){display:none;}
+    #layerslider-container3 .ls-minimal .ls-nav-prev, #layerslider-container3 .ls-minimal .ls-nav-next{display:none;}
+    #layerslider2 .ls-nav-prev, #layerslider2 .ls-nav-next{top: 255px;}
+    #layerslider2 .ls-nav-next {
+    left: 60px;
+    right: auto;
+}
+    footer .container {
+        margin: 0px auto!important;
+    height: auto!important;
+            text-align: center;
+}
+    .goup {
+    position: relative;
+    bottom: 0;
+    left: 0;
+        margin-left: 0;}
+    .sub-footer ul{text-align:center;}
+    .sub-footer ul li {
+    float: none!important;
+    display: inline-block;
+}
+.sideblock iframe{min-height:400px!important;}  
+#layerslider3 {
+    height: 840px;
+}    
+.popular {
+    height: 210px;
+}    
+.social-accounts li {
+    width: 10%;}    
+ .container {
+    padding-right: 30px;
+     padding-left: 30px;}
+  .navbar-header {
+    right: 0px;
+    top: 0;
+} 
+ .hero-news-card .img-wrapper img {
+     width: 125%;}   
+#layerslider2 {
+    height: 300px;
+}   
+#layerslider-container2 .ls-container img {
+    width: 100%;
+}    
+#layerslider2 h6 {
+    bottom: 40px;
+    top: auto;
+}    
+    
+    
+    
+    
+    
+    
+    
+}
+
+
+
+
+
+/* iPhone 6 plus */
+@media (max-width: 480px) {
+    
+     .container {
+    padding-right: 25px;
+     padding-left: 25px;}
+    .sideblock iframe{min-height:270px!important;}
+    .social-accounts li {
+    width: 14%;}
+    .hero-news-card .img-wrapper img {
+    width: 185%;
+        margin-right: -40%;
+}
+    .hero-news-card {
+    height: 600px;
+}
+.ls-minimal .ls-bottom-nav-wrapper {
+    top: -365px;
+}  
+    
+    
+    
+    
+    
+    
+}
+
+
+/* iPhone 6 */
+@media (max-width: 400px) {
+    
+.newsbar-title {
+    padding: 7px 10px;
+font-size: 16px;}   
+.hero-news-card .img-wrapper img {
+    width: 208%;
+    margin-right: -50%;
+}    
+.popular>span {
+    height: 120px;
+}
+.popular h5 {
+    font-size: 13px;
+}    
+    
+    
+    
+    
+    
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Nexus 5 */
+@media (max-width: 360px) {}
+
+
+
+
+
+
+/* iPhone 5 */
+@media (max-width: 320px) {
+    
+    .container {
+    padding-right: 20px;
+    padding-left: 20px;
+}
+.popular>span {
+    height: 105px;
+}    
+#layerslider2 {
+    height: 233px;
+}    
+#layerslider2 .ls-nav-prev, #layerslider2 .ls-nav-next {
+    top: 188px;
+}    
+.hero-news-card .img-wrapper {
+    height: 265px;}    
+.hero-news-card p {
+    line-height: 24px;
+}    
+.ls-minimal .ls-bottom-nav-wrapper {
+    top: -400px;
+}    
+    
+    
+    
+    
+    
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
