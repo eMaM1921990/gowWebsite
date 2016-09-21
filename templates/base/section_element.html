@@ -1,0 +1,32 @@
+{% load staticfiles %}
+{% load endless %}
+{% paginate 5 news_feed %}
+{% for news in news_feed %}
+   <div class="col-lg-12 nopadding mid-news-card">
+                        <div class="col-lg-3 nopadding pull-right nimage">
+                            <span><a href="#"><img src="{% static 'img/news-link.png' %}"></a></span>
+
+
+                             {% if  news.rss_thumbnail != None %}
+                                        <img src="{{ news.rss_thumbnail }}" style="width:auto;height:100%;min-height:150px;">
+                                    {% else %}
+                                         <img src="{% static 'img/placeholder_setion_min.png' %}" >
+                                    {% endif %}
+                        </div>
+                        <div class="col-lg-9">
+                            <h4><a href="{% url 'news' news.id %}">{{ news.rss_title }}</a></h4>
+                            <ul class="news-data">
+                                <li><i class="fa fa-clock-o" aria-hidden="true"></i> {{ news.rss_publish_date}}</li>
+                                <li><i class="fa fa-folder-open" aria-hidden="true"></i> {{ news.rss_category.rss_category }}</li>
+{#                                <li><i class="fa fa-comments" aria-hidden="true"></i> 1348 تعليق</li>#}
+                                <li><i class="fa fa-eye" aria-hidden="true"></i> {{ news.rss_views_no }} مشاهدة</li>
+                            </ul>
+                            {% if news.rss_description %}
+                            <p>{{ news.rss_description |slice:":100"|striptags}} </p>
+                           {% endif %}
+
+                        </div>
+                    </div>
+{% endfor %}
+{% get_pages %}
+{{ pages.previous }} {{ pages.next }}

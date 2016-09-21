@@ -1,80 +1,41 @@
 {% load staticfiles %}
 <div class="col-lg-8 pull-right nopadding">
-            <div class="cube col-lg-12 nopadding">
-                <div class="col-lg-12" style="background-color:#666;color:#fff;border-top:4px solid #fd4a29;"><h4>
-                    مختارات</h4></div>
-                <div id="layerslider-container">
+    <div class="cube col-lg-12 nopadding">
+        <div class="col-lg-12" style="background-color:#666;color:#fff;border-top:4px solid #fd4a29;"><h4>
+            مختارات</h4></div>
+        <div id="layerslider-container">
 
-                    <div id="layerslider" class="nopadding hero-news-card">
+            <div id="layerslider" class="nopadding hero-news-card">
+                {% for news in slider %}
+                    <div class="ls-layer"  style="slidedirection: right; slidedelay: 16000; durationin: 100; durationout: 2500; easingin: easeInOutQuint; easingout: easeInOutQuint; delayin: 0; delayout: 0;">
 
-                        <div class="ls-layer"
-                             style="slidedirection: right; slidedelay: 16000; durationin: 100; durationout: 2500; easingin: easeInOutQuint; easingout: easeInOutQuint; delayin: 0; delayout: 0;">
+                        <div class="ls-s-1 col-lg-12 nopadding img-wrapper">
 
-                            <div class="ls-s-1 col-lg-12 nopadding img-wrapper"><img src="{% static 'img/hero1.jpg' %}"></div>
-                            <h3 class="ls-s-1"
-                                style="slidedirection : bottom; delayin : 0; slideoutdirection : bottom; durationin : 400; durationout : 600; easingin : easeOutQuart; ">
-                                دعا أوباما وكيري كل الأطراف إلى "إبداء ضبط النفس وتجنب العنف وإراقة الدماء".</h3>
-                            <ul class="ls-s-1 news-data"
-                                style="slidedirection : bottom; delayin : 0; slideoutdirection : bottom; durationin : 600; durationout : 500; easingin : easeOutQuart; ">
-                                <li><i class="fa fa-clock-o" aria-hidden="true"></i> يونيو 4, 2016</li>
-                                <li><i class="fa fa-folder-open" aria-hidden="true"></i> سياسة</li>
-                                <li><i class="fa fa-comments" aria-hidden="true"></i> 1348 تعليق</li>
-                                <li><i class="fa fa-eye" aria-hidden="true"></i> 6241 مشاهدة</li>
-                            </ul>
-                            <p class="ls-s-1"
-                               style="slidedirection : bottom; delayin : 0; slideoutdirection : bottom; durationin : 800; durationout : 400; easingin : easeOutQuart; ">
-                                شددت شرطة دالاس الإجراءات الأمنية قبيل زيارة أوباما، مستعينة بإدارة شرطة أرلينغتون للعمل
-                                مع رجال الأمن فيها.
-                                وعاشت الولايات المتحدة حالة من القلق وسط غمرة أعمال العنف الأخيرة، والاحتجاجات المطالبة
-                                بإصلاح جهاز الشرطة، والتوتر العنصري الذي ساد البلاد.
-                                وقد أُنتقد أوباما لأنه لم يفعل ما هو </p>
-
+{#                            <img src="{{ news.rss_thumbnail }}">#}
+                            {% if  news.rss_thumbnail != None %}
+                                <img src="{{ news.rss_thumbnail }}">
+                            {% else %}
+                                <img src="{% static 'img/articleplaceholder.jpg' %}">
+                            {% endif %}
                         </div>
-                        <div class="ls-layer"
-                             style="slidedirection: right; slidedelay: 16000; durationin: 100; durationout: 2500; easingin: easeInOutQuint; easingout: easeInOutQuint; delayin: 0; delayout: 0;">
-
-                            <div class="ls-s-1 col-lg-12 nopadding img-wrapper"><img src="{% static 'img/hero2.jpg' %}"></div>
-                            <h3 class="ls-s-1"
-                                style="slidedirection : bottom; delayin : 0; slideoutdirection : bottom; durationin : 400; durationout : 600; easingin : easeOutQuart; ">
-                                حشود الأتراك تخرج تلبية لنداء الدفاع عن الديمقراطية</h3>
-                            <ul class="ls-s-1 news-data"
-                                style="slidedirection : bottom; delayin : 0; slideoutdirection : bottom; durationin : 600; durationout : 500; easingin : easeOutQuart; ">
-                                <li><i class="fa fa-clock-o" aria-hidden="true"></i> يونيو 4, 2016</li>
-                                <li><i class="fa fa-folder-open" aria-hidden="true"></i> سياسة</li>
-                                <li><i class="fa fa-comments" aria-hidden="true"></i> 1348 تعليق</li>
-                                <li><i class="fa fa-eye" aria-hidden="true"></i> 6241 مشاهدة</li>
-                            </ul>
-                            <p class="ls-s-1"
-                               style="slidedirection : bottom; delayin : 0; slideoutdirection : bottom; durationin : 800; durationout : 400; easingin : easeOutQuart; ">
-                                أعرب متحدث باسم الكرملين عن "قلق موسكو العميق" إزاء الأنباء الواردة من تركيا، قائلا إن
-                                أولوية روسيا هي ضمان أمن المؤسسات الروسية والمواطنين الروس في تركيا. وقال:" موسكو تأمل
-                                أنه مهما كانت التطورات في تركيا، فانه سيتم ضمان أمن المواطنين الروس."</p>
-
-                        </div>
-                        <div class="ls-layer"
-                             style="slidedirection: right; slidedelay: 16000; durationin: 100; durationout: 2500; easingin: easeInOutQuint; easingout: easeInOutQuint; delayin: 0; delayout: 0;">
-
-                            <div class="ls-s-1 col-lg-12 nopadding img-wrapper"><img src="{% static 'img/hero3.jpg' %}"></div>
-                            <h3 class="ls-s-1"
-                                style="slidedirection : bottom; delayin : 0; slideoutdirection : bottom; durationin : 400; durationout : 600; easingin : easeOutQuart; ">
-                                دايلي تلغراف: دهس الرضع بشاحنة سابقة في تاريخ الإرهاب</h3>
-                            <ul class="ls-s-1 news-data"
-                                style="slidedirection : bottom; delayin : 0; slideoutdirection : bottom; durationin : 600; durationout : 500; easingin : easeOutQuart; ">
-                                <li><i class="fa fa-clock-o" aria-hidden="true"></i> يونيو 4, 2016</li>
-                                <li><i class="fa fa-folder-open" aria-hidden="true"></i> سياسة</li>
-                                <li><i class="fa fa-comments" aria-hidden="true"></i> 1348 تعليق</li>
-                                <li><i class="fa fa-eye" aria-hidden="true"></i> 6241 مشاهدة</li>
-                            </ul>
-                            <p class="ls-s-1"
-                               style="slidedirection : bottom; delayin : 0; slideoutdirection : bottom; durationin : 800; durationout : 400; easingin : easeOutQuart; ">
-                                هيمن الهجوم على المصطافين في مدينة نيس جنوبي فرنسا على تغطية كل الصحف البريطانية وقد
-                                جاءت العناوين حزينة للغاية، نظرا لهول الحادث الذي هز الصحافة داخل وخارج فرنسا.
-                                ولم يسمح توقيت السحب للنسخ الورقية من اللحاق بأخبار محاولة الانقلاب على الحكم في تركيا،
-                                إذ لم تنشر أخبار هذه القصة العاجلة إلا على مواقع الصحف الإلكترونية.</p>
-
-                        </div>
+                        <h3 class="ls-s-1"
+                            style="slidedirection : bottom; delayin : 0; slideoutdirection : bottom; durationin : 400; durationout : 600; easingin : easeOutQuart; ">
+                                <a href="{% url 'news' news.id %}">{{ news.rss_title }}</a></h3>
+                        <ul class="ls-s-1 news-data"
+                            style="slidedirection : bottom; delayin : 0; slideoutdirection : bottom; durationin : 600; durationout : 500; easingin : easeOutQuart; ">
+                            <li><i class="fa fa-clock-o" aria-hidden="true"></i> {{ news.rss_publish_date}}</li>
+                            <li><i class="fa fa-folder-open" aria-hidden="true"></i> {{ news.rss_category.rss_category }}</li>
+{#                            <li><i class="fa fa-comments" aria-hidden="true"></i> 1348 تعليق</li>#}
+                            <li><i class="fa fa-eye" aria-hidden="true"></i> {{ news.rss_views_no }} مشاهدة</li>
+                        </ul>
+                        <p class="ls-s-1"   style="slidedirection : bottom; delayin : 0; slideoutdirection : bottom; durationin : 800; durationout : 400; easingin : easeOutQuart; ">
+                            {{ news.rss_description | slice:":150"|safe}}
+                        </p>
 
                     </div>
-                </div>
+
+                {% endfor %}
             </div>
         </div>
+    </div>
+</div>

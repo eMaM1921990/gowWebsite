@@ -1,116 +1,46 @@
 {% load staticfiles %}
 <div class="col-lg-4 nopadding sideblock">
-            <div class="cube col-lg-11 nopadding">
-                <ul class="nav nav-pills nav-justified nopadding">
-                    <li class="active"><a href="#tab_a" data-toggle="pill">رائج الآن</a></li>
-                    <li><a href="#tab_b" data-toggle="pill">أحداث</a></li>
-                    <li><a href="#tab_c" data-toggle="pill">تعليقات</a></li>
-                </ul>
-                <div class="tab-content col-lg-12 col-md-12 no-gutter">
-                    <div class="tab-pane active" id="tab_a">
-                        <div class="col-lg-12 padding-10 news-card">
-                            <img src="{% static 'img/n1.jpg' %}">
+                <div class="cube col-lg-11 nopadding">
+                    <ul class="nav nav-pills nav-justified nopadding">
+                        <li class="active"><a href="#tab_a" data-toggle="pill">رائج الآن</a></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                    <div class="tab-content col-lg-12 col-md-12 no-gutter">
+                        <div class="tab-pane active" id="tab_a">
+                            {% for news  in slider|slice:":3" %}
+                                <div class="col-lg-12 padding-10 news-card">
+                                <div class="col-lg-3 pull-right nopadding">
+                                    <span><a href="{% url 'news' news.id %}"><img src="{% static 'img/news-link-sm.png' %}"></a></span>
+                                    {% if  new.rss_thumbnail != None %}
+                                        <img src="{{ news.rss_thumbnail }}">
+                                    {% else %}
+                                        <img src="{% static 'img/homePlaceholder.gif' %}">
+                                    {% endif %}
 
-                            <p><a href="#">هنالك العديد من انواع لوريم ايبسم</a></p>
-                            <ul class="news-data">
-                                <li><i class="fa fa-clock-o" aria-hidden="true"></i> يونيو 4, 2016</li>
-                                <li><i class="fa fa-folder-open" aria-hidden="true"></i> <a href="#">سياسة</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-lg-12 padding-10 news-card">
-                            <img src="{% static 'img/n2.jpg' %}">
+                                </div>
+                                <div class="col-lg-9 pull-right no-gutter-left">
+                                    <p><a href="{% url 'news' news.id %}">{{ news.rss_title }}</a></p>
+                                    <ul class="news-data no-gutter-right">
+                                        <li><i class="fa fa-clock-o" aria-hidden="true"></i> {{ news.rss_publish_date }}</li>
+                                        <li><i class="fa fa-folder-open" aria-hidden="true"></i> <a href="#">{{ news.rss_category.rss_category }}</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            {% endfor %}
 
-                            <p><a href="#">هنالك العديد من انواع لوريم ايبسم</a></p>
-                            <ul class="news-data">
-                                <li><i class="fa fa-clock-o" aria-hidden="true"></i> يونيو 4, 2016</li>
-                                <li><i class="fa fa-folder-open" aria-hidden="true"></i> <a href="#">سياسة</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-lg-12 padding-10 news-card">
-                            <img src="{% static 'img/n3.jpg' %}">
 
-                            <p><a href="#">هنالك العديد من انواع لوريم ايبسم</a></p>
-                            <ul class="news-data">
-                                <li><i class="fa fa-clock-o" aria-hidden="true"></i> يونيو 4, 2016</li>
-                                <li><i class="fa fa-folder-open" aria-hidden="true"></i> <a href="#">سياسة</a></li>
-                            </ul>
+                            <div class="col-lg-12 padding-10 news-card">
+                                <ul class="news-data more">
+                                    <li><i class="fa fa-caret-left" aria-hidden="true"></i> <a href="#">اقرأ المزيد</a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
-                        <div class="col-lg-12 padding-10 news-card">
-                            <ul class="news-data more">
-                                <li><i class="fa fa-caret-left" aria-hidden="true"></i> <a href="#">اقرأ المزيد</a></li>
-                            </ul>
-                        </div>
+
                     </div>
-                    <div class="tab-pane" id="tab_b">
-                        <div class="col-lg-12 padding-10 news-card">
-                            <img src="{% static 'img/n2.jpg' %}">
-
-                            <p><a href="#">هنالك العديد من انواع لوريم ايبسم</a></p>
-                            <ul class="news-data">
-                                <li><i class="fa fa-clock-o" aria-hidden="true"></i> يونيو 4, 2016</li>
-                                <li><i class="fa fa-folder-open" aria-hidden="true"></i> <a href="#">سياسة</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-lg-12 padding-10 news-card">
-                            <img src="{% static 'img/n3.jpg' %}">
-
-                            <p><a href="#">هنالك العديد من انواع لوريم ايبسم</a></p>
-                            <ul class="news-data">
-                                <li><i class="fa fa-clock-o" aria-hidden="true"></i> يونيو 4, 2016</li>
-                                <li><i class="fa fa-folder-open" aria-hidden="true"></i> <a href="#">سياسة</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-lg-12 padding-10 news-card">
-                            <img src="{% static 'img/n1.jpg' %}">
-
-                            <p><a href="#">هنالك العديد من انواع لوريم ايبسم</a></p>
-                            <ul class="news-data">
-                                <li><i class="fa fa-clock-o" aria-hidden="true"></i> يونيو 4, 2016</li>
-                                <li><i class="fa fa-folder-open" aria-hidden="true"></i> <a href="#">سياسة</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-lg-12 padding-10 news-card">
-                            <ul class="news-data more">
-                                <li><i class="fa fa-caret-left" aria-hidden="true"></i> <a href="#">اقرأ المزيد</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="tab-pane" id="tab_c">
-                        <div class="col-lg-12 padding-10 news-card">
-                            <img src="{% static 'img/n3.jpg' %}">
-
-                            <p><a href="#">هنالك العديد من انواع لوريم ايبسم</a></p>
-                            <ul class="news-data">
-                                <li><i class="fa fa-clock-o" aria-hidden="true"></i> يونيو 4, 2016</li>
-                                <li><i class="fa fa-folder-open" aria-hidden="true"></i> <a href="#">سياسة</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-lg-12 padding-10 news-card">
-                            <img src="{% static 'img/n1.jpg' %}">
-
-                            <p><a href="#">هنالك العديد من انواع لوريم ايبسم</a></p>
-                            <ul class="news-data">
-                                <li><i class="fa fa-clock-o" aria-hidden="true"></i> يونيو 4, 2016</li>
-                                <li><i class="fa fa-folder-open" aria-hidden="true"></i> <a href="#">سياسة</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-lg-12 padding-10 news-card">
-                            <img src="{% static 'img/n2.jpg' %}">
-
-                            <p><a href="#">هنالك العديد من انواع لوريم ايبسم</a></p>
-                            <ul class="news-data">
-                                <li><i class="fa fa-clock-o" aria-hidden="true"></i> يونيو 4, 2016</li>
-                                <li><i class="fa fa-folder-open" aria-hidden="true"></i> <a href="#">سياسة</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-lg-12 padding-10 news-card">
-                            <ul class="news-data more">
-                                <li><i class="fa fa-caret-left" aria-hidden="true"></i> <a href="#">اقرأ المزيد</a></li>
-                            </ul>
-                        </div>
-                    </div>
+                    <!-- tab content -->
                 </div>
-                <!-- tab content -->
-            </div>
-            <div class="col-lg-1 nopadding"></div>
-        </div>
+                <div class="col-lg-1 nopadding"></div>
+</div>

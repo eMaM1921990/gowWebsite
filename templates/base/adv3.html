@@ -1,7 +1,23 @@
 {% load staticfiles %}
 <div class="col-lg-4 nopadding sideblock">
-            <div class="cube col-lg-11 nopadding">
-                <img src="{% static 'img/adv.jpg' %}" style="width:100%;height:auto;">
-            </div>
-            <div class="col-lg-1 nopadding"></div>
-        </div>
+    <div class="cube col-lg-11 nopadding">
+
+        {% if adv %}
+            {% for adv in adv %}
+                {% if adv.position == '3' %}
+                    <a href="{{ adv.adv_url }}" target="_blank">
+                        <img src="{{ adv.url.url }}" style="width:100%;height:auto;">
+                    </a>
+
+
+                {% endif %}
+            {% endfor %}
+
+        {% else %}
+            <img src="{% static 'img/adv3.png' %}" style="width:100%;height:auto;">
+
+        {% endif %}
+
+    </div>
+    <div class="col-lg-1 nopadding"></div>
+</div>

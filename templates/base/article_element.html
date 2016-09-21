@@ -1,0 +1,48 @@
+{% load staticfiles %}
+{% load social_widgets %}
+
+
+<div class="col-lg-12 pull-right nopadding">
+			<div class="news-article">
+
+			<div class="col-lg-12 nopadding img-wrapper">
+
+                {% if  article_feeds.rss_thumbnail != None  %}
+                    <img src="{{ article_feeds.rss_thumbnail }}">
+                    <meta property="og:image" content="{{ article_feeds.rss_thumbnail }}"/>
+                {% else %}
+                    <img src="{% static 'img/articleplaceholder.jpg' %}">
+                    <meta property="og:image" content="{% static 'img/articleplaceholder.jpg' %}"/>
+                {% endif %}
+
+            </div>
+                <h3>{{ article_feeds.rss_title }}</h3>
+                <ul class="news-data no-gutter">
+                    <li><i class="fa fa-clock-o" aria-hidden="true"></i> {{ article_feeds.rss_publish_date}}</li>
+                    <li><i class="fa fa-folder-open" aria-hidden="true"></i> {{ article_feeds.rss_category.rss_category }}</li>
+{#					<li><i class="fa fa-comments" aria-hidden="true"></i> 1348 تعليق</li>#}
+                    <li><i class="fa fa-eye" aria-hidden="true"></i> {{ article_feeds.rss_views_no }} مشاهدة</li>
+
+
+                </ul>
+                {% social_widget_render "facebook/share_button.html" layout="button"%}
+                {% social_widget_render "twitter/share_button.html"  %}
+                {% social_widget_render "google/plus_share_button.html" %}
+
+            <br><br>
+            {% if not  article_feeds.rss_video %}
+				<p>
+                    {{ article_feeds.rss_full_article|safe }}
+                </p>
+            {% endif %}
+
+                {% if  article_feeds.rss_video %}
+                    <div class="col-lg-12 nopadding img-wrapper">
+                        <iframe style="width:100%;min-height: 200px;height:auto;" src="{{ article_feeds.rss_video }}" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                {% endif %}
+
+				</div>
+
+
+            </div>

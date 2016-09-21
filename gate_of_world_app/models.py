@@ -8,18 +8,45 @@
 # Also note: You'll have to insert the output of 'django-admin.py sqlcustom [app_label]'
 # into your database.
 from __future__ import unicode_literals
-
+import hashlib
+from uuid import uuid4
+from django.core.files.uploadedfile import InMemoryUploadedFile
 from django.db import models
+from django.utils import timezone
+from django.utils.text import slugify
+from redactor.fields import RedactorField
 from gowWebsite import settings
+from PIL import Image as Img
+import StringIO
 
 
-MANAGED=True
+MANAGED = True
+
+
+def f():
+    d = uuid4()
+    str = d.hex
+    return str[0:16]
+
 
 class RssCategories(models.Model):
-    rss_category = models.CharField(unique=True, max_length=225)
+    rss_category = models.CharField(unique=True, max_length=225, verbose_name='Rss Category')
     rss_slug = models.CharField(unique=True, max_length=45)
-    rss_is_active = models.BooleanField(blank=True,default=True)  # This field type is a guess.
-    rss_is_suggested=models.BooleanField(blank=True,default=True)
+    rss_is_active = models.BooleanField(blank=True, default=True)  # This field type is a guess.
+    rss_is_suggested = models.BooleanField(blank=True, default=True, verbose_name='Suggested')
+    rss_is_world_news = models.BooleanField(blank=True, default=False, verbose_name='World News')
+    rss_is_political_news = models.BooleanField(blank=True, default=False, verbose_name='Political News')
+    rss_is_local_news = models.BooleanField(blank=True, default=False, verbose_name='Local News')
+    rss_is_world_common_news = models.BooleanField(blank=True, default=False, verbose_name='Common News')
+    rss_order = models.IntegerField(default=0, verbose_name='Order')
+    rss_show_in_footer = models.BooleanField(blank=True, default=False, verbose_name='Show in Footer')
+
+    def save(self):
+        super(RssCategories, self).save()
+        self.rss_slug = '%s' % (
+            slugify(self.id)
+        )
+        super(RssCategories, self).save()
 
     def __unicode__(self):
         return self.rss_category
@@ -27,52 +54,95 @@ class RssCategories(models.Model):
     class Meta:
         managed = MANAGED
         db_table = 'rss_categories'
+        ordering = ('rss_order',)
+        verbose_name_plural = 'RSS Categories'
 
 
 class RssFeeds(models.Model):
-    rss_link = models.CharField(max_length=255, blank=True)
-    rss_title = models.CharField(max_length=255, blank=True)
-    rss_description = models.CharField(max_length=255, blank=True)
-    rss_thumbnail = models.CharField(max_length=255, blank=True)
-    rss_publish_date = models.DateTimeField(blank=True, null=True)
+    rss_link = models.CharField(max_length=2048, blank=True)
+    rss_title = models.CharField(max_length=400, blank=True)
+    rss_description = models.CharField(max_length=400, blank=True, null=True)
+    rss_thumbnail = models.CharField(max_length=255, blank=True, null=True, default=None)
+    rss_publish_date = models.DateTimeField(default=timezone.now())
     rss_category = models.ForeignKey(RssCategories, db_column='rss_category', blank=True, null=True)
-    rss_id= models.CharField(max_length=255, blank=True)
-    rss_views_no=models.IntegerField(default=0)
+    rss_id = models.CharField(max_length=255, blank=True)
+    rss_views_no = models.IntegerField(default=0)
+    rss_video = models.CharField(max_length=255, blank=True, default=None, null=True,
+                                 help_text="Note:please add youtube video code in https://www.youtube.com/embed/[youTube video code]")
+    rss_image = models.CharField(max_length=255, blank=True, null=True)
+    rss_hex_digit = models.CharField(max_length=50, blank=True, unique=True, default=f)
+    rss_full_article = models.TextField()
+    # rss_full_article = RedactorField(verbose_name=u'Full Article')
 
-    def admin_image(self):
+    def thumbnail(self):
         return '<img src="%s" style="width:50px;height:50px"/>' % self.rss_thumbnail
     admin_image.allow_tags = True
 
+    thumbnail.allow_tags = True
+
     def feed_title(self):
-        return '<a href="%s" >%s </a>' %(self.rss_link,self.rss_title)
+        return '<a href="%s" >%s </a>' % (self.rss_link, self.rss_title)
+
     feed_title.allow_tags = True
+
+    def __unicode__(self):
+        return self.rss_title
 
     class Meta:
         managed = MANAGED
         db_table = 'rss_feeds'
+        ordering = ('-rss_publish_date',)
+        verbose_name_plural = 'Posts'
 
 
 class RssProviders(models.Model):
-    rss_url = models.CharField(unique=True, max_length=45)
-    rss_is_active = models.BooleanField(blank=True,default=True)  # This field type is a guess.
+    rss_url = models.CharField(unique=True, max_length=100)
+    rss_is_active = models.BooleanField(blank=True, default=True)  # This field type is a guess.
     rss_category = models.ForeignKey(RssCategories, db_column='rss_category')
     rss_add_at = models.DateTimeField(blank=True, null=True)
     rss_last_call = models.DateTimeField(blank=True, null=True)
+    rss_parent_tag = models.CharField(max_length=10, null=True, blank=True)
+    rss_child_tag = models.CharField(max_length=10, null=True, blank=True)
+    rss_child_class_tag = models.CharField(max_length=50, null=True, blank=True)
+    rss_img_class = models.CharField(max_length=50, null=True, blank=True)
 
 
     class Meta:
         managed = MANAGED
         db_table = 'rss_providers'
+        verbose_name_plural = 'RSS Providers'
 
 
 class Adv(models.Model):
-    position = models.CharField(unique=True, max_length=45,choices=[('Top', 'Top'), ('Middle', 'Middle'),('Left', 'Left')])
-    url=models.ImageField(upload_to=settings.ADV_URL)
+    position = models.CharField(unique=True, max_length=45,
+                                choices=[('1', 'One'), ('2', 'Two'), ('3', 'Three'), ('4', 'Four'), ('5', 'Five')])
+    url = models.ImageField(upload_to=settings.ADV_URL)
+    adv_url = models.CharField(max_length=255)
 
     def adv_image(self):
         return '<img src="%s" />' % self.url.url
+
     adv_image.allow_tags = True
+
+    def save(self, *args, **kwargs):
+        if self.url:
+            img = Img.open(StringIO.StringIO(self.url.read()))
+            # if img.mode != 'RGB':
+            # img = img.convert('RGB')
+            # img.thumbnail((self.url.width/1,self.url.height/1), Img.ANTIALIAS)
+            output = StringIO.StringIO()
+            img.save(output, format='JPEG', quality=90)
+            output.seek(0)
+            self.url = InMemoryUploadedFile(output, 'ImageField', "%s.jpg" % self.url.name.split('.')[0], 'image/jpeg',
+                                            output.len, None)
+        super(Adv, self).save(*args, **kwargs)
+
+
+    def __unicode__(self):
+        return self.adv_url
+
 
     class Meta:
         managed = MANAGED
         db_table = 'adv'
+        verbose_name_plural = 'Advertising'

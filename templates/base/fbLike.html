@@ -1,0 +1,22 @@
+{% load staticfiles %}
+{% load social_widgets %}
+<div class="col-lg-4 nopadding sideblock">
+                <div class="cube col-lg-11 nopadding">
+                    <ul class="nav nav-pills nav-justified nopadding">
+                        <li class="active"><a href="#tab_a" data-toggle="pill">Facebook</a></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                    <div class="tab-content col-lg-12 col-md-12 no-gutter">
+                        <div class="tab-pane active" id="tab_a">
+
+                            {% social_widget_render "facebook/likebox.html" locale="en_US"  href="https://www.facebook.com/gateofworld.net" height=300 colorscheme="light" force_wall=False header=True show_border=True show_faces=True stream=Ture  %}
+{#                         {% social_widget_render "facebook/activity_feed.html" locale="en_US"  site="https://www.facebook.com/gateofworld.net" action="likes, recommends" colorscheme="light" header=True height=300 linktarget="_blank" max_age=0 recommendations=True  %}#}
+                        </div>
+
+
+                    </div>
+                    <!-- tab content -->
+                </div>
+                <div class="col-lg-1 nopadding"></div>
+            </div>

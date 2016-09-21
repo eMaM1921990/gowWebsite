@@ -1,4 +1,15 @@
 {% load staticfiles %}
 <div class="col-lg-8 col-lg-offset-2">
-        <img src="{% static 'img/adv2.jpg' %}" style="margin:30px 0;width:100%;height:auto;">
-    </div>
+    {% if adv %}
+        {% for adv in adv %}
+            {% if adv.position == '4' %}
+                <a href="{{ adv.adv_url }}" target="_blank">
+                    <img src="{{ adv.url.url }}" style="margin:30px 0;width:100%;height:auto;">
+                </a>
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        <img src="{% static 'img/adv4.png' %}" style="margin:30px 0;width:100%;height:auto;">
+
+    {% endif %}
+</div>

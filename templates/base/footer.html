@@ -1,0 +1,71 @@
+{% load staticfiles %}
+<footer>
+    <div class="container" style="margin:40px auto;height:200px;">
+        <div class="col-lg-4 text-center">
+            <img class="footer-logo" src="{% static 'img/footer-logo.png' %}">
+
+            <p>
+                <small>جميع حقوق النشر محفوظة لدى Gate Of World - {% now "Y" %}
+                    ويحظر نشر أو توزيع أو طبع أي مادة دون إذن مسبق من المؤسسة
+                </small>
+            </p>
+        </div>
+        <div class="col-lg-8">
+            <div class="col-lg-4 pull-right">
+                <ul class="f-links">
+                    <li><a href="/">الرئيسية</a></li>
+                    {% for nav in nav|slice:":3" %}
+                        {% if nav.rss_show_in_footer %}
+                            <li><a href="{% url 'categoryNews' nav.rss_slug  %}">{{ nav.rss_category }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+
+
+                </ul>
+            </div>
+            <div class="col-lg-4 pull-right">
+                <ul class="f-links">
+                   {% for nav in nav|slice:"3:8" %}
+                        {% if nav.rss_show_in_footer %}
+                            <li><a href="{% url 'categoryNews' nav.rss_slug  %}">{{ nav.rss_category }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="col-lg-4 pull-right">
+                <ul class="f-links">
+                   {% for nav in nav|slice:"8:10" %}
+                        {% if nav.rss_show_in_footer %}
+                            <li><a href="{% url 'categoryNews' nav.rss_slug  %}">{{ nav.rss_category }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                    <li><a href="{% url 'contactus' %}">شكاوى الناس</a></li>
+                    <li><a href="{% url 'contactus' %}">اتصل بنا</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row" style="margin:0;">
+        <div class="container sub-footer">
+            <ul class="col-lg-6 pull-right">
+                <li><h4>تابعونا</h4></li>
+                <li><a href="#"><img src="{% static 'img/yt.png' %}"></a></li>
+                <li><a href="#"><img src="{% static 'img/gp.png' %}"></a></li>
+                <li><a href="https://twitter.com/gateofworld"><img src="{% static 'img/tw.png' %}"></a></li>
+                <li><a href="https://www.facebook.com/gateofworld.net/"><img src="{% static 'img/fb.png' %}"></a></li>
+            </ul>
+
+            <ul class="col-lg-6 pull-right">
+                <li><a href="{% url 'contactus' %}">سياسة النشر</a></li>
+                <li><a href="{% url 'contactus' %}">حقوق النشر</a></li>
+                <li><a href="{% url 'contactus' %}">الإعلانات</a></li>
+                <li><a href="{% url 'contactus' %}">عن الموقع</a></li>
+                <li><a href="{% url 'contactus' %}">نسخة الموبايل</a></li>
+            </ul>
+            <img class="goup" src="{% static 'img/go-up.png' %}">
+        </div>
+    </div>
+
+</footer>

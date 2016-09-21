@@ -13,18 +13,35 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url, patterns
+from django.conf.urls import url, include, patterns
 from django.contrib import admin
-from gate_of_world_app import views
+from django.views.static import serve
+from gate_of_world_app import views,api
 from gowWebsite import settings
 
 urlpatterns = [
+
+    url(r'^grappelli/', include('grappelli.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.home),
-]
+    url(r'^sections/(?P<pk>[0-9]+)/$',views.categoryNews, name='categoryNews'),
+    url(r'^lastnews/',views.latestNews, name='lastnews'),
+    url(r'^videos/',views.videos_new, name='videos'),
+    url(r'^article/(?P<pk>[0-9]+)/$',views.details, name='news'),
+    url(r'^contactus/$',views.contect_us, name='contactus'),
+    url(r'^redactor/', include('redactor.urls')),
 
-if settings.DEBUG:
-    # static files (images, css, javascript, etc.)
-    urlpatterns += patterns('',
-        (r'^media/(?P<path>.*)$', 'django.views.static.serve', {
-        'document_root': settings.MEDIA_ROOT}))
+
+
+    ## apis
+    url(r'^api/v1/fetchfeeds/$',api.fetchFeeds, name='fecthFeeds'),
+
+    url(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
+]
+# if settings.DEBUG:
+#     # static files (images, css, javascript, etc.)
+#     urlpatterns += patterns('',
+#         (r'^media/(?P<path>.*)$', 'django.views.static.serve', {
+#         'document_root': settings.MEDIA_ROOT}))
+#
+
