@@ -1,10 +1,10 @@
 {% load staticfiles%}
-<div class="col-lg-8 col-lg-offset-2">
+<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 col-lg-offset-2 col-md-offset-2 nopadding">
 {% if adv %}
     {% for adv in adv %}
         {% if adv.position == '2' %}
             <a href="{{ adv.adv_url }}" target="_blank">
-                <img src="{{ adv.url.url }}" style="margin:30px 0;width:100%;height:auto;">
+                <img src="{{ adv.url.url }}" style="margin:20px 0;width:100%;height:auto;">
             </a>
 
         {% endif %}
@@ -12,7 +12,7 @@
 
 
 {% else %}
-                <img src="{% static 'img/adv2.png' %}" style="margin:30px 0;width:100%;height:auto;">
+                <img src="{% static 'img/adv2.png' %}" style="margin:20px 0;width:100%;height:auto;">
 
 {% endif %}
 
