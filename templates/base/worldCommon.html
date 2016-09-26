@@ -1,5 +1,5 @@
 {% load staticfiles %}
-
+{% load gate %}
 
 
 <div class="row">
@@ -20,7 +20,13 @@
                                     <img src="{% static 'img/news-link.png' %}">
                                 </a></span>
                                     {% if  news.rss_thumbnail != None  %}
+                                        {% get_or_404 news.rss_thumbnail as image_status %}
+
+                                        {% if image_status %}
                                         <img src="{{ news.rss_thumbnail }}">
+                                            {% else %}
+                                            <img src="{% static 'img/placeholder-min.jpg' %}" >
+                                            {% endif %}
                                     {% else %}
                                          <img src="{% static 'img/placeholder-min.jpg' %}" >
                                     {% endif %}
