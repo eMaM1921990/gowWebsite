@@ -76,7 +76,6 @@ class RssFeeds(models.Model):
 
     def thumbnail(self):
         return '<img src="%s" style="width:50px;height:50px"/>' % self.rss_thumbnail
-    admin_image.allow_tags = True
 
     thumbnail.allow_tags = True
 
