@@ -14,7 +14,7 @@
 <script type="text/javascript">
     $(document).ready(function () {
        $('#layerslider').layerSlider({
-            skinsPath: '{{ STATIC_URL }}layerslider/skins/',
+            skinsPath: '{% static 'layerslider/skins/' %}',
             skin: 'minimal',
             autoStart: true,
             keybNav: true,
@@ -28,7 +28,7 @@
             thumbnailNavigation: false
         });
         $('#layerslider2').layerSlider({
-            skinsPath: '{{ STATIC_URL }}layerslider/skins/',
+            skinsPath: '{% static 'layerslider/skins/' %}',
             skin: 'minimal',
             autoStart: true,
             navStartStop: false,
@@ -42,7 +42,7 @@
             hoverPrevNext: false
         });
         $('#layerslider3').layerSlider({
-            skinsPath: '{{ STATIC_URL }}layerslider/skins/',
+            skinsPath: '{% static 'layerslider/skins/' %}',
             skin: 'minimal',
             autoStart: false,
             navStartStop: false,
