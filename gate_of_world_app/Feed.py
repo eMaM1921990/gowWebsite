@@ -89,7 +89,7 @@ class Feed():
                     if not record.rss_thumbnail:
                         record.rss_thumbnail = url
                 except Exception as e:
-                    print 'failed'
+                    print 'failed' + str(e)
 
                 record.save()
 
