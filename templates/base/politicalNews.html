@@ -35,7 +35,9 @@
                         </li>
                     </ul>
                     <p>
-                        {{ news.rss_description|slice:":150" |safe|striptags }}
+                        {% if news.rss_description %}
+                        {{ news.rss_description|striptags|truncatewords:"20" }}
+                            {% endif %}
                     </p>
                 </div>
             </div>
