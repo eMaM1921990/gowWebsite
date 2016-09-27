@@ -44,7 +44,7 @@ class RequestHandler():
         try:
             exeQuery = RssFeeds.objects.filter(rss_category__rss_is_suggested=True,
                                                rss_category__rss_is_active=True).exclude(
-                rss_description__isnull=True).exclude(rss_thumbnail__isnull=True).order_by('-rss_publish_date')[:5]
+                rss_description__isnull=True).order_by('-rss_publish_date')[:5]
             print exeQuery.query
             return exeQuery
         except Exception as e:
@@ -63,9 +63,8 @@ class RequestHandler():
         try:
             # excludedIDs=self.get_id_from_context(context)
             exeQuery = RssFeeds.objects.filter(rss_category__rss_is_political_news=True,
-                                               rss_category__rss_is_active=True).exclude(rss_thumbnail__isnull=True,
-                                                                                         rss_description__isnull=True)[
-                       :3]
+                                               rss_category__rss_is_active=True)\
+                                                .exclude(rss_thumbnail__isnull=True,rss_description__isnull=True)[:3]
             print exeQuery.query
             return exeQuery
         except Exception as e:
