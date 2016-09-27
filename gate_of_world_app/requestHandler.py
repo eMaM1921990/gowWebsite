@@ -83,7 +83,7 @@ class RequestHandler():
     def ListOfCommonNews(self):
         try:
             exeQuery = RssFeeds.objects.filter(rss_category__rss_is_world_common_news=True,
-                                               rss_category__rss_is_active=True).exclude(rss_thumbnail__isnull=True)[
+                                               rss_category__rss_is_active=True)[
                        :24]
             return exeQuery
         except Exception as e:
