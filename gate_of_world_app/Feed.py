@@ -207,7 +207,7 @@ class Feed():
 
     def findImageIfExist(self, fullArticle):
         soup = BeautifulSoup(fullArticle,"html.parser")
-        links = soup.find('figure').find_all('img', src=True)
+        links = soup.find_all('img', src=True)
         if len(links > 0):
             return links[0]['src']
         return None
