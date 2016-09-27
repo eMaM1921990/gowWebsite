@@ -52,7 +52,7 @@
                         <li><i class="fa fa-folder-open" aria-hidden="true"></i> {{ news.rss_category.rss_category }}
                         </li>
                     </ul>
-                    <p>{{ news.rss_description|slice:":150" |safe|escape }}</p>
+                    <p>{{ news.rss_description|slice:":150" |striptags }}</p>
 
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nopadding news-card">
                         <ul class="news-data more">
