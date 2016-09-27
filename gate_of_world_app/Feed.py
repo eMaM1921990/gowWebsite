@@ -86,6 +86,7 @@ class Feed():
                 # just check if it will return image or not
                 try:
                     url = self.findImageIfExist(fullArticle)
+                    print url
                     if not record.rss_thumbnail:
                         record.rss_thumbnail = url
                 except Exception as e:
