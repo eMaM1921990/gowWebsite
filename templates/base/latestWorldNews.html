@@ -32,6 +32,8 @@
                 </ul>
                 <p>
                     {{ news.rss_description|striptags }}
+                    {% empty %}
+                    ........
                 </p>
 
                 <div class="col-lg-12 nopadding news-card">
