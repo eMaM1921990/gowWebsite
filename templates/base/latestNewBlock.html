@@ -14,12 +14,9 @@
                                 </a>
                             </span>
                     {% if  new.rss_thumbnail != None %}
-                        {% get_or_404 new.rss_thumbnail as image_exist %}
-                        {% if image_exist %}
+
                         <img src="{{ new.rss_thumbnail }}">
-                            {% else %}
-                        <img src="{% static 'img/homePlaceholder.gif' %}">
-                            {% endif %}
+
                     {% else %}
                         <img src="{% static 'img/homePlaceholder.gif' %}">
                     {% endif %}
