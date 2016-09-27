@@ -75,7 +75,7 @@ class RequestHandler():
             # excludedIDs=self.get_id_from_context(context)
             exeQuery = RssFeeds.objects.filter(rss_category__rss_is_local_news=True,
                                                rss_category__rss_is_active=True).exclude(
-                rss_description__isnull=True).exclude(rss_thumbnail__isnull=True)[:3]
+                rss_description__isnull=True)[:3]
             return exeQuery
         except Exception as e:
             logger.debug("Error getting  local news  list -- cause :" + str(e), exc_info=1)
