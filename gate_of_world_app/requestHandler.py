@@ -54,7 +54,7 @@ class RequestHandler():
         try:
             exeQuery = RssFeeds.objects.filter(rss_category__rss_is_world_news=True,
                                                rss_category__rss_is_active=True).exclude(
-                rss_thumbnail__isnull=True).exclude(rss_description__isnull=True)[:3]
+                rss_thumbnail__isnull=True)[:3]
             return exeQuery
         except Exception as e:
             logger.debug("Error getting last word news  list -- cause :" + str(e), exc_info=1)
