@@ -23,7 +23,7 @@
                 </div>
                 <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 pull-right no-gutter-left">
                     <p>
-                        <a href="{% url 'news' new.id %}">{{ new.rss_title }}</a>
+                        <a href="{% url 'news' new.id %}">{{ new.rss_title|striptags }}</a>
                     </p>
                     <ul class="news-data no-gutter-right">
                         <li><i class="fa fa-clock-o" aria-hidden="true"></i> {{ new.rss_publish_date }}</li>
