@@ -31,9 +31,10 @@
                     <li><i class="fa fa-eye" aria-hidden="true"></i> {{ news.rss_views_no }} مشاهدة</li>
                 </ul>
                 <p>
+                    {% if news.rss_description  %}
                     {{ news.rss_description|striptags }}
-                    {% empty %}
-                    ........
+                    {% endif %}
+
                 </p>
 
                 <div class="col-lg-12 nopadding news-card">
