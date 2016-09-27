@@ -83,6 +83,11 @@ class Feed():
                 fullArticle = self.ParseHTML(record.rss_link, record.rss_description, Providers.rss_parent_tag,
                                              Providers.rss_child_tag, Providers.rss_child_class_tag)
                 record.rss_full_article = fullArticle
+                # just check if it will return image or not
+                try:
+                    print self.findImageIfExist(fullArticle)
+                except Exception as e:
+                    print 'failed'
 
                 record.save()
 
@@ -196,5 +201,15 @@ class Feed():
         # for p in paragraphs:
         # print p.text
         return unicode(paragraphs[0]).encode('utf-8')
+
+
+    def findImageIfExist(self, fullArticle):
+        soup = BeautifulSoup(fullArticle,"html.parser")
+        links = soup.find('figure').find_all('img', src=True)
+        if len(links > 0):
+            return links[0]['src']
+        return None
+
+
 
 
