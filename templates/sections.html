@@ -5,7 +5,6 @@
 
 
 {% include 'base/navigationMenu.html' %}
-
 	<div class="row page-content nopadding nomargin">
     <!-- Page Content -->
     <div class="container">
@@ -13,25 +12,20 @@
         {% include 'base/marque.html' %}
     </div>
         <div class="row">
-			<div class="col-lg-8 pull-right nopadding">
+			<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 pull-right nopadding">
 {#                {% for news in news_feed %}#}
                 {% include 'base/section_element.html' %}
 {#                {% endfor %}#}
-
             </div>
 			{% include 'base/latestNewBlock.html' %}
-
-
-
         </div>
         <!-- /.row -->
-
 		{% include 'base/adv2.html' %}
-
-
     </div>
 </div>
 {% include 'base/footer.html' %}
-{% include 'base/baseJS.html' %}</body>
+{% include 'base/baseJS.html' %}
+
+</body>
 
 </html>
