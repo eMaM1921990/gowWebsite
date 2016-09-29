@@ -1,23 +1,13 @@
 {% load staticfiles %}
 <div class="col-lg-8">
     {% if adv %}
-        <div id="layerslider-container">
-            {% for adv in adv %}
-                {% if adv.position == '1' %}
-                    <div id="layerslider_adv1" class="nopadding hero-news-card">
-                        <div class="ls-layer"
-                             style="slidedirection: right; slidedelay: 16000; durationin: 100; durationout: 2500; easingin: easeInOutQuint; easingout: easeInOutQuint; delayin: 0; delayout: 0;">
-                            <div class="ls-s-1 col-lg-12 col-md-12 col-sm-12 col-xs-12 nopadding img-wrapper">
-                                <a href="{{ adv.adv_url }}" target="_blank">
-                                    <img src="{{ adv.url.url }}" style="margin:10px 0;width:100%;height:auto;">
-                                </a>
-
-                            </div>
-                        </div>
-                    </div>
-                {% endif %}
-            {% endfor %}
-        </div>
+        {% for adv in adv %}
+            {% if adv.position == '1' %}
+                <a href="{{ adv.adv_url }}" target="_blank">
+                    <img src="{{ adv.url.url }}" style="margin:10px 0;width:100%;height:auto;">
+                </a>
+            {% endif %}
+        {% endfor %}
     {% else %}
         <img src="{% static 'img/adv1.png' %}" style="margin:10px 0;width:100%;height:auto;">
     {% endif %}
