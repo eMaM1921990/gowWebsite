@@ -17,9 +17,9 @@
                                     <img src="{% static 'img/news-link.png' %}">
                                 </a>
                             </span>
-                    {% if  news.rss_thumbnail %}
-
-                            <img src="{{ new.rss_thumbnail }}" style="width:auto;height:100%;min-height:150px;">
+                   {% if  news.rss_thumbnail %}
+                        {% get_or_404 news.rss_thumbnail as image_exist %}
+                            <img src="{{ news.rss_thumbnail }}" style="width:auto;height:100%;min-height:150px;">
 
                     {% else %}
                         <img src="{% static 'img/placeholder-min.jpg' %}"
@@ -38,9 +38,9 @@
                     </ul>
                     <p>
                         {% if news.rss_description %}
-                        {{ news.rss_description| striptags }}
+                            {{ news.rss_description| striptags }}
                             </p>
-                            {% endif %}
+                        {% endif %}
                 </div>
             </div>
         {% else %}

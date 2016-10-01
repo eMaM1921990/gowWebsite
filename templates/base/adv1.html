@@ -1,24 +1,14 @@
-{% load staticfiles%}
-<div class="col-lg-8">
-{% if adv %}
-    {% for adv in adv %}
-        {% if adv.position == '1' %}
-            <a href="{{ adv.adv_url }}" target="_blank">
-                <img src="{{ adv.url.url }}" style="margin:10px 0;width:100%;height:auto;">
-            </a>
-
-
-
-        {% endif %}
-{% endfor %}
-
-
-
-
-
-{% else %}
-                <img src="{% static 'img/adv1.png' %}" style="margin:10px 0;width:100%;height:auto;">
-
-
-{% endif %}
+{% load staticfiles %}
+<div class="col-sm-12">
+    {% if adv %}
+        {% for adv in adv %}
+            {% if adv.position == '1' %}
+                <a href="{{ adv.adv_url }}" target="_blank">
+                    <img src="{{ adv.url.url }}" style="margin:10px 0;width:100%;height:auto;">
+                </a>
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        <img src="{% static 'img/adv1.png' %}" style="margin:10px 0;width:100%;height:auto;">
+    {% endif %}
 </div>
