@@ -71,7 +71,7 @@ class RssFeeds(models.Model):
                                  help_text="Note:please add youtube video code in https://www.youtube.com/embed/[youTube video code]")
     rss_image = models.CharField(max_length=255, blank=True, null=True)
     rss_hex_digit = models.CharField(max_length=50, blank=True, unique=True, default=f)
-    rss_full_article = models.TextField(help_text='To add image to article please put it inside this ta <img src="<put your image url here>" />')
+    rss_full_article = models.TextField(help_text='To add image to article please put it inside this ta <img src="---" >')
     # rss_full_article = RedactorField(verbose_name=u'Full Article')
 
     def thumbnail(self):
