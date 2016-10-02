@@ -44,7 +44,7 @@ class RequestHandler():
         try:
             exeQuery = RssFeeds.objects.filter(rss_category__rss_is_suggested=True,
                                                rss_category__rss_is_active=True).exclude(
-                rss_description__isnull=True).order_by('-rss_publish_date','-rss_views_no')[:5]
+                rss_description__isnull=True).order_by('-rss_views_no','-rss_publish_date',)[:5]
             print exeQuery.query
             return exeQuery
         except Exception as e:
