@@ -113,7 +113,7 @@ class RssProviders(models.Model):
 
 
 class Adv(models.Model):
-    position = models.CharField(unique=True, max_length=45,
+    position = models.CharField(max_length=45,
                                 choices=[('1', 'One'), ('2', 'Two'), ('3', 'Three'), ('4', 'Four'), ('5', 'Five')])
     url = models.ImageField(upload_to=settings.ADV_URL)
     adv_url = models.CharField(max_length=255)
