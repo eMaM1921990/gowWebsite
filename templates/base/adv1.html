@@ -1,19 +1,15 @@
 {% load staticfiles %}
 <div class="col-sm-12">
     {% if adv %}
-        <div id="layerslider-container">
-            <div id="layerslider_4" >
-                {% for adv in adv %}
-                    <div class="ls-layer"
-                         style="slidedirection: right; slidedelay: 16000; durationin: 100; durationout: 2500; easingin: easeInOutQuint; easingout: easeInOutQuint; delayin: 0; delayout: 0;">
-                        {% if adv.position == '1' %}
-                            <a href="{{ adv.adv_url }}" target="_blank">
-                                <img src="{{ adv.url.url }}" style="margin:10px 0;width:100%;height:auto;">
-                            </a>
-                        {% endif %}
-                    </div>
-                {% endfor %}
-            </div>
+
+        <div class="col-sm-12" id="rotate_adv">
+            {% for adv in adv %}
+                {% if adv.position == '1' %}
+                    <a href="{{ adv.adv_url }}" target="_blank">
+                        <img src="{{ adv.url.url }}" style="margin:10px 0;width:100%;height:auto;">
+                    </a>
+                {% endif %}
+            {% endfor %}
         </div>
     {% else %}
         <img src="{% static 'img/adv1.png' %}" style="margin:10px 0;width:100%;height:auto;">

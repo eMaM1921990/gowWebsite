@@ -10,7 +10,7 @@
 <script src="{% static 'layerslider/jQuery/jquery-transit-modified.js' %}" type="text/javascript"></script>
 <script src="{% static 'layerslider/js/layerslider.transitions.js' %}" type="text/javascript"></script>
 <script src="{% static 'layerslider/js/layerslider.kreaturamedia.jquery.js' %}" type="text/javascript"></script>
-
+<script src="{% static 'js/jquery.bxslider.min.js' %}"></script>
 <script type="text/javascript">
     $(document).ready(function () {
        $('#layerslider').layerSlider({
@@ -88,6 +88,8 @@
             hoverPrevNext: false,
             thumbnailNavigation: false
         });
+
+         $('#rotate_adv').bxSlider();
     });
 
     function navSlide() {
