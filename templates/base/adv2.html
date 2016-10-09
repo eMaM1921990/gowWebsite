@@ -1,6 +1,7 @@
 {% load staticfiles%}
 <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 col-lg-offset-2 col-md-offset-2 nopadding">
 {% if adv %}
+    <div class="col-sm-12" id="rotate_adv_2">
     {% for adv in adv %}
         {% if adv.position == '2' %}
             <a href="{{ adv.adv_url }}" target="_blank">
@@ -9,6 +10,7 @@
 
         {% endif %}
     {% endfor %}
+    </div>
 
 
 {% else %}
