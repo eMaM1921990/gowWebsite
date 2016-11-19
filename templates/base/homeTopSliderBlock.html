@@ -19,7 +19,7 @@
                                 </div>
                                 <h3 class="ls-s-1"
                                     style="slidedirection : bottom; delayin : 0; slideoutdirection : bottom; durationin : 400; durationout : 600; easingin : easeOutQuart; ">
-                                    <a href="{% url 'news' news.id %}">{{ news.rss_title }}</a></h3>
+                                    <a href="{% url 'news' news.id %}">{{ news.rss_title|striptags }}</a></h3>
                                 <ul class="ls-s-1 news-data"
                                     style="slidedirection : bottom; delayin : 0; slideoutdirection : bottom; durationin : 600; durationout : 500; easingin : easeOutQuart; ">
                                     <li><i class="fa fa-clock-o" aria-hidden="true"></i> {{ news.rss_publish_date}}</li>
@@ -29,7 +29,7 @@
                                 </ul>
                                 <p class="ls-s-1"
                                    style="slidedirection : bottom; delayin : 0; slideoutdirection : bottom; durationin : 800; durationout : 400; easingin : easeOutQuart; ">
-                                     {{ news.rss_description | slice:":150"|safe}}
+                                     {{ news.rss_description | slice:":150"|safe|striptags}}
 
                                      </p>
 

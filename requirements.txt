@@ -6,7 +6,6 @@ django-autoslug==1.9.3
 django-celery==3.1.17
 django-grappelli==2.8.1
 feedparser==5.2.1
-mysqlclient==1.3.7
 requests==2.10.0
 anyjson==0.3.3
 dateutils==0.6.6
@@ -18,3 +17,4 @@ facebook-sdk
 tweepy
 django-wysiwyg-redactor
 django-advertising
+mysqlclient==1.3.7
