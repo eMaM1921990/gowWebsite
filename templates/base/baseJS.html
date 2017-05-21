@@ -10,11 +10,11 @@
 <script src="{% static 'layerslider/jQuery/jquery-transit-modified.js' %}" type="text/javascript"></script>
 <script src="{% static 'layerslider/js/layerslider.transitions.js' %}" type="text/javascript"></script>
 <script src="{% static 'layerslider/js/layerslider.kreaturamedia.jquery.js' %}" type="text/javascript"></script>
-
+<script src="{% static 'js/jquery.bxslider.min.js' %}"></script>
 <script type="text/javascript">
     $(document).ready(function () {
-        $('#layerslider').layerSlider({
-            skinsPath:'{% static 'layerslider/skins/' %}',
+       $('#layerslider').layerSlider({
+            skinsPath: '{% static 'layerslider/skins/' %}',
             skin: 'minimal',
             autoStart: true,
             keybNav: true,
@@ -27,6 +27,22 @@
             globalBGImage: false,
             thumbnailNavigation: false
         });
+
+        $('#layerslider_adv1').layerSlider({
+            skinsPath: '{% static 'layerslider/skins/' %}',
+            skin: 'minimal',
+            autoStart: true,
+            keybNav: false,
+            touchNav: false,
+            navStartStop: false,
+            navPrevNext: false,
+            responsive: false,
+            hoverPrevNext: false,
+            globalBGColor: 'transparent',
+            globalBGImage: false,
+            thumbnailNavigation: false
+        });
+
         $('#layerslider2').layerSlider({
             skinsPath: '{% static 'layerslider/skins/' %}',
             skin: 'minimal',
@@ -44,7 +60,7 @@
         $('#layerslider3').layerSlider({
             skinsPath: '{% static 'layerslider/skins/' %}',
             skin: 'minimal',
-            autoStart: false,
+            autoStart: true,
             navStartStop: false,
             keybNav: true,
             touchNav: true,
@@ -56,6 +72,42 @@
             hoverPrevNext: false,
             thumbnailNavigation: false
         });
+
+        $('#layerslider_4').layerSlider({
+            skinsPath: '{% static 'layerslider/skins/' %}',
+            skin: 'minimal',
+            autoStart: true,
+            navStartStop: false,
+            keybNav: false,
+            touchNav: false,
+            imgPreload: true,
+            navButtons: false,
+            responsive: false,
+            showBarTimer: false,
+            showCircleTimer: false,
+            hoverPrevNext: false,
+            thumbnailNavigation: false
+        });
+
+         $('#rotate_adv').bxSlider({
+             auto: true,
+             autoControls: true
+         });
+
+        $('#rotate_adv_2').bxSlider({
+             auto: true,
+             autoControls: true
+         });
+
+        $('#rotate_adv_3').bxSlider({
+             auto: true,
+             autoControls: true
+         });
+
+        $('#rotate_adv_4').bxSlider({
+             auto: true,
+             autoControls: true
+         });
     });
 
     function navSlide() {

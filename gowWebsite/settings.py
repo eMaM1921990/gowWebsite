@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 """
 Django settings for gowWebsite project.
 
@@ -118,7 +119,7 @@ WSGI_APPLICATION = 'gowWebsite.wsgi.application'
 DB_USER = 'gate_user_'
 # DB_USER = 'root'
 DB_PASSWORD = 'Azsxdcfv@'
-# DB_PASSWORD = 'admin'
+# DB_PASSWORD = '0122308791'
 DB_NAME = 'gate_'
 # DB_NAME = 'gate_of_world'
 DB_HOST = 'localhost'

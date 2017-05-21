@@ -1,65 +1,72 @@
 {% load staticfiles %}
+
+
 <!-- Navigation -->
-	<nav class="navbar navbar-inverse" role="navigation">
-        <div class="container no-gutter">
-		<ul class="col-lg-6 pull-right nopadding">
-			<li><a href="mailto:admin@Gateofworld.com"><i class="fa fa-envelope-o" aria-hidden="true"></i> admin@Gateofworld.com</a></li>
-			<li><i class="fa fa-phone" aria-hidden="true"></i> 00966501368201</li>
-		</ul>
-		<ul class="col-lg-6 pull-right nopadding">
-			<li><a href="https://www.facebook.com/gateofworld.net/"><img src="{% static 'img/fbw.png' %}"></a></li>
-			<li><a href="https://twitter.com/gateofworld"><img src="{% static 'img/tww.png' %}"></a></li>
-			<li><a href="#"><img src="{% static 'img/gpw.png' %}"></a></li>
-			<li><a href="#"><img src="{% static 'img/ytw.png' %}"></a></li>
-			<li><a href="{% url 'contactus' %}"><h4>اتصل بنا</h4></a></li>
-			<li><a href="{% url 'contactus' %}"><h4>من نحن</h4></a></li>
-		</ul>
+<nav class="navbar navbar-inverse" role="navigation">
+    <div class="container no-gutter">
+        <ul class="col-lg-6 col-md-6 col-sm-6 col-xs-12 nopadding">
+            <li><a href="https://www.facebook.com/gateofworld.net/"><img src="{% static 'img/fbw.png' %}"></a></li>
+            <li><a href="https://twitter.com/gateofworld"><img src="{% static 'img/tww.png' %}"></a></li>
+            <li><a href="#"><img src="{% static 'img/gpw.png' %}"></a></li>
+            <li><a href="#"><img src="{% static 'img/ytw.png' %}"></a></li>
+            <li><a href="{% url 'contactus' %}"><h4>اتصل بنا</h4></a></li>
+            <li><a href="{% url 'contactus' %}"><h4>من نحن</h4></a></li>
 
-        </div>
-        <!-- /.container -->
-    </nav>
-	<div class="row header-branding">
-		<div class="container" style="margin:15px auto;">
+        </ul>
+        <ul class="col-lg-6 col-md-6 col-sm-6 col-xs-12 pull-right nopadding">
+            <li><a href="mailto:admin@Gateofworld.com"><i class="fa fa-envelope-o" aria-hidden="true"></i>
+                admin@Gateofworld.com</a></li>
+        </ul>
+    </div>
+    <!-- /.container -->
+</nav>
+
+<div class="row header-branding">
+    <div class="container" style="margin:15px auto;">
+        <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
             {% include 'base/adv1.html' %}
-            <div class="col-lg-4 text-right">
-                <img class="header-logo" src="{% static 'img/header-logo.png' %}">
-            </div>
-
         </div>
-	</div>
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 pull-right text-center">
+            <img class="header-logo" src="{% static 'img/header-logo.png' %}">
+        </div>
+
+    </div>
+</div>
 
 
-    <nav class="navbar navbar-inverse secnav" role="navigation">
-        <div class="container nopadding">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse no-gutter" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="/">الرئيسية</a>
-                    </li>
-                    {% for menu in nav %}
+
+
+<nav class="navbar navbar-inverse secnav" role="navigation">
+    <div class="container nopadding">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+{#            <a class="navbar-brand" href="#"><i class="fa fa-search fa-lg" aria-hidden="true"></i></a>#}
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse no-gutter" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="/">الرئيسية</a>
+                </li>
+                {% for menu in nav %}
                     <li>
                         <a href="{% url 'categoryNews' menu.rss_slug %}">{{ menu.rss_category }}</a>
                     </li>
-                    {% endfor %}
-
+                {% endfor %}
                 <li>
-
-                    <a href="{% url 'videos'  %}">الفيديو</a>
+                    <a href="{% url 'videos' %}">الفيديو</a>
                 </li>
 
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
+            </ul>
         </div>
-        <!-- /.container -->
-    </nav>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
