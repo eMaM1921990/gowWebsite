@@ -1,3 +1,5 @@
+from datetime import datetime
+
 __author__ = 'emam'
 from models import *
 import datetime
@@ -43,8 +45,10 @@ class RequestHandler():
     def ListOfSuggestedFees(self):
         try:
             exeQuery = RssFeeds.objects.filter(rss_category__rss_is_suggested=True,
-                                               rss_category__rss_is_active=True).exclude(
-                rss_description__isnull=True).exclude(rss_thumbnail__isnull=True).order_by('-rss_publish_date')[:5]
+                                               rss_category__rss_is_active=True,
+                                               rss_publish_date__gte=datetime.date.today()-datetime.timedelta(days=1)).exclude(
+                rss_description__isnull=True).order_by('-rss_views_no','-rss_publish_date',)[:5]
+            print exeQuery.query
             return exeQuery
         except Exception as e:
             logger.debug("Error getting suggested feeds  list -- cause :" + str(e), exc_info=1)
@@ -53,7 +57,7 @@ class RequestHandler():
         try:
             exeQuery = RssFeeds.objects.filter(rss_category__rss_is_world_news=True,
                                                rss_category__rss_is_active=True).exclude(
-                rss_thumbnail__isnull=True).exclude(rss_description__isnull=True)[:3]
+                rss_thumbnail__isnull=True)[:3]
             return exeQuery
         except Exception as e:
             logger.debug("Error getting last word news  list -- cause :" + str(e), exc_info=1)
@@ -62,9 +66,8 @@ class RequestHandler():
         try:
             # excludedIDs=self.get_id_from_context(context)
             exeQuery = RssFeeds.objects.filter(rss_category__rss_is_political_news=True,
-                                               rss_category__rss_is_active=True).exclude(rss_thumbnail__isnull=True,
-                                                                                         rss_description__isnull=True)[
-                       :3]
+                                               rss_category__rss_is_active=True)\
+                                                .exclude(rss_thumbnail__isnull=True,rss_description__isnull=True)[:3]
             print exeQuery.query
             return exeQuery
         except Exception as e:
@@ -75,7 +78,7 @@ class RequestHandler():
             # excludedIDs=self.get_id_from_context(context)
             exeQuery = RssFeeds.objects.filter(rss_category__rss_is_local_news=True,
                                                rss_category__rss_is_active=True).exclude(
-                rss_description__isnull=True).exclude(rss_thumbnail__isnull=True)[:3]
+                rss_description__isnull=True)[:3]
             return exeQuery
         except Exception as e:
             logger.debug("Error getting  local news  list -- cause :" + str(e), exc_info=1)
@@ -83,7 +86,7 @@ class RequestHandler():
     def ListOfCommonNews(self):
         try:
             exeQuery = RssFeeds.objects.filter(rss_category__rss_is_world_common_news=True,
-                                               rss_category__rss_is_active=True).exclude(rss_thumbnail__isnull=True)[
+                                               rss_category__rss_is_active=True)[
                        :24]
             return exeQuery
         except Exception as e:
