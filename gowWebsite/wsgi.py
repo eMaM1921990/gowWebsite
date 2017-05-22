@@ -21,7 +21,7 @@ import sys
 
 sys.path.append('/opt/bitnami/apps/django/django_projects/gowWebsite')
 os.environ['PYTHON_EGG_CACHE']="/opt/bitnami/apps/django/django_projects/gowWebsite/egg_cache"
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "gowWebsite.settings.base")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "gowWebsite.settings")
 
 from django.core.wsgi import get_wsgi_application
 
