@@ -122,7 +122,7 @@ DB_PASSWORD = 'Azsxdcfv@'
 # DB_PASSWORD = '0122308791'
 DB_NAME = 'gate_'
 # DB_NAME = 'gate_of_world'
-DB_HOST = 'localhost'
+DB_HOST = '162.144.199.86'
 DB_PORT = 3306
 
 DATABASES = {
