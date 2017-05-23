@@ -116,13 +116,13 @@ WSGI_APPLICATION = 'gowWebsite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 # Database Info
-DB_USER = 'gate_user_'
+DB_USER = 'gate_admin'
 # DB_USER = 'root'
-DB_PASSWORD = 'Azsxdcfv@'
+DB_PASSWORD = '@hmedN@no2011'
 # DB_PASSWORD = '0122308791'
-DB_NAME = 'gate_'
+DB_NAME = 'djangostack'
 # DB_NAME = 'gate_of_world'
-DB_HOST = '162.144.199.86'
+DB_HOST = '/opt/bitnami/mysql/tmp/mysql.sock'
 DB_PORT = 3306
 
 DATABASES = {
