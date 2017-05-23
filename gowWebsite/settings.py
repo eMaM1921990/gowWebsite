@@ -127,12 +127,12 @@ DB_PORT = 3306
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': DB_NAME,
-        'USER': DB_USER,
-        'PASSWORD': DB_PASSWORD,
-        'HOST': DB_HOST,  # Or an IP Address that your DB is hosted on
-        'PORT': DB_PORT,
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'djangostack',
+        'USER': 'bitnami',
+        'PASSWORD': '98ac4c697f',
+        'HOST': '/opt/bitnami/postgresql',  # Or an IP Address that your DB is hosted on
+        'PORT': '5432',
     }
 }
 
