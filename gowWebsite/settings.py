@@ -118,7 +118,7 @@ WSGI_APPLICATION = 'gowWebsite.wsgi.application'
 # Database Info
 DB_USER = 'gate_admin'
 # DB_USER = 'root'
-DB_PASSWORD = '@hmedN@no2011'
+DB_PASSWORD = '@hmedN@n02011'
 # DB_PASSWORD = '0122308791'
 DB_NAME = 'djangostack'
 # DB_NAME = 'gate_of_world'
