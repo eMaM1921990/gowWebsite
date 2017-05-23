@@ -123,6 +123,7 @@ DB_PASSWORD = '@hmedN@n02011'
 DB_NAME = 'djangostack'
 # DB_NAME = 'gate_of_world'
 DB_HOST = '/opt/bitnami/mysql/tmp/mysql.sock'
+DB_HOST = '127.0.0.1'
 DB_PORT = 3306
 
 DATABASES = {
