@@ -116,7 +116,7 @@ WSGI_APPLICATION = 'gowWebsite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 # Database Info
-DB_USER = 'gate_admin'
+DB_USER = 'bitnami'
 # DB_USER = 'root'
 DB_PASSWORD = '@hmedN@n02011'
 # DB_PASSWORD = '0122308791'
