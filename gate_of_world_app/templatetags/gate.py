@@ -8,15 +8,16 @@ import re
 
 register = template.Library()
 
-@register.simple_tag
+@register.filter
+@stringfilter
 def get_or_404(url):
     try:
         ret = urllib2.urlopen(url)
         if ret.code == 200:
-            return True
+            return url
     except Exception as e:
-        return False
-    return False
+        return 'static/img/articleplaceholder.jpg'
+    return 'static/img/articleplaceholder.jpg'
 
 
 @register.filter

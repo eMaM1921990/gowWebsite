@@ -7,14 +7,12 @@
 
             <div id="layerslider" class="nopadding hero-news-card">
                 {% for news in slider %}
-                    {% get_or_404 news.rss_thumbnail as exist %}
-                    {% if exist %}
                         <div class="ls-layer"
                              style="slidedirection: right; slidedelay: 16000; durationin: 100; durationout: 2500; easingin: easeInOutQuint; easingout: easeInOutQuint; delayin: 0; delayout: 0;">
 
                             <div class="ls-s-1 col-lg-12 col-md-12 col-sm-12 col-xs-12 nopadding img-wrapper">
                                 {% if  news.rss_thumbnail != None %}
-                                    <img src="{{ news.rss_thumbnail }}">
+                                    <img src="{{ news.rss_thumbnail|get_or_404 }}">
                                 {% else %}
                                     <img src="{% static 'img/articleplaceholder.jpg' %}">
                                 {% endif %}
@@ -37,7 +35,6 @@
                             </p>
 
                         </div>
-                    {% endif %}
                 {% endfor %}
             </div>
         </div>
