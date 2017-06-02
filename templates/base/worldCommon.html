@@ -44,16 +44,12 @@
                                     </a>
                                 </span>
                                     {% if  news.rss_thumbnail != None %}
-                                        {% get_or_404 news.rss_thumbnail as image_status %}
 
-                                        {% if image_status %}
-                                            <img src="{{ news.rss_thumbnail }}">
+                                            <img src="{{ news.rss_thumbnail|get_or_404 }}">
                                         {% else %}
                                             <img src="{% static 'img/placeholder-min.jpg' %}">
                                         {% endif %}
-                                    {% else %}
-                                        <img src="{% static 'img/placeholder-min.jpg' %}">
-                                    {% endif %}
+
                                 </span>
                             <h5><a href="{% url 'news' news.id %}">{{ news.rss_title|striptags }}</a></h5>
                         </div>
@@ -73,16 +69,12 @@
                                     </a>
                                 </span>
                                     {% if  news.rss_thumbnail != None %}
-                                        {% get_or_404 news.rss_thumbnail as image_status %}
 
-                                        {% if image_status %}
-                                            <img src="{{ news.rss_thumbnail }}">
+                                            <img src="{{ news.rss_thumbnail|get_or_404 }}">
                                         {% else %}
                                             <img src="{% static 'img/placeholder-min.jpg' %}">
                                         {% endif %}
-                                    {% else %}
-                                        <img src="{% static 'img/placeholder-min.jpg' %}">
-                                    {% endif %}
+
                                 </span>
                             <h5><a href="{% url 'news' news.id %}">{{ news.rss_title|striptags|escape }}</a></h5>
                         </div>
