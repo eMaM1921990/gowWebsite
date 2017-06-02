@@ -12,9 +12,7 @@
                             </a>
                         </span>
                 {% if  news.rss_thumbnail %}
-                    {% get_or_404 news.rss_thumbnail as image_exist %}
-                    {% if image_exist %}
-                        <img src="{{ news.rss_thumbnail }}" style="width:auto;height:100%;min-height:150px;">
+                        <img src="{{ news.rss_thumbnail|get_or_404 }}" style="width:auto;height:100%;min-height:150px;">
                     {% else %}
                         <img src="{% static 'img/placeholder-min.jpg' %}" style="width:auto;height:100%;min-height:150px;">
                     {% endif %}

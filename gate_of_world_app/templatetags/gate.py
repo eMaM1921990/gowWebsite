@@ -5,8 +5,8 @@ from django import template
 from django.template.defaultfilters import stringfilter
 import re
 
-
 register = template.Library()
+
 
 @register.filter
 @stringfilter
@@ -30,4 +30,6 @@ def youtube(url):
     return """
     https://www.youtube.com/embed/{}
      """.format(video_id)
+
+
 youtube.is_safe = True  # Don't escape HTML
