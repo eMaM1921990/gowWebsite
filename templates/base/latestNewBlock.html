@@ -15,7 +15,7 @@
                             </span>
                     {% if  new.rss_thumbnail != None %}
 
-                        <img src="{{ new.rss_thumbnail }}">
+                        <img src="{{ news.rss_thumbnail|get_or_404 }}">
 
                     {% else %}
                         <img src="{% static 'img/homePlaceholder.gif' %}">
