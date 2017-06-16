@@ -12,17 +12,16 @@
             </span>
 
 
-            {% if  news.rss_thumbnail != None %}
-                {% get_or_404 news.rss_thumbnail as image_exist %}
-                {% if image_exist %}
-                    <img src="{{ news.rss_thumbnail }}" style="width:auto;height:100%;min-height:150px;">
-                {% else %}
-                    <img src="{% static 'img/placeholder_setion_min.jpg' %}"
-                         style="width:auto;height:100%;min-height:150px;">
-                {% endif %}
+
+
+            {% if  news.rss_thumbnail %}
+                <img src="{{ news.rss_thumbnail|get_or_404 }}" style="width:auto;height:100%;min-height:150px;">
+
             {% else %}
-                <img src="{% static 'img/placeholder_setion_min.png' %}">
+                <img src="{% static 'img/placeholder_setion_min.jpg' %}"
+                   >
             {% endif %}
+
         </div>
         <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
             <h4>
